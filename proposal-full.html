@@ -43,12 +43,31 @@ body{
 /* ── TOP NAV ── */
 .nav{
   position:sticky;top:0;z-index:100;
-  height:64px;background:rgba(10,10,10,.92);
+  height:52px;background:rgba(10,10,10,.95);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--hairline);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;
+  padding:0 32px;
 }
+/* ── CATEGORY NAV ── */
+.cat-nav{
+  position:sticky;top:52px;z-index:90;
+  height:44px;background:var(--surface-soft);
+  border-bottom:1px solid var(--hairline);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+}
+.cat-tabs{display:flex;align-items:center;gap:4px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{
+  padding:5px 14px;border:none;border-radius:100px;
+  background:transparent;color:var(--muted);
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:12px;font-weight:600;cursor:pointer;
+  transition:all .15s;white-space:nowrap;letter-spacing:.3px;
+}
+.cat-tab:hover{color:var(--body-strong)}
+.cat-tab.active{background:var(--yellow);color:var(--on-primary)}
 .nav-brand{
   font-size:18px;font-weight:700;letter-spacing:-0.5px;color:var(--ink);
   display:flex;align-items:center;gap:10px;
@@ -350,21 +369,26 @@ body{
 <nav class="nav">
   <div class="nav-brand">
     NOAH <span>&</span> ARK
-    <span style="font-size:12px;color:var(--muted);font-weight:400;margin-left:4px">Brand Goods</span>
+    <span style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">Brand Goods</span>
   </div>
   <div class="nav-controls">
-    <select class="nav-select" id="clientSel" onchange="applyClient(this.value)">
-      <option value="pororo" selected>(주)오콘/넥스트페이지</option>
-      <option value="default">기본 (범용)</option>
-    </select>
-    <select class="nav-select" id="prdSel" onchange="jumpTo(this.value)" style="max-width:180px">
-      <option value="">제품 바로가기</option>
+    <select class="nav-select" id="ipSel" onchange="switchIP(this.value)" style="max-width:200px">
+      <option value="">IP 선택 중...</option>
     </select>
     <button class="nav-btn btn-dark" onclick="doPrint()">🖨️ PDF</button>
     <button class="nav-btn btn-dark" onclick="doExport()">💾 저장</button>
     <button class="nav-btn btn-yellow" onclick="doLink()">🔗 링크</button>
   </div>
 </nav>
+<!-- CATEGORY NAV -->
+<div class="cat-nav" id="catNav">
+  <div class="cat-tabs" id="catTabs">
+    <button class="cat-tab active" data-cat="all" onclick="filterCat('all',this)">전체</button>
+  </div>
+  <select class="nav-select" id="prdSel" onchange="jumpTo(this.value)" style="max-width:180px;height:30px;font-size:12px">
+    <option value="">제품 바로가기</option>
+  </select>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -396,8 +420,8 @@ body{
         <div class="stat-lbl">총 제품 종류</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">IP</div>
-        <div class="stat-lbl">뽀로로 극장판</div>
+        <div class="stat-num" id="stat-ip">IP</div>
+        <div class="stat-lbl" id="stat-ip-name">캐릭터 굿즈</div>
       </div>
       <div class="stat-item">
         <div class="stat-num" style="font-size:22px;letter-spacing:0">Noah&amp;Ark</div>
@@ -448,70 +472,62 @@ body{
 
 <script>
 const IMG = 'https://davidcoollong.github.io/noah-ark-proposal/images/';
-
-const clients = {
-  pororo:{name:'(주)오콘/넥스트페이지',msg:'뽀로로 IP를 활용한 프리미엄 캐릭터 굿즈 제안서입니다.',by:'노아&아크 캐릭터사업팀',date:'2025.06',mult:1.0},
-  default:{name:'클라이언트명',msg:'안녕하세요. 노아&아크의 브랜드 굿즈 제안서를 보내드립니다.',by:'노아&아크 MD팀',date:'2025.06',mult:1.0}
-};
-
-let P = [
-  {id:'PRD-001',cat:'에코백 · 장바구니',catEn:'ECO BAG',name:'뽀로로 극장판\n접힘 장바구니',en:'PPOSONG Folding Shopping Bag',brand:'PPOSONG POBY&PETTY',tag:'내 어깨 위에 올려놓은 무지개빛깔 굿즈물, 뽀송뽀티패티 장바구니',img:'bag-shopping.jpg',thumbnail:'bag-shopping-thumb.png',feats:['가벼운 폴리에스터','접힘 수납 가능','선명한 캐릭터 패턴'],specs:[['제품명','뽀로로 극장판 장바구니'],['사이즈','32cm x 45cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:4500},
-  {id:'PRD-002',cat:'토트백 · 미니백',catEn:'MINI BAG',name:'뽀송 뽀티패티\n보아털 미니백',en:'PPOSONG Boa Fleece Mini Tote',brand:'PPOSONG POBY&PETTY',tag:'나 손만의 작지만 정감 넘치는 뽀송뽀티패티 미니백',img:'bag-mini.jpg',thumbnail:'bag-mini-thumb.png',feats:['알록달록 보아털 스냅','뽀송뽀송 부드러운 텍스처','아기자기한 캐릭터 자수'],specs:[['제품명','뽀로로 극장판 보아털 미니백'],['사이즈','25cm x 20cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:12000},
-  {id:'PRD-003',cat:'키링 · 인형',catEn:'PLUSH KEYRING',name:'뽀송 뽀티패티\n목욕 봉제 키링',en:'PPOSONG Bath Plush Keyring',brand:'PPOSONG POBY&PETTY',tag:'내 가방 어딘가에 달고 싶은 뽀송뽀티패티 봉제 키링',img:'keyring-bath.jpg',thumbnail:'keyring-bath-thumb.png',feats:['부드러운 소재','변형 가능한 귀여운 디자인','아기자기한 키체인'],specs:[['제품명','뽀로로 극장판 목욕 봉제 키링'],['사이즈','패티 10.5x11.4cm / 포비 13.5x11.4cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:8000},
-  {id:'PRD-004',cat:'리빙 · 침구',catEn:'SLEEP MASK',name:'뽀송 뽀티패티\n수면 안대',en:'PPOSONG Sleep Eye Mask',brand:'PPOSONG POBY&PETTY',tag:'나만의 아늑한 공간을 만들어주는 뽀송뽀티패티 수면안대',img:'eyemask.jpg',thumbnail:'eyemask-thumb.jpg',feats:['탄력있는 플러버','뽀송뽀송 부드러운 텍스처','아기자기한 캐릭터 자수'],specs:[['제품명','뽀로로 극장판 수면 안대'],['사이즈','포비 22x11.5cm / 패티 22x8.5cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:6000},
-  {id:'PRD-005',cat:'키링 · 액세서리',catEn:'MOVING KEYRING',name:'뽀로로 극장판\n스노우볼 무빙 키링',en:'Pororo Snow Globe Moving Keyring',brand:'뽀로로 극장판',tag:'반짝이는 설레임을 담은 뽀로로 극장판 스노우볼 키링',img:'keyring-moving.jpg',thumbnail:'keyring-moving-thumb.png',feats:['반짝이는 글리터','앙증맞은 주인공','스노우볼 귀여운 디자인'],specs:[['제품명','뽀로로 극장판 무빙 키링'],['사이즈','7cm x 8cm'],['재질','아크릴'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:5000},
-  {id:'PRD-006',cat:'키링 · 파우치',catEn:'POUCH KEYRING',name:'뽀로로 극장판\n파우치 키링',en:'Pororo Pouch Keyring',brand:'뽀로로 극장판',tag:'보기만 해도 다 물고 싶어지는 뽀로로&뽀로로 친구들 파우치 키링',img:'keyring-pouch.jpg',thumbnail:'keyring-pouch-thumb.png',feats:['달콤한 캔디수납','입체적인 봉제','친절한 봉 배킹'],specs:[['제품명','뽀로로 극장판 파우치 키링'],['사이즈','5.8cm x 17cm'],['재질','폴리에스테르, PVC'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:4000},
-  {id:'PRD-007',cat:'파우치 · 소품백',catEn:'POUCH',name:'뽀송 뽀티패티\n보아털 파우치',en:'PPOSONG Boa Fleece Pouch',brand:'PPOSONG POBY&PETTY',tag:'가방 속 복잡한 일상을 다채롭게 만들어주는 뽀송 파우치',img:'pouch.jpg',thumbnail:'pouch-thumb.png',feats:['선명한 색상','부드러운 보아털','아기자기한 캐릭터 자수'],specs:[['제품명','뽀로로 극장판 보아털 파우치'],['사이즈','20cm x 14cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:9000},
-  {id:'PRD-008',cat:'리빙 · 타월',catEn:'BEACH TOWEL',name:'뽀송 뽀티패티\n빅 비치타월',en:'PPOSONG Big Beach Towel',brand:'PPOSONG POBY&PETTY',tag:'온몸을 다채우는 다감한 감촉 뽀송뽀티패티 비치타올',img:'towel-big.jpg',thumbnail:'towel-big-thumb.png',feats:['선명한 프린트','뽀송한 텍스처','슈퍼 이중 나이테'],specs:[['제품명','뽀로로 극장판 빅 타올'],['사이즈','70cm x 140cm'],['재질','면 100%'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:11000},
-  {id:'PRD-009',cat:'의류 · 패션',catEn:'PAJAMA SET',name:'뽀송 뽀티패티\n파자마 세트',en:'PPOSONG Pajama Set',brand:'PPOSONG POBY&PETTY',tag:'폭신폭신 보아소재로 달콤한 수면을 선물하는 뽀송 파자마',img:'pajama.jpg',thumbnail:'pajama-thumb.png',feats:['보들한 마이크로원단','완만한 허리밴드','아기자기한 캐릭터 자수'],specs:[['제품명','뽀로로 극장판 파자마 세트'],['사이즈','상의 46x57cm / 하의 37x63cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:50,price:22000},
-  {id:'PRD-010',cat:'패션 · 액세서리',catEn:'PATCH',name:'뽀송 뽀티패티\n캐릭터 패치 (겨울)',en:'PPOSONG Character Patch Winter',brand:'PPOSONG POBY&PETTY',tag:'찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치 대',img:'patch-winter.jpg',thumbnail:'patch-winter-thumb.jpg',feats:['선명한 색상','보송보송 부드러운 입감'],specs:[['제품명','뽀로로 극장판 캐릭터 패치 대'],['사이즈','13x8cm / 8x7cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:5500},
-  {id:'PRD-011',cat:'리빙 · 홈데코',catEn:'MUG CUP',name:'뽀로로 극장판\n머그컵',en:'Pororo Character Mug Cup',brand:'뽀로로 극장판',tag:'파릇파릇 피어나고 포근한 감촉 뽀로로&루피 머그컵',img:'mug.jpg',thumbnail:'mug-thumb.jpg',feats:['부드러운 소재','귀여운 캐릭터 접합','튼튼한 볼륨감'],specs:[['제품명','뽀로로 극장판 머그컵'],['사이즈','65mm x 7.4cm'],['재질','도자기'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:7000},
-  {id:'PRD-012',cat:'리빙 · 쿠션',catEn:'CUSHION',name:'뽀로로 극장판\n쿠션',en:'Pororo Big Face Cushion',brand:'뽀로로 극장판',tag:'보기만 해도 기분 좋아지는 뽀~로~로~뽀로로 쿠션',img:'cushion.jpg',thumbnail:'cushion-thumb.jpg',feats:['부드러운 소재','귀여운 뽀로로 얼굴','포근한 볼륨감'],specs:[['제품명','뽀로로 극장판 쿠션'],['사이즈','38cm x 40cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:50,price:18000},
-  {id:'PRD-013',cat:'패션 · 액세서리',catEn:'PATCH',name:'뽀송 뽀티패티\n캐릭터 패치 (기본)',en:'PPOSONG Character Patch Basic',brand:'PPOSONG POBY&PETTY',tag:'찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치',img:'patch-basic.jpg',thumbnail:'patch-basic-thumb.jpg',feats:['선명한 색상','보송보송 부드러운 입감'],specs:[['제품명','뽀로로 극장판 캐릭터 패치'],['사이즈','10x14cm / 8x6cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:4500}
+const CAT_GROUPS = [
+  {id:'all',label:'전체'},
+  {id:'bag',label:'백·파우치'},
+  {id:'keyring',label:'키링'},
+  {id:'living',label:'리빙'},
+  {id:'apparel',label:'의류·패션'},
 ];
+let DATA={}, currentIP=null, currentCat='all';
 
+let P = [];
+
+// ─── Render catalog grid ─────────────────────────────
 function renderCatalog(){
-  const sel=document.getElementById('prdSel');
-  document.getElementById('catGrid').innerHTML=P.map((p,i)=>`
-    <div class="cat-card" onclick="scrollTo2('prd-${i}')">
+  document.getElementById('catGrid').innerHTML=P.map(p=>`
+    <div class="cat-card" onclick="scrollTo2('prd-${p.id}')">
       <div class="cat-img">
-        <img src="${IMG+p.thumbnail}" alt="${p.name.replace('\n','')}" loading="lazy">
+        <img src="${IMG+p.thumbnail}" alt="${p.name}" loading="lazy">
         <div class="cat-img-overlay"></div>
       </div>
       <div class="cat-body">
         <div class="cat-id">${p.id}</div>
-        <div class="cat-name">${p.name.replace('\n','')}</div>
+        <div class="cat-name">${p.name}</div>
         <div class="cat-cat">${p.cat}</div>
       </div>
     </div>`).join('');
+  const sel=document.getElementById('prdSel');
   sel.innerHTML='<option value="">제품 바로가기</option>'+
-    P.map((p,i)=>`<option value="${i}">${p.id} ${p.name.replace('\n','')}</option>`).join('');
+    P.map(p=>`<option value="${p.id}">${p.id} ${p.name}</option>`).join('');
+  document.getElementById('stat-count').textContent=P.length;
 }
 
-function renderProducts(mult){
+// ─── Render product sections ──────────────────────────
+function renderProducts(){
   document.getElementById('prdContainer').innerHTML=P.map((p,i)=>{
-    const price=Math.round(p.price*mult).toLocaleString('ko-KR');
+    const price=p.price.toLocaleString('ko-KR');
     const rev=i%2===1;
-    const keySpecs=p.specs.slice(1,4); // 사이즈·재질·제조국
+    const keySpecs=p.specs.slice(1,4);
     return `
-    <div class="product-section" id="prd-${i}">
+    <div class="product-section" id="prd-${p.id}">
       <div class="product-card${rev?' reverse':''}">
         <div class="product-img-panel">
-          <img class="main-img" src="${IMG+p.thumbnail}" id="main-img-${i}" alt="${p.name.replace('\n','')}">
+          <img class="main-img" src="${IMG+p.thumbnail}" id="main-img-${p.id}" alt="${p.name}">
           <div class="prd-img-fade"></div>
           <div class="prd-id-badge">${p.id}</div>
           <div class="thumb-strip">
-            <div class="thumb active" onclick="swapImg(${i},'${IMG+p.thumbnail}',this)">
+            <div class="thumb active" onclick="swapImg('${p.id}','${IMG+p.thumbnail}',this)">
               <img src="${IMG+p.thumbnail}" alt="lifestyle" loading="lazy">
             </div>
-            <div class="thumb" onclick="swapImg(${i},'${IMG+p.img}',this)">
+            <div class="thumb" onclick="swapImg('${p.id}','${IMG+p.img}',this)">
               <img src="${IMG+p.img}" alt="product" loading="lazy">
             </div>
           </div>
         </div>
         <div class="product-info-panel">
           <div class="prd-eyebrow">${p.catEn} · ${p.cat}</div>
-          <div class="prd-name">${p.name.replace('\n','<br>')}</div>
+          <div class="prd-name">${p.name}</div>
           <div class="prd-en">${p.en}</div>
           <div class="prd-tag">${p.tag}</div>
           <div class="prd-brand-badge">${p.brand}</div>
@@ -523,35 +539,67 @@ function renderProducts(mult){
           <div class="price-block">
             <div>
               <div class="price-moq">MOQ ${p.moq.toLocaleString()}개 기준 단가</div>
-              <div class="price-row">
-                <span class="price-num">${price}</span>
-                <span class="price-won">원/개</span>
-              </div>
+              <div class="price-row"><span class="price-num">${price}</span><span class="price-won">원/개</span></div>
               <div class="price-note">VAT 별도 · 수량에 따라 협의 가능</div>
             </div>
             <button class="price-cta">견적 문의</button>
           </div>
-          <button class="detail-btn" onclick="openDetail(${i})">
+          <button class="detail-btn" onclick="openDetail('${p.id}')">
             <span>상세페이지 보기</span>
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
       </div>
-    </div>`}).join('');
+    </div>`;}).join('');
 }
 
-function swapImg(i,src,el){
-  document.getElementById('main-img-'+i).src=src;
+// ─── IP switch ────────────────────────────────────────
+function switchIP(ipId){
+  const ip=DATA.ips?.find(x=>x.id===ipId);
+  if(!ip) return;
+  currentIP=ip; currentCat='all';
+  const lines=ip.heroTitle.split('\n');
+  document.getElementById('hero-title').innerHTML=lines.slice(0,-1).join('<br>')+'<br><em>'+lines.slice(-1)[0]+'</em>';
+  document.getElementById('hero-sub').textContent=ip.heroSub;
+  document.getElementById('hero-client').textContent=ip.licensor;
+  document.getElementById('hero-by').textContent=ip.preparedBy;
+  document.getElementById('hero-date').textContent=ip.date;
+  document.getElementById('hero-img').src=IMG+ip.heroImg;
+  document.getElementById('stat-ip-name').textContent=ip.name;
+  const sub=document.querySelector('#catalog .section-sub');
+  if(sub) sub.textContent=ip.name+' 굿즈 라인업 — 클릭하면 상세 페이지로 이동합니다.';
+  buildCatTabs(ip.products);
+  P=ip.products;
+  renderCatalog(); renderProducts();
+}
+
+// ─── Category tabs ────────────────────────────────────
+function buildCatTabs(products){
+  const used=new Set(products.map(p=>p.catGroup));
+  document.getElementById('catTabs').innerHTML=CAT_GROUPS
+    .filter(g=>g.id==='all'||used.has(g.id))
+    .map(g=>`<button class="cat-tab${g.id==='all'?' active':''}" data-cat="${g.id}" onclick="filterCat('${g.id}',this)">${g.label}</button>`)
+    .join('');
+}
+function filterCat(catId,el){
+  currentCat=catId;
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  (el||document.querySelector(`[data-cat="${catId}"]`))?.classList.add('active');
+  P=catId==='all'?currentIP.products:currentIP.products.filter(p=>p.catGroup===catId);
+  renderCatalog(); renderProducts();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Detail modal ─────────────────────────────────────
+function swapImg(pid,src,el){
+  document.getElementById('main-img-'+pid).src=src;
   el.closest('.thumb-strip').querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
 }
-function openDetail(idx){
-  const p=P[idx];
-  const mult=clients[document.getElementById('clientSel').value]?.mult||1;
-  const price=Math.round(p.price*mult).toLocaleString('ko-KR');
-  document.getElementById('modal-title').textContent=p.id+' — '+p.name.replace('\n',' ');
+function openDetail(pid){
+  const p=P.find(x=>x.id===pid); if(!p) return;
+  const price=p.price.toLocaleString('ko-KR');
+  document.getElementById('modal-title').textContent=p.id+' — '+p.name;
   document.getElementById('modal-body').innerHTML=`
     <div class="modal-layout">
       <div class="modal-img-side">
@@ -561,7 +609,7 @@ function openDetail(idx){
       <div class="modal-info-side">
         <div class="prd-id-badge" style="margin-bottom:10px">${p.id}</div>
         <div class="prd-eyebrow">${p.catEn} · ${p.cat}</div>
-        <div class="modal-prd-name">${p.name.replace('\n','<br>')}</div>
+        <div class="modal-prd-name">${p.name}</div>
         <div class="prd-en" style="margin-bottom:8px">${p.en}</div>
         <div class="prd-brand-badge" style="margin-bottom:16px">${p.brand}</div>
         <div class="prd-tag" style="padding-bottom:16px;border-bottom:1px solid var(--hairline);margin-bottom:16px">${p.tag}</div>
@@ -570,14 +618,11 @@ function openDetail(idx){
           ${p.specs.map(([k,v])=>`<div class="spec-key">${k}</div><div class="spec-val">${v}</div>`).join('')}
         </div>
         <div class="info-label">FEATURES</div>
-        <div class="feat-chips">${p.feats.map(f=>`<span class="feat-chip">✓ ${f}</span>`).join('')}</div>
+        <div class="feat-chips">${p.feats.filter(f=>f).map(f=>`<span class="feat-chip">✓ ${f}</span>`).join('')}</div>
         <div class="price-block" style="margin-top:auto;background:var(--canvas);border:1px solid var(--hairline-strong)">
           <div>
             <div class="price-moq">MOQ ${p.moq.toLocaleString()}개 기준 단가</div>
-            <div class="price-row">
-              <span class="price-num">${price}</span>
-              <span class="price-won">원/개</span>
-            </div>
+            <div class="price-row"><span class="price-num">${price}</span><span class="price-won">원/개</span></div>
             <div class="price-note">VAT 별도 · 수량에 따라 협의 가능</div>
           </div>
           <button class="price-cta">견적 문의</button>
@@ -587,41 +632,38 @@ function openDetail(idx){
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeDetail(){
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow='';
-}
+function closeDetail(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+
+// ─── Utilities ────────────────────────────────────────
 function scrollTo2(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
-function jumpTo(val){if(val!=='')scrollTo2('prd-'+val)}
-function applyClient(key){
-  const c=clients[key]||clients.default;
-  document.getElementById('hero-client').textContent=c.name;
-  document.getElementById('hero-sub').textContent=c.msg;
-  document.getElementById('hero-by').innerHTML=c.by;
-  document.getElementById('hero-date').textContent=c.date;
-  renderProducts(c.mult);
-}
+function jumpTo(val){if(val)scrollTo2('prd-'+val)}
 function doPrint(){window.print()}
 function doExport(){
   const a=document.createElement('a');
   a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+document.documentElement.outerHTML],{type:'text/html'}));
-  a.download='noah-ark-proposal-'+document.getElementById('clientSel').value+'.html';
+  a.download='noah-ark-'+(currentIP?.id||'proposal')+'.html';
   a.click();
 }
 function doLink(){
-  const c=document.getElementById('clientSel').value;
-  const url='https://davidcoollong.github.io/noah-ark-proposal/proposal-full.html?client='+c;
-  navigator.clipboard.writeText(url).then(()=>alert('복사됨!\n'+url));
+  const url='https://davidcoollong.github.io/noah-ark-proposal/proposal-full.html?ip='+(currentIP?.id||'pororo');
+  navigator.clipboard.writeText(url).then(()=>alert('링크 복사됨!\n'+url));
 }
 
-const cp=new URLSearchParams(location.search).get('client')||'pororo';
-document.getElementById('clientSel').value=cp;
-
-// products.json에서 최신 데이터 fetch → 있으면 덮어씀
-fetch('products.json?v='+Date.now())
-  .then(r=>r.ok?r.json():Promise.reject())
-  .then(data=>{P=data;renderCatalog();applyClient(cp);})
-  .catch(()=>{renderCatalog();applyClient(cp);});
+// ─── Init: fetch data.json ────────────────────────────
+const qip=new URLSearchParams(location.search).get('ip')||'pororo';
+fetch('data.json?v='+Date.now())
+  .then(r=>r.ok?r.json():Promise.reject('load-fail'))
+  .then(data=>{
+    DATA=data;
+    const sel=document.getElementById('ipSel');
+    sel.innerHTML=data.ips.map(ip=>`<option value="${ip.id}"${ip.id===qip?' selected':''}>${ip.name}</option>`).join('');
+    switchIP(qip);
+    if(data.company?.contacts){
+      const el=document.querySelector('.closing-contacts');
+      if(el) el.innerHTML=data.company.contacts.map(c=>`<div class="closing-contact-item">${c.email} — ${c.label}</div>`).join('');
+    }
+  })
+  .catch(()=>document.getElementById('ipSel').innerHTML='<option>데이터 로드 실패</option>');
 </script>
 </body>
 </html>
