@@ -746,12 +746,10 @@
       <div id="tok-status" title="토큰 상태"></div>
     </div>
     <div id="header-spacer"></div>
-    <button class="btn btn-ghost btn-sm" id="btn-preview" onclick="openPreview()">
-      <span>↗</span> 제안서 보기
-    </button>
-    <button class="btn btn-accent btn-sm" id="btn-save-json" onclick="saveDataJson()">
-      <span>↑</span> GitHub 저장
-    </button>
+    <span id="ls-status" style="font-size:11px;color:#555;white-space:nowrap"></span>
+    <button class="btn btn-ghost btn-sm" onclick="loadData()" title="GitHub에서 최신 데이터 불러오기">↺ 서버 동기화</button>
+    <button class="btn btn-ghost btn-sm" id="btn-preview" onclick="openPreview()">↗ 제안서 보기</button>
+    <button class="btn btn-accent btn-sm" id="btn-save-json" onclick="saveDataJson()">↑ GitHub 저장</button>
   </header>
 
   <!-- BODY -->
@@ -886,12 +884,12 @@
       <div class="panel-section-title">이미지</div>
       <div class="img-upload-row">
         <div>
-          <div class="img-upload-box" id="thumb-box" onclick="document.getElementById('thumb-file').click()">
+          <label class="img-upload-box" id="thumb-box">
             <input type="file" id="thumb-file" accept="image/jpeg,image/png,image/webp" onchange="handleImageSelect('thumb', this)">
-            <div class="upload-icon">🖼️</div>
-            <div class="upload-label">클릭하여 업로드</div>
-            <div class="img-overlay">📂 변경</div>
-          </div>
+            <span class="upload-icon">🖼️</span>
+            <span class="upload-label">클릭하여 업로드</span>
+            <span class="img-overlay">📂 변경</span>
+          </label>
           <div class="img-caption">썸네일 (thumbnail)</div>
           <div class="img-guide">
             <strong>정방형 1:1 권장</strong><br>
@@ -900,12 +898,12 @@
           </div>
         </div>
         <div>
-          <div class="img-upload-box" id="detail-box" onclick="document.getElementById('detail-file').click()">
+          <label class="img-upload-box" id="detail-box">
             <input type="file" id="detail-file" accept="image/jpeg,image/png,image/webp" onchange="handleImageSelect('detail', this)">
-            <div class="upload-icon">🖼️</div>
-            <div class="upload-label">클릭하여 업로드</div>
-            <div class="img-overlay">📂 변경</div>
-          </div>
+            <span class="upload-icon">🖼️</span>
+            <span class="upload-label">클릭하여 업로드</span>
+            <span class="img-overlay">📂 변경</span>
+          </label>
           <div class="img-caption">제품 이미지 (img)</div>
           <div class="img-guide">
             <strong>세로형 3:4 권장</strong><br>
@@ -1047,11 +1045,51 @@ const CAT_LABELS = { bag:'에코백', keyring:'키링', living:'리빙', apparel
 // ─── State ────────────────────────────────────────────────────────────────────
 let data = null;
 let activeIPId = null;
-let editingProductId = null; // null = new
-let pendingThumb = null;   // { file, b64, name }
-let pendingDetail = null;  // { file, b64, name }
+let editingProductId = null;
+let pendingThumb = null;
+let pendingDetail = null;
 let currentTab = 'ip-info';
 let dialogCb = null;
+
+// ─── localStorage ─────────────────────────────────────────────────────────────
+const LS_DATA = 'noa_admin_data';
+const LS_IMGS = 'noa_admin_images';
+
+function autosave() {
+  try {
+    localStorage.setItem(LS_DATA, JSON.stringify(data));
+    document.getElementById('ls-status').textContent = '자동저장됨 ' + new Date().toLocaleTimeString('ko-KR');
+  } catch(e) {
+    toast('로컬 저장 실패: 브라우저 저장 공간 부족', 'err');
+  }
+}
+
+function lsGetLocalData() {
+  try { return JSON.parse(localStorage.getItem(LS_DATA)); } catch { return null; }
+}
+
+function lsSaveImg(key, dataUrl) {
+  try {
+    const imgs = JSON.parse(localStorage.getItem(LS_IMGS) || '{}');
+    imgs[key] = dataUrl;
+    localStorage.setItem(LS_IMGS, JSON.stringify(imgs));
+  } catch(e) {
+    console.warn('이미지 로컬 저장 실패 (용량 초과)', e);
+  }
+}
+
+function lsGetImg(key) {
+  try {
+    const imgs = JSON.parse(localStorage.getItem(LS_IMGS) || '{}');
+    return imgs[key] || null;
+  } catch { return null; }
+}
+
+function resolveImg(src) {
+  if (!src) return '';
+  if (src.startsWith('local:')) return lsGetImg(src.slice(6)) || '';
+  return IMG_BASE + src;
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 function tok() { return localStorage.getItem('noa-tok') || ''; }
@@ -1148,10 +1186,12 @@ async function loadData() {
     const r = await fetch(url);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     data = await r.json();
+    autosave(); // localStorage에 즉시 저장
     tokStatus.className = 'ok';
     tokStatus.title = '데이터 로드 성공';
     renderSidebar();
-    toast('데이터를 불러왔습니다.', 'ok');
+    if (data.ips?.length > 0) selectIP(data.ips[0].id);
+    toast('GitHub에서 데이터를 불러왔습니다.', 'ok');
   } catch (e) {
     toast('데이터 로드 실패: ' + e.message, 'err', 5000);
     tokStatus.className = 'err';
@@ -1256,11 +1296,12 @@ function saveIPInfo() {
   ip.date       = document.getElementById('f-date').value.trim();
   ip.heroImg    = document.getElementById('f-heroImg').value.trim();
 
+  autosave();
   const st = document.getElementById('ip-save-status');
-  st.textContent = '✓ 저장됨 (GitHub 저장 필요)';
+  st.textContent = '✓ 로컬 저장됨';
   st.className = 'save-status ok';
   renderSidebar();
-  toast('IP 정보가 반영되었습니다. GitHub에 저장하세요.', 'info');
+  toast('IP 정보가 저장되었습니다.', 'ok');
 }
 
 // ─── Add New IP ──────────────────────────────────────────────────────────────
@@ -1286,6 +1327,7 @@ function addNewIP() {
     products: [],
   };
   data.ips.push(newIP);
+  autosave();
   renderSidebar();
   selectIP(id);
   toast(`"${ipName}" IP가 추가되었습니다.`, 'ok');
@@ -1298,10 +1340,11 @@ function deleteCurrentIP() {
   openDialog('IP 삭제', `"${ip.name}" IP와 모든 제품 데이터를 삭제합니까? 이 작업은 GitHub에 저장하기 전까지 되돌릴 수 있습니다.`, () => {
     data.ips = data.ips.filter(i => i.id !== activeIPId);
     activeIPId = null;
+    autosave();
     document.getElementById('empty-state').style.display = 'flex';
     document.getElementById('ip-editor').style.display = 'none';
     renderSidebar();
-    toast('IP가 삭제되었습니다. GitHub에 저장하세요.', 'info');
+    toast('IP가 삭제되었습니다.', 'info');
   });
 }
 
@@ -1336,7 +1379,7 @@ function renderProductTable() {
   document.getElementById('product-count-label').textContent = `제품 목록 (${ip.products.length}개)`;
   ip.products.forEach(p => {
     const tr = document.createElement('tr');
-    const thumbSrc = p.thumbnail ? IMG_BASE + p.thumbnail : null;
+    const thumbSrc = p.thumbnail ? resolveImg(p.thumbnail) : null;
     tr.innerHTML = `
       <td class="td-img">
         ${thumbSrc
@@ -1374,8 +1417,9 @@ function deleteProduct(pid) {
   if (!p) return;
   openDialog('제품 삭제', `"${p.name}" 제품을 삭제합니까?`, () => {
     ip.products = ip.products.filter(x => x.id !== pid);
+    autosave();
     renderProductTable();
-    toast('제품이 삭제되었습니다. GitHub에 저장하세요.', 'info');
+    toast('제품이 삭제되었습니다.', 'info');
   });
 }
 
@@ -1448,8 +1492,8 @@ function openProductPanel(pid) {
     });
 
     // Show current images
-    if (p.thumbnail) setImgBoxPreview('thumb-box', IMG_BASE + p.thumbnail);
-    if (p.img) setImgBoxPreview('detail-box', IMG_BASE + p.img);
+    if (p.thumbnail) setImgBoxPreview('thumb-box', resolveImg(p.thumbnail));
+    if (p.img) setImgBoxPreview('detail-box', resolveImg(p.img));
   }
 
   document.getElementById('overlay').classList.add('visible');
@@ -1501,14 +1545,14 @@ function handleImageSelect(type, input) {
   }
   const reader = new FileReader();
   reader.onload = (e) => {
-    const result = e.target.result; // data URL
-    const b64 = result.split(',')[1];
+    const dataUrl = e.target.result;
+    const b64 = dataUrl.split(',')[1];
     const boxId = type === 'thumb' ? 'thumb-box' : 'detail-box';
-    setImgBoxPreview(boxId, result);
+    setImgBoxPreview(boxId, dataUrl);
     if (type === 'thumb') {
-      pendingThumb = { file, b64, name: file.name };
+      pendingThumb = { file, b64, dataUrl, name: file.name };
     } else {
-      pendingDetail = { file, b64, name: file.name };
+      pendingDetail = { file, b64, dataUrl, name: file.name };
     }
   };
   reader.readAsDataURL(file);
@@ -1524,24 +1568,8 @@ async function saveProduct() {
   btn.innerHTML = '<span class="spin"></span> 저장 중…';
 
   try {
-    // Upload images if pending
-    let thumbFilename = null;
-    let detailFilename = null;
-
-    if (pendingThumb) {
-      toast('썸네일 이미지 업로드 중…', 'info', 2000);
-      thumbFilename = await uploadImage(pendingThumb, ip.id);
-    }
-    if (pendingDetail) {
-      toast('제품 이미지 업로드 중…', 'info', 2000);
-      detailFilename = await uploadImage(pendingDetail, ip.id);
-    }
-
-    // Build product object
     const pid = document.getElementById('p-id').value.trim();
-    const specs = SPEC_KEYS.map((key, i) => [key, document.getElementById(`p-spec-${i}`).value.trim()]);
-
-    const feats = [0,1,2].map(i => document.getElementById(`p-feat${i}`).value.trim()).filter(Boolean);
+    if (!pid) { toast('제품 ID를 입력해주세요.', 'err'); return; }
 
     const isNew = editingProductId === null;
     let p = isNew ? {} : ip.products.find(x => x.id === editingProductId);
@@ -1555,21 +1583,30 @@ async function saveProduct() {
     p.en       = document.getElementById('p-en').value.trim();
     p.brand    = document.getElementById('p-brand').value.trim();
     p.tag      = document.getElementById('p-tag').value.trim();
-    p.feats    = feats;
-    p.specs    = specs;
+    p.feats    = [0,1,2].map(i => document.getElementById(`p-feat${i}`).value.trim()).filter(Boolean);
+    p.specs    = SPEC_KEYS.map((key, i) => [key, document.getElementById(`p-spec-${i}`).value.trim()]);
     p.moq      = parseInt(document.getElementById('p-moq').value) || 0;
     p.price    = parseInt(document.getElementById('p-price').value) || 0;
 
-    // Update filenames
-    if (thumbFilename) p.thumbnail = thumbFilename;
-    if (detailFilename) p.img = detailFilename;
+    // 이미지: localStorage에 저장 (토큰 불필요)
+    if (pendingThumb) {
+      const imgKey = `${ip.id}_${pid}_thumb`;
+      lsSaveImg(imgKey, pendingThumb.dataUrl);
+      p.thumbnail = `local:${imgKey}`;
+    }
+    if (pendingDetail) {
+      const imgKey = `${ip.id}_${pid}_detail`;
+      lsSaveImg(imgKey, pendingDetail.dataUrl);
+      p.img = `local:${imgKey}`;
+    }
 
     if (isNew) {
       if (!ip.products) ip.products = [];
       ip.products.push(p);
     }
 
-    toast('제품이 저장되었습니다. GitHub에 저장하세요.', 'ok');
+    autosave(); // 모든 변경 즉시 localStorage 저장
+    toast('제품이 저장되었습니다.', 'ok');
     closePanel();
     renderProductTable();
   } catch (e) {
@@ -1586,7 +1623,21 @@ function openPreview() {
 }
 
 // ─── Init ────────────────────────────────────────────────────────────────────
-loadData();
+(async function init() {
+  // 1. localStorage 우선 로드 (새로고침 후에도 유지)
+  const local = lsGetLocalData();
+  if (local && local.ips) {
+    data = local;
+    renderSidebar();
+    if (data.ips.length > 0) selectIP(data.ips[0].id);
+    document.getElementById('ls-status').textContent =
+      '로컬 저장 데이터 복원됨 · ' + new Date().toLocaleTimeString('ko-KR');
+    toast('이전 작업 내용을 복원했습니다.', 'info');
+    return;
+  }
+  // 2. localStorage에 없으면 GitHub에서 최초 로드
+  await loadData();
+})();
 </script>
 </body>
 </html>
