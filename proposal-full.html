@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>뽀로로 캐릭터 굿즈 제안서 | NOAH & ARK</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
 <style>
 /* ── ClickHouse Design Tokens ── */
 :root {
@@ -36,7 +36,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--canvas);
   color:var(--body);
-  font-family:'Space Grotesk',sans-serif;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
   min-height:100vh;
 }
 
@@ -58,13 +58,13 @@ body{
 .nav-select{
   background:var(--surface-card);border:1px solid var(--hairline-strong);
   color:var(--body-strong);padding:8px 14px;border-radius:var(--r-md);
-  font-family:'Space Grotesk',sans-serif;font-size:13px;cursor:pointer;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;cursor:pointer;
   outline:none;transition:border-color .2s;
 }
 .nav-select:focus{border-color:var(--yellow)}
 .nav-btn{
   padding:8px 16px;border:none;border-radius:var(--r-md);
-  font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;font-size:13px;font-weight:600;
   cursor:pointer;transition:all .15s;height:36px;display:flex;align-items:center;gap:6px;
 }
 .btn-yellow{background:var(--yellow);color:var(--on-primary)}
@@ -90,7 +90,7 @@ body{
   margin-bottom:32px;width:fit-content;
 }
 .hero-title{
-  font-family:'Noto Sans KR',sans-serif;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
   font-size:64px;font-weight:900;line-height:1.08;
   letter-spacing:-2px;color:var(--ink);margin-bottom:24px;
 }
@@ -167,107 +167,129 @@ body{
 .cat-name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.35;margin-bottom:2px}
 .cat-cat{font-size:11px;color:var(--muted)}
 
-/* ── PRODUCT DETAIL HERO ── */
+/* ── PRODUCT DETAIL ── */
 .product-section{border-bottom:1px solid var(--hairline)}
-.product-hero{
-  position:relative;min-height:82vh;
-  background-size:cover;background-position:center top;
-  display:flex;align-items:center;overflow:hidden;
+.product-card{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
+.product-card.reverse{direction:rtl}
+.product-card.reverse>*{direction:ltr}
+.product-img-panel{position:relative;overflow:hidden;background:var(--surface-soft)}
+.product-img-panel .main-img{width:100%;height:100%;object-fit:cover;transition:opacity .3s}
+.prd-img-fade{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5) 100%);
 }
-.product-hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    108deg,
-    rgba(0,0,0,.92) 0%,
-    rgba(0,0,0,.78) 38%,
-    rgba(0,0,0,.22) 100%
-  );
-}
-.product-hero-content{
-  position:relative;z-index:1;
-  width:100%;max-width:1400px;
-  margin:0 auto;padding:80px;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:64px;align-items:center;
-}
-.product-identity{display:flex;flex-direction:column;gap:14px}
 .prd-id-badge{
-  display:inline-flex;align-items:center;
+  position:absolute;top:20px;left:20px;
   background:var(--yellow);color:var(--on-primary);
   font-size:10px;font-weight:700;letter-spacing:2px;
-  padding:4px 12px;border-radius:var(--r-sm);
-  text-transform:uppercase;width:fit-content;
+  padding:4px 10px;border-radius:var(--r-sm);text-transform:uppercase;
 }
-.prd-eyebrow{
-  font-size:10px;font-weight:600;letter-spacing:3px;
-  color:rgba(250,255,105,.75);text-transform:uppercase;
+.thumb-strip{position:absolute;bottom:20px;left:20px;display:flex;gap:8px}
+.thumb{
+  width:58px;height:58px;border-radius:var(--r-md);overflow:hidden;
+  border:2px solid rgba(255,255,255,.2);cursor:pointer;transition:border-color .2s;
 }
-.prd-name{
-  font-family:'Noto Sans KR',sans-serif;
-  font-size:clamp(26px,3.2vw,44px);font-weight:900;
-  letter-spacing:-1px;color:#ffffff;line-height:1.2;
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.active,.thumb:hover{border-color:var(--yellow)}
+
+.product-info-panel{
+  padding:48px 44px;display:flex;flex-direction:column;
+  background:var(--surface-card);border-left:1px solid var(--hairline);
 }
-.prd-en{font-size:13px;color:rgba(255,255,255,.45);letter-spacing:.5px}
-.prd-tag{
-  font-size:15px;color:rgba(255,255,255,.72);
-  line-height:1.65;max-width:380px;
-}
+.product-card.reverse .product-info-panel{border-left:none;border-right:1px solid var(--hairline)}
+.prd-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;color:var(--yellow);text-transform:uppercase;margin-bottom:10px}
+.prd-name{font-size:clamp(22px,2.4vw,32px);font-weight:800;letter-spacing:-0.5px;color:var(--ink);line-height:1.2;margin-bottom:4px}
+.prd-en{font-size:12px;color:var(--muted);letter-spacing:.5px;margin-bottom:10px}
+.prd-tag{font-size:14px;color:var(--body);line-height:1.65;padding-bottom:18px;border-bottom:1px solid var(--hairline);margin-bottom:18px}
 .prd-brand-badge{
-  display:inline-flex;
-  background:rgba(255,255,255,.08);backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,.18);
-  color:rgba(255,255,255,.6);font-size:11px;letter-spacing:1px;
-  padding:5px 12px;border-radius:var(--r-sm);width:fit-content;
-}
-.product-info-glass{
-  background:rgba(8,8,8,.7);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:20px;padding:36px 40px;
+  display:inline-flex;background:var(--surface-elevated);border:1px solid var(--hairline-strong);
+  color:var(--muted);font-size:10px;letter-spacing:1px;
+  padding:4px 10px;border-radius:var(--r-sm);width:fit-content;margin-bottom:18px;
 }
 .info-label{
-  font-size:10px;font-weight:600;letter-spacing:3px;
-  color:rgba(255,255,255,.35);text-transform:uppercase;
-  margin-bottom:12px;padding-bottom:8px;
-  border-bottom:1px solid rgba(255,255,255,.09);
+  font-size:10px;font-weight:600;letter-spacing:3px;color:var(--muted);
+  text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--hairline);
 }
-.specs-grid{
-  display:grid;grid-template-columns:auto 1fr;gap:0;
-  margin-bottom:24px;
-}
-.spec-key{
-  padding:7px 16px 7px 0;font-size:12px;font-weight:600;
-  color:rgba(255,255,255,.42);border-bottom:1px solid rgba(255,255,255,.07);
-  white-space:nowrap;
-}
-.spec-val{
-  padding:7px 0;font-size:12px;color:rgba(255,255,255,.85);
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-.feat-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
-.feat-chip{
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--r-pill);padding:5px 14px;
-  font-size:12px;color:rgba(255,255,255,.72);font-weight:500;
-}
+.spec-summary{margin-bottom:20px}
+.spec-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--hairline);font-size:13px}
+.spec-row:last-child{border-bottom:none}
+.spec-k{color:var(--muted);font-weight:500}
+.spec-v{color:var(--body-strong);font-weight:600;text-align:right}
 .price-block{
-  background:rgba(250,255,105,.08);border:1px solid rgba(250,255,105,.22);
-  border-radius:var(--r-lg);padding:20px 24px;
+  background:var(--canvas);border:1px solid var(--hairline-strong);
+  border-radius:var(--r-lg);padding:18px 20px;
   display:flex;justify-content:space-between;align-items:center;
+  margin-top:auto;margin-bottom:12px;
 }
-.price-moq{font-size:10px;color:rgba(255,255,255,.38);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.price-row{display:flex;align-items:baseline;gap:6px}
-.price-num{font-size:40px;font-weight:700;color:var(--yellow);letter-spacing:-1px;line-height:1}
-.price-won{font-size:14px;color:rgba(255,255,255,.45)}
-.price-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:4px}
+.price-moq{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.price-row{display:flex;align-items:baseline;gap:5px}
+.price-num{font-size:36px;font-weight:700;color:var(--yellow);letter-spacing:-1px;line-height:1}
+.price-won{font-size:13px;color:var(--muted)}
+.price-note{font-size:11px;color:var(--muted-soft);margin-top:3px}
 .price-cta{
-  background:var(--yellow);color:var(--on-primary);
-  border:none;border-radius:var(--r-md);
-  padding:12px 20px;font-family:'Space Grotesk',sans-serif;
-  font-size:13px;font-weight:700;cursor:pointer;
-  transition:background .15s;white-space:nowrap;
+  background:var(--yellow);color:var(--on-primary);border:none;
+  border-radius:var(--r-md);padding:10px 18px;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap;
 }
 .price-cta:hover{background:var(--yellow-active)}
+.detail-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  padding:13px;background:transparent;border:1px solid var(--hairline-strong);
+  border-radius:var(--r-md);color:var(--body);
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;
+}
+.detail-btn:hover{border-color:var(--yellow);color:var(--yellow)}
+.detail-btn svg{transition:transform .15s}
+.detail-btn:hover svg{transform:translateX(3px)}
+
+/* ── MODAL ── */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s;padding:20px;
+}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+.modal-sheet{
+  background:var(--surface-card);border:1px solid var(--hairline-strong);
+  border-radius:20px;width:min(95vw,1000px);max-height:90vh;
+  overflow:hidden;position:relative;
+  transform:translateY(28px);transition:transform .28s;
+  display:flex;flex-direction:column;
+}
+.modal-backdrop.open .modal-sheet{transform:translateY(0)}
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 28px;border-bottom:1px solid var(--hairline);flex-shrink:0;
+}
+.modal-title{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:1px}
+.modal-close-btn{
+  background:var(--surface-elevated);border:1px solid var(--hairline-strong);
+  color:var(--body);width:32px;height:32px;border-radius:50%;
+  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .15s;line-height:1;
+}
+.modal-close-btn:hover{background:var(--hairline-strong);color:var(--ink)}
+.modal-body{overflow-y:auto;flex:1}
+.modal-layout{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.modal-img-side{
+  display:grid;grid-template-rows:1fr 1fr;
+  border-right:1px solid var(--hairline);overflow:hidden;
+}
+.modal-img-side img{width:100%;height:100%;object-fit:cover}
+.modal-img-side img:first-child{border-bottom:1px solid var(--hairline)}
+.modal-info-side{padding:36px 36px;overflow-y:auto;display:flex;flex-direction:column}
+.modal-prd-name{font-size:clamp(20px,1.8vw,28px);font-weight:800;color:var(--ink);letter-spacing:-0.5px;line-height:1.2;margin:8px 0 4px}
+.specs-grid{display:grid;grid-template-columns:auto 1fr;gap:0;margin-bottom:20px}
+.spec-key{padding:7px 14px 7px 0;font-size:12px;font-weight:600;color:var(--muted);border-bottom:1px solid var(--hairline);white-space:nowrap}
+.spec-val{padding:7px 0;font-size:12px;color:var(--body-strong);border-bottom:1px solid var(--hairline)}
+.feat-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.feat-chip{
+  background:var(--surface-elevated);border:1px solid var(--hairline-strong);
+  border-radius:var(--r-pill);padding:5px 12px;font-size:12px;color:var(--body-strong);font-weight:500;
+}
 
 /* ── CLOSING BAND ── */
 .closing{
@@ -276,7 +298,7 @@ body{
   text-align:center;gap:24px;
 }
 .closing-title{
-  font-family:'Noto Sans KR',sans-serif;
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
   font-size:48px;font-weight:900;letter-spacing:-2px;
   color:var(--on-primary);line-height:1.1;
 }
@@ -299,26 +321,26 @@ body{
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
   .hero-right{display:none}
+  .product-card{grid-template-columns:1fr}
+  .product-card.reverse{direction:ltr}
   .catalog-grid{grid-template-columns:repeat(3,1fr)}
   .section{padding:64px 32px}
   .hero-left{padding:64px 32px}
   .footer{padding:32px}
   .closing{padding:64px 32px}
-  .product-hero-content{grid-template-columns:1fr;padding:60px 40px;gap:40px}
-  .product-hero{min-height:auto}
-  .product-hero-overlay{background:rgba(0,0,0,.82)}
+  .modal-layout{grid-template-columns:1fr}
+  .modal-img-side{display:none}
 }
 @media(max-width:640px){
   .catalog-grid{grid-template-columns:repeat(2,1fr)}
   .hero-title{font-size:40px}
   .closing-title{font-size:32px}
   .closing-contacts{flex-direction:column;gap:12px}
-  .product-hero-content{padding:40px 24px}
-  .product-info-glass{padding:24px}
+  .product-info-panel{padding:32px 24px}
 }
 @media print{
   .nav{display:none}
-  .product-hero{page-break-inside:avoid}
+  .product-card{page-break-inside:avoid}
 }
 </style>
 </head>
@@ -366,7 +388,7 @@ body{
     </div>
   </div>
   <div class="hero-right">
-    <img src="https://davidcoollong.github.io/noah-ark-proposal/images/bag-shopping.jpg" alt="cover" id="hero-img">
+    <img src="https://davidcoollong.github.io/noah-ark-proposal/images/bag-shopping-thumb.png" alt="cover" id="hero-img">
     <div class="hero-img-overlay"></div>
     <div class="hero-right-stats">
       <div class="stat-item">
@@ -414,6 +436,17 @@ body{
   <div class="footer-copy">© 2025 Noah & Ark Corporation. All rights reserved.</div>
 </footer>
 
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" onclick="closeDetail()">
+  <div class="modal-sheet" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title"></span>
+      <button class="modal-close-btn" onclick="closeDetail()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
 <script>
 const IMG = 'https://davidcoollong.github.io/noah-ark-proposal/images/';
 
@@ -459,45 +492,106 @@ function renderCatalog(){
 function renderProducts(mult){
   document.getElementById('prdContainer').innerHTML=P.map((p,i)=>{
     const price=Math.round(p.price*mult).toLocaleString('ko-KR');
+    const rev=i%2===1;
+    const keySpecs=p.specs.slice(1,4); // 사이즈·재질·제조국
     return `
     <div class="product-section" id="prd-${i}">
-      <div class="product-hero" style="background-image:url(${IMG+p.img})">
-        <div class="product-hero-overlay"></div>
-        <div class="product-hero-content">
-          <div class="product-identity">
-            <div class="prd-id-badge">${p.id}</div>
-            <div class="prd-eyebrow">${p.catEn} · ${p.cat}</div>
-            <div class="prd-name">${p.name.replace('\n','<br>')}</div>
-            <div class="prd-en">${p.en}</div>
-            <div class="prd-tag">${p.tag}</div>
-            <div class="prd-brand-badge">${p.brand}</div>
+      <div class="product-card${rev?' reverse':''}">
+        <div class="product-img-panel">
+          <img class="main-img" src="${IMG+p.thumbnail}" id="main-img-${i}" alt="${p.name.replace('\n','')}">
+          <div class="prd-img-fade"></div>
+          <div class="prd-id-badge">${p.id}</div>
+          <div class="thumb-strip">
+            <div class="thumb active" onclick="swapImg(${i},'${IMG+p.thumbnail}',this)">
+              <img src="${IMG+p.thumbnail}" alt="lifestyle" loading="lazy">
+            </div>
+            <div class="thumb" onclick="swapImg(${i},'${IMG+p.img}',this)">
+              <img src="${IMG+p.img}" alt="product" loading="lazy">
+            </div>
           </div>
-          <div class="product-info-glass">
-            <div class="info-label">PRODUCT SPEC</div>
-            <div class="specs-grid">
-              ${p.specs.map(([k,v])=>`<div class="spec-key">${k}</div><div class="spec-val">${v}</div>`).join('')}
-            </div>
-            <div class="info-label">FEATURES</div>
-            <div class="feat-chips">
-              ${p.feats.map(f=>`<span class="feat-chip">✓ ${f}</span>`).join('')}
-            </div>
-            <div class="price-block">
-              <div>
-                <div class="price-moq">MOQ ${p.moq.toLocaleString()}개 기준 단가</div>
-                <div class="price-row">
-                  <span class="price-num">${price}</span>
-                  <span class="price-won">원/개</span>
-                </div>
-                <div class="price-note">VAT 별도 · 수량에 따라 협의 가능</div>
+        </div>
+        <div class="product-info-panel">
+          <div class="prd-eyebrow">${p.catEn} · ${p.cat}</div>
+          <div class="prd-name">${p.name.replace('\n','<br>')}</div>
+          <div class="prd-en">${p.en}</div>
+          <div class="prd-tag">${p.tag}</div>
+          <div class="prd-brand-badge">${p.brand}</div>
+          <div class="info-label">제품 정보</div>
+          <div class="spec-summary">
+            ${keySpecs.map(([k,v])=>`<div class="spec-row"><span class="spec-k">${k}</span><span class="spec-v">${v}</span></div>`).join('')}
+            <div class="spec-row"><span class="spec-k">MOQ</span><span class="spec-v">${p.moq.toLocaleString()}개</span></div>
+          </div>
+          <div class="price-block">
+            <div>
+              <div class="price-moq">MOQ ${p.moq.toLocaleString()}개 기준 단가</div>
+              <div class="price-row">
+                <span class="price-num">${price}</span>
+                <span class="price-won">원/개</span>
               </div>
-              <button class="price-cta">견적 문의</button>
+              <div class="price-note">VAT 별도 · 수량에 따라 협의 가능</div>
             </div>
+            <button class="price-cta">견적 문의</button>
           </div>
+          <button class="detail-btn" onclick="openDetail(${i})">
+            <span>상세페이지 보기</span>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>`}).join('');
 }
 
+function swapImg(i,src,el){
+  document.getElementById('main-img-'+i).src=src;
+  el.closest('.thumb-strip').querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function openDetail(idx){
+  const p=P[idx];
+  const mult=clients[document.getElementById('clientSel').value]?.mult||1;
+  const price=Math.round(p.price*mult).toLocaleString('ko-KR');
+  document.getElementById('modal-title').textContent=p.id+' — '+p.name.replace('\n',' ');
+  document.getElementById('modal-body').innerHTML=`
+    <div class="modal-layout">
+      <div class="modal-img-side">
+        <img src="${IMG+p.thumbnail}" alt="lifestyle">
+        <img src="${IMG+p.img}" alt="product">
+      </div>
+      <div class="modal-info-side">
+        <div class="prd-id-badge" style="margin-bottom:10px">${p.id}</div>
+        <div class="prd-eyebrow">${p.catEn} · ${p.cat}</div>
+        <div class="modal-prd-name">${p.name.replace('\n','<br>')}</div>
+        <div class="prd-en" style="margin-bottom:8px">${p.en}</div>
+        <div class="prd-brand-badge" style="margin-bottom:16px">${p.brand}</div>
+        <div class="prd-tag" style="padding-bottom:16px;border-bottom:1px solid var(--hairline);margin-bottom:16px">${p.tag}</div>
+        <div class="info-label">PRODUCT SPEC</div>
+        <div class="specs-grid" style="margin-bottom:16px">
+          ${p.specs.map(([k,v])=>`<div class="spec-key">${k}</div><div class="spec-val">${v}</div>`).join('')}
+        </div>
+        <div class="info-label">FEATURES</div>
+        <div class="feat-chips">${p.feats.map(f=>`<span class="feat-chip">✓ ${f}</span>`).join('')}</div>
+        <div class="price-block" style="margin-top:auto;background:var(--canvas);border:1px solid var(--hairline-strong)">
+          <div>
+            <div class="price-moq">MOQ ${p.moq.toLocaleString()}개 기준 단가</div>
+            <div class="price-row">
+              <span class="price-num">${price}</span>
+              <span class="price-won">원/개</span>
+            </div>
+            <div class="price-note">VAT 별도 · 수량에 따라 협의 가능</div>
+          </div>
+          <button class="price-cta">견적 문의</button>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDetail(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
 function scrollTo2(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
 function jumpTo(val){if(val!=='')scrollTo2('prd-'+val)}
 function applyClient(key){
