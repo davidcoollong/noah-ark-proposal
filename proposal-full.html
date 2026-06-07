@@ -454,7 +454,7 @@ const clients = {
   default:{name:'클라이언트명',msg:'안녕하세요. 노아&아크의 브랜드 굿즈 제안서를 보내드립니다.',by:'노아&아크 MD팀',date:'2025.06',mult:1.0}
 };
 
-const P = [
+let P = [
   {id:'PRD-001',cat:'에코백 · 장바구니',catEn:'ECO BAG',name:'뽀로로 극장판\n접힘 장바구니',en:'PPOSONG Folding Shopping Bag',brand:'PPOSONG POBY&PETTY',tag:'내 어깨 위에 올려놓은 무지개빛깔 굿즈물, 뽀송뽀티패티 장바구니',img:'bag-shopping.jpg',thumbnail:'bag-shopping-thumb.png',feats:['가벼운 폴리에스터','접힘 수납 가능','선명한 캐릭터 패턴'],specs:[['제품명','뽀로로 극장판 장바구니'],['사이즈','32cm x 45cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:4500},
   {id:'PRD-002',cat:'토트백 · 미니백',catEn:'MINI BAG',name:'뽀송 뽀티패티\n보아털 미니백',en:'PPOSONG Boa Fleece Mini Tote',brand:'PPOSONG POBY&PETTY',tag:'나 손만의 작지만 정감 넘치는 뽀송뽀티패티 미니백',img:'bag-mini.jpg',thumbnail:'bag-mini-thumb.png',feats:['알록달록 보아털 스냅','뽀송뽀송 부드러운 텍스처','아기자기한 캐릭터 자수'],specs:[['제품명','뽀로로 극장판 보아털 미니백'],['사이즈','25cm x 20cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:12000},
   {id:'PRD-003',cat:'키링 · 인형',catEn:'PLUSH KEYRING',name:'뽀송 뽀티패티\n목욕 봉제 키링',en:'PPOSONG Bath Plush Keyring',brand:'PPOSONG POBY&PETTY',tag:'내 가방 어딘가에 달고 싶은 뽀송뽀티패티 봉제 키링',img:'keyring-bath.jpg',thumbnail:'keyring-bath-thumb.png',feats:['부드러운 소재','변형 가능한 귀여운 디자인','아기자기한 키체인'],specs:[['제품명','뽀로로 극장판 목욕 봉제 키링'],['사이즈','패티 10.5x11.4cm / 포비 13.5x11.4cm'],['재질','폴리에스테르'],['제조국','중국'],['수입자','(주)노아코퍼레이션']],moq:100,price:8000},
@@ -616,8 +616,12 @@ function doLink(){
 
 const cp=new URLSearchParams(location.search).get('client')||'pororo';
 document.getElementById('clientSel').value=cp;
-renderCatalog();
-applyClient(cp);
+
+// products.json에서 최신 데이터 fetch → 있으면 덮어씀
+fetch('products.json?v='+Date.now())
+  .then(r=>r.ok?r.json():Promise.reject())
+  .then(data=>{P=data;renderCatalog();applyClient(cp);})
+  .catch(()=>{renderCatalog();applyClient(cp);});
 </script>
 </body>
 </html>

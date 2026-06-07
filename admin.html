@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제품 관리자 | NOAH & ARK</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;--sf:#141414;--sf2:#1e1e1e;--sf3:#272727;
+  --bd:#252525;--bd2:#333;--bd3:#444;
+  --yellow:#faff69;--ydim:rgba(250,255,105,.1);
+  --ink:#fff;--body:#ccc;--muted:#777;--muted2:#444;
+  --green:#22c55e;--red:#ef4444;--orange:#f59e0b;
+}
+html,body{height:100%;background:var(--bg);color:var(--body);
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;font-size:14px;overflow:hidden}
+
+/* ── HEADER ── */
+.hdr{height:52px;background:var(--sf);border-bottom:1px solid var(--bd2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;position:sticky;top:0;z-index:200;flex-shrink:0}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.logo{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.logo em{color:var(--yellow);font-style:normal}
+.badge{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);background:var(--sf2);border:1px solid var(--bd2);
+  padding:3px 10px;border-radius:100px}
+.hdr-r{display:flex;align-items:center;gap:8px}
+.btn{height:32px;padding:0 14px;border-radius:6px;font-family:inherit;
+  font-size:12px;font-weight:600;cursor:pointer;border:none;
+  display:inline-flex;align-items:center;gap:6px;transition:all .15s;white-space:nowrap}
+.btn-ghost{background:transparent;border:1px solid var(--bd2);color:var(--body)}
+.btn-ghost:hover{border-color:var(--bd3);color:var(--ink)}
+.btn-save{background:var(--yellow);color:#0a0a0a}
+.btn-save:hover{background:#e6eb52}
+.btn-save:disabled{opacity:.4;cursor:not-allowed}
+
+/* ── TOKEN BAR ── */
+.token-bar{padding:10px 20px;background:var(--sf);border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-shrink:0}
+.tok-lbl{font-size:11px;color:var(--muted);white-space:nowrap}
+.tok-inp{background:var(--sf2);border:1px solid var(--bd2);color:var(--ink);
+  padding:6px 10px;border-radius:5px;font-family:monospace;font-size:12px;
+  outline:none;width:320px;transition:border-color .15s}
+.tok-inp:focus{border-color:var(--yellow)}
+.tok-link{font-size:11px;color:var(--yellow);text-decoration:none}
+.tok-link:hover{text-decoration:underline}
+.tok-hint{font-size:11px;color:var(--muted2)}
+
+/* ── STATUS BAR ── */
+.status-bar{padding:8px 20px;background:var(--sf2);border-bottom:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.status-l{display:flex;align-items:center;gap:8px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);transition:background .3s}
+.dot.warn{background:var(--orange)}
+.dot.dirty{background:var(--yellow)}
+.s-txt{font-size:12px;color:var(--muted)}
+.s-note{font-size:11px;color:var(--muted2)}
+
+/* ── TABLE SCROLL AREA ── */
+.tbl-wrap{overflow:auto;flex:1}
+.layout{display:flex;flex-direction:column;height:100vh}
+
+/* ── TABLE ── */
+table{border-collapse:collapse;width:max-content;min-width:100%}
+thead tr.g-row th{
+  background:var(--sf);border-bottom:1px solid var(--bd);
+  font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);padding:5px 10px;text-align:center;
+  position:sticky;top:0;z-index:40;border-right:1px solid var(--bd)}
+thead tr.c-row th{
+  background:var(--sf2);border-bottom:2px solid var(--bd2);
+  font-size:11px;font-weight:600;color:var(--body);
+  padding:8px 10px;white-space:nowrap;text-align:left;
+  position:sticky;top:31px;z-index:40;border-right:1px solid var(--bd)}
+tbody tr{border-bottom:1px solid var(--bd)}
+tbody tr:hover td{background:rgba(255,255,255,.025)}
+td{padding:5px 8px;border-right:1px solid var(--bd);vertical-align:middle}
+
+/* sticky ID col */
+.c-id{position:sticky;left:0;z-index:15;background:var(--bg);min-width:88px}
+tbody tr:hover .c-id{background:#111}
+.th-id{position:sticky;left:0;z-index:50!important}
+.gh-id{position:sticky;left:0;z-index:50!important}
+.id-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;
+  background:var(--ydim);color:var(--yellow);border:1px solid rgba(250,255,105,.2);
+  padding:2px 8px;border-radius:4px}
+
+/* inputs */
+.ci{width:100%;background:transparent;border:1px solid transparent;
+  color:var(--ink);padding:5px 7px;border-radius:4px;
+  font-family:inherit;font-size:13px;outline:none;transition:all .12s}
+.ci:hover{border-color:var(--bd2)}
+.ci:focus{border-color:var(--yellow);background:rgba(250,255,105,.04)}
+.ci.dirty{border-color:rgba(250,255,105,.35)!important}
+.ci[type=number]{text-align:right}
+tr.row-dirty .c-id::after{content:'●';color:var(--yellow);font-size:8px;
+  margin-left:5px;vertical-align:middle}
+
+/* group separator */
+.gs{border-right:2px solid var(--bd3)!important}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;right:20px;z-index:999;
+  background:var(--sf2);border:1px solid var(--bd2);border-radius:10px;
+  padding:12px 18px;font-size:13px;font-weight:500;
+  display:flex;align-items:center;gap:10px;
+  transform:translateY(70px);opacity:0;transition:all .22s;max-width:340px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-color:var(--green);color:var(--green)}
+.toast.err{border-color:var(--red);color:var(--red)}
+.toast.info{border-color:var(--yellow);color:var(--yellow)}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-l">
+    <div class="logo">NOAH <em>&</em> ARK</div>
+    <div class="badge">제품 관리자</div>
+  </div>
+  <div class="hdr-r">
+    <a href="proposal-full.html" target="_blank" style="text-decoration:none">
+      <button class="btn btn-ghost">제안서 보기 ↗</button>
+    </a>
+    <button class="btn btn-ghost" onclick="loadData()" id="refreshBtn" title="서버에서 최신 데이터 불러오기">↺ 새로고침</button>
+    <button class="btn btn-save" id="saveBtn" onclick="saveToGitHub()" disabled>
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10.5V12h9v-1.5M6.5 1v7M4 6l2.5 2.5L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      GitHub에 저장
+    </button>
+  </div>
+</header>
+
+<!-- TOKEN BAR -->
+<div class="token-bar">
+  <span class="tok-lbl">🔑 GitHub 토큰</span>
+  <input class="tok-inp" type="password" id="ghToken"
+    placeholder="ghp_xxxxxxxxxxxxxxxx"
+    oninput="localStorage.setItem('noa-tok',this.value)">
+  <span class="tok-hint">
+    권한: <strong style="color:var(--body)">Contents → Read & Write</strong> &nbsp;|&nbsp;
+    <a class="tok-link" href="https://github.com/settings/personal-access-tokens/new" target="_blank">토큰 발급하기 ↗</a>
+  </span>
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-l">
+    <div class="dot" id="dot"></div>
+    <span class="s-txt" id="stxt">데이터 로딩 중…</span>
+  </div>
+  <span class="s-note">저장 후 30~60초 뒤 제안서에 반영됩니다</span>
+</div>
+
+<!-- TABLE -->
+<div class="tbl-wrap">
+  <table id="tbl">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+</div><!-- /layout -->
+<div class="toast" id="toast"></div>
+
+<script>
+const OWNER = 'davidcoollong';
+const REPO  = 'noah-ark-proposal';
+const FILE  = 'products.json';
+const API   = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+const RAW   = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${FILE}`;
+
+let products = [], fileSha = '', dirty = false;
+
+// ── Column definitions ──────────────────────────────────────────
+const GROUPS = [
+  {label:'',           cols:['id'],                                      sep:true},
+  {label:'기본정보',   cols:['name','en','cat','catEn','brand'],          sep:true},
+  {label:'설명',       cols:['tag'],                                      sep:true},
+  {label:'특징',       cols:['feat0','feat1','feat2'],                    sep:true},
+  {label:'스펙',       cols:['spec0','spec1','spec2','spec3','spec4'],    sep:true},
+  {label:'가격정보',   cols:['moq','price'],                              sep:false},
+];
+const COL_DEF = {
+  id:    {label:'ID',          w:88,  ro:true},
+  name:  {label:'제품명',       w:180},
+  en:    {label:'영문명',       w:200},
+  cat:   {label:'카테고리',     w:130},
+  catEn: {label:'Category EN', w:120},
+  brand: {label:'브랜드',       w:150},
+  tag:   {label:'설명(태그)',   w:230},
+  feat0: {label:'특징 1',       w:150},
+  feat1: {label:'특징 2',       w:150},
+  feat2: {label:'특징 3',       w:150},
+  spec0: {label:'스펙:제품명',  w:170},
+  spec1: {label:'사이즈',       w:160},
+  spec2: {label:'재질',         w:110},
+  spec3: {label:'제조국',       w:70},
+  spec4: {label:'수입자',       w:155},
+  moq:   {label:'MOQ(개)',      w:80,  type:'number'},
+  price: {label:'가격(원)',     w:100, type:'number'},
+};
+
+const allCols = GROUPS.flatMap(g => g.cols);
+
+function getVal(p, k) {
+  if (k.startsWith('feat')) return (p.feats||[])[+k.slice(4)]||'';
+  if (k.startsWith('spec')) return (p.specs||[])[+k.slice(4)]?.[1]||'';
+  return p[k]??'';
+}
+function setVal(p, k, v) {
+  if (k.startsWith('feat')) { p.feats=p.feats||[]; p.feats[+k.slice(4)]=v; return; }
+  if (k.startsWith('spec')) { const i=+k.slice(4); if(p.specs[i])p.specs[i][1]=v; return; }
+  p[k] = (k==='moq'||k==='price') ? (Number(v)||0) : v;
+}
+
+// ── Build header ──────────────────────────────────────────────────
+function buildHeader() {
+  const thead = document.getElementById('thead');
+  // Group row
+  const gRow = document.createElement('tr'); gRow.className='g-row';
+  GROUPS.forEach(g => {
+    const th = document.createElement('th');
+    th.colSpan = g.cols.length; th.textContent = g.label;
+    if (g.sep) th.classList.add('gs');
+    if (!g.label) th.classList.add('gh-id');
+    gRow.appendChild(th);
+  });
+  // Col row
+  const cRow = document.createElement('tr'); cRow.className='c-row';
+  allCols.forEach(k => {
+    const d = COL_DEF[k];
+    const th = document.createElement('th');
+    th.textContent = d.label; th.style.minWidth = d.w+'px';
+    if (k==='id') th.classList.add('th-id');
+    // add gs on last col of each group that has sep
+    const grp = GROUPS.find(g=>g.cols.includes(k));
+    if (grp?.sep && grp.cols.indexOf(k)===grp.cols.length-1) th.classList.add('gs');
+    cRow.appendChild(th);
+  });
+  thead.innerHTML='';
+  thead.appendChild(gRow); thead.appendChild(cRow);
+}
+
+// ── Build table body ───────────────────────────────────────────────
+function buildBody() {
+  const tbody = document.getElementById('tbody'); tbody.innerHTML='';
+  products.forEach((p, pi) => {
+    const tr = document.createElement('tr'); tr.dataset.pi = pi;
+    allCols.forEach(k => {
+      const d = COL_DEF[k];
+      const td = document.createElement('td');
+      if (k==='id') {
+        td.className='c-id'; td.innerHTML=`<span class="id-badge">${p.id}</span>`;
+      } else {
+        const inp = document.createElement('input');
+        inp.className='ci'; inp.type=d.type||'text';
+        inp.value=getVal(p,k); inp.style.width=d.w+'px';
+        inp.addEventListener('input',()=>{
+          setVal(products[pi],k,inp.value);
+          inp.classList.add('dirty'); tr.classList.add('row-dirty');
+          markDirty();
+        });
+        td.appendChild(inp);
+      }
+      const grp=GROUPS.find(g=>g.cols.includes(k));
+      if (grp?.sep && grp.cols.indexOf(k)===grp.cols.length-1) td.classList.add('gs');
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+// ── Load from GitHub ───────────────────────────────────────────────
+async function loadData() {
+  setStatus('로딩 중…','warn'); document.getElementById('refreshBtn').disabled=true;
+  try {
+    const r = await fetch(RAW+'?v='+Date.now());
+    if(!r.ok) throw new Error(r.status);
+    products = await r.json();
+    // Get SHA (for save)
+    const tok = document.getElementById('ghToken').value.trim();
+    if (tok) {
+      try {
+        const ar = await fetch(API,{headers:{Authorization:`token ${tok}`}});
+        fileSha = (await ar.json()).sha || '';
+      } catch{}
+    }
+    buildHeader(); buildBody();
+    setStatus(`${products.length}개 제품 로드 완료`,'ok');
+    toast('데이터를 불러왔습니다','info');
+  } catch(e) {
+    setStatus('로드 실패 — 잠시 후 다시 시도하세요','warn');
+    toast('로드 실패: '+e.message,'err');
+  } finally {
+    document.getElementById('refreshBtn').disabled=false;
+  }
+}
+
+// ── Save to GitHub ─────────────────────────────────────────────────
+async function saveToGitHub() {
+  const tok = document.getElementById('ghToken').value.trim();
+  if (!tok) { toast('GitHub 토큰을 먼저 입력해주세요','err'); return; }
+
+  const btn=document.getElementById('saveBtn');
+  btn.disabled=true; btn.textContent='저장 중…';
+  setStatus('GitHub에 저장 중…','warn');
+
+  try {
+    // Always fetch latest SHA before write
+    const shaR = await fetch(API,{headers:{Authorization:`token ${tok}`}});
+    if (!shaR.ok) throw new Error('토큰 인증 실패 ('+shaR.status+')');
+    const shaData = await shaR.json();
+    fileSha = shaData.sha;
+
+    const json = JSON.stringify(products, null, 2);
+    const content = btoa(unescape(encodeURIComponent(json)));
+    const now = new Date().toLocaleString('ko-KR');
+
+    const putR = await fetch(API,{
+      method:'PUT',
+      headers:{Authorization:`token ${tok}`,'Content-Type':'application/json'},
+      body:JSON.stringify({message:`제품 정보 업데이트 (${now})`,content,sha:fileSha})
+    });
+    if (!putR.ok) { const e=await putR.json(); throw new Error(e.message||putR.status); }
+
+    dirty=false;
+    document.querySelectorAll('.ci.dirty').forEach(el=>el.classList.remove('dirty'));
+    document.querySelectorAll('tr.row-dirty').forEach(el=>el.classList.remove('row-dirty'));
+    setStatus(`저장 완료 — ${now}`,'ok');
+    toast('저장 완료! 약 30~60초 후 제안서에 반영됩니다 ✓','ok');
+    updateSaveBtn();
+  } catch(e) {
+    setStatus('저장 실패: '+e.message,'warn');
+    toast('저장 실패: '+e.message,'err');
+  } finally {
+    btn.disabled=!dirty;
+    btn.innerHTML='<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 10.5V12h9v-1.5M6.5 1v7M4 6l2.5 2.5L9 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> GitHub에 저장';
+  }
+}
+
+function markDirty(){
+  dirty=true; updateSaveBtn();
+  setStatus('저장되지 않은 변경사항이 있습니다 — 저장 버튼을 눌러주세요','warn');
+  document.getElementById('dot').className='dot dirty';
+}
+function updateSaveBtn(){ document.getElementById('saveBtn').disabled=!dirty; }
+function setStatus(msg,state){
+  document.getElementById('stxt').textContent=msg;
+  const d=document.getElementById('dot');
+  d.className='dot'+(state==='ok'?'':state==='warn'?' warn':' dirty');
+}
+
+let tTimer;
+function toast(msg,type='info'){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.className='toast '+type+' show';
+  clearTimeout(tTimer); tTimer=setTimeout(()=>el.classList.remove('show'),4500);
+}
+
+// ── Init ───────────────────────────────────────────────────────────
+const saved=localStorage.getItem('noa-tok');
+if (saved) document.getElementById('ghToken').value=saved;
+loadData();
+</script>
+</body>
+</html>
