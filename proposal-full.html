@@ -695,21 +695,39 @@ function doLink(){
   navigator.clipboard.writeText(url).then(()=>alert('링크 복사됨!\n'+url));
 }
 
-// ─── Init: fetch data.json ────────────────────────────
+// ─── Init: localStorage 우선 → GitHub 폴백 ─────────────
 const qip=new URLSearchParams(location.search).get('ip')||'pororo';
-fetch('data.json?v='+Date.now())
-  .then(r=>r.ok?r.json():Promise.reject('load-fail'))
-  .then(data=>{
-    DATA=data;
-    const sel=document.getElementById('ipSel');
-    sel.innerHTML=data.ips.map(ip=>`<option value="${ip.id}"${ip.id===qip?' selected':''}>${ip.name}</option>`).join('');
-    switchIP(qip);
-    if(data.company?.contacts){
-      const el=document.querySelector('.closing-contacts');
-      if(el) el.innerHTML=data.company.contacts.map(c=>`<div class="closing-contact-item">${c.email} — ${c.label}</div>`).join('');
-    }
-  })
-  .catch(()=>document.getElementById('ipSel').innerHTML='<option>데이터 로드 실패</option>');
+
+function applyData(d){
+  DATA=d;
+  const sel=document.getElementById('ipSel');
+  // IP 드롭다운: 저작사 / IP명 형식으로 표시
+  sel.innerHTML=d.ips.map(ip=>{
+    const label=(ip.licensor?ip.licensor+' / ':'')+ip.name;
+    return `<option value="${ip.id}"${ip.id===qip?' selected':''}>${label}</option>`;
+  }).join('');
+  // URL에 지정된 IP가 없으면 첫 번째 IP 선택
+  const targetIp = d.ips.find(ip=>ip.id===qip) ? qip : d.ips[0]?.id;
+  if(targetIp) switchIP(targetIp);
+  if(d.company?.contacts){
+    const el=document.querySelector('.closing-contacts');
+    if(el) el.innerHTML=d.company.contacts.map(c=>`<div class="closing-contact-item">${c.email} — ${c.label}</div>`).join('');
+  }
+}
+
+// 1) localStorage에 관리자가 저장한 데이터 있으면 즉시 사용 (새 IP/제품 실시간 반영)
+try {
+  const local=JSON.parse(localStorage.getItem('noa_admin_data'));
+  if(local&&local.ips&&local.ips.length>0){
+    applyData(local);
+  } else { throw new Error('no local'); }
+} catch {
+  // 2) localStorage 없으면 GitHub에서 로드
+  fetch('data.json?v='+Date.now())
+    .then(r=>r.ok?r.json():Promise.reject('load-fail'))
+    .then(d=>applyData(d))
+    .catch(()=>document.getElementById('ipSel').innerHTML='<option>데이터 로드 실패</option>');
+}
 </script>
 </body>
 </html>
