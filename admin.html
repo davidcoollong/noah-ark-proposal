@@ -1398,7 +1398,8 @@ function lsGetImg(key) {
 function resolveImg(src) {
   if (!src) return '';
   if (src.startsWith('local:')) return lsGetImg(src.slice(6)) || '';
-  return IMG_BASE + src;
+  if (src.startsWith('http://') || src.startsWith('https://')) return src; // Naver CDN 등 외부 URL
+  return IMG_BASE + src; // GitHub Pages images/ 폴더
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
