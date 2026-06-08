@@ -1376,11 +1376,40 @@ const tokInput = document.getElementById('tok-input');
 const tokStatus = document.getElementById('tok-status');
 
 tokInput.value = localStorage.getItem('noa-tok') || '';
+
+// 토큰 입력 후 자동 검증 (1초 디바운스)
+let tokVerifyTimer;
+async function verifyToken(t) {
+  if (!t) { tokStatus.className = ''; tokStatus.title = ''; return; }
+  tokStatus.className = 'warn'; tokStatus.style.background = '#f59e0b';
+  try {
+    const r = await fetch(GH_API + 'data.json', {
+      headers: { 'Authorization': `Bearer ${t}`, 'Accept': 'application/vnd.github+json' }
+    });
+    if (r.ok) {
+      tokStatus.className = 'ok'; tokStatus.style.background = '';
+      tokStatus.title = '✅ 토큰 유효 · GitHub 저장 가능';
+      toast('토큰 확인됨 ✓ GitHub 저장이 가능합니다.', 'ok');
+    } else {
+      tokStatus.className = 'err'; tokStatus.style.background = '';
+      tokStatus.title = `토큰 오류 (${r.status})`;
+      toast(`토큰 오류: ${r.status} — 토큰을 다시 확인해주세요.`, 'err');
+    }
+  } catch(e) {
+    tokStatus.className = 'err'; tokStatus.style.background = '';
+  }
+}
+
 tokInput.addEventListener('input', () => {
-  localStorage.setItem('noa-tok', tokInput.value.trim());
-  tokStatus.className = '';
-  tokStatus.title = '';
+  const v = tokInput.value.trim();
+  localStorage.setItem('noa-tok', v);
+  tokStatus.className = ''; tokStatus.style.background = '';
+  clearTimeout(tokVerifyTimer);
+  if (v.length > 10) tokVerifyTimer = setTimeout(() => verifyToken(v), 900);
 });
+
+// 페이지 로드 시 기존 토큰 자동 검증
+if (tokInput.value.trim().length > 10) verifyToken(tokInput.value.trim());
 
 // ─── GitHub API ──────────────────────────────────────────────────────────────
 async function ghGet(path) {
