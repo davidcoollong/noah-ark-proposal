@@ -23,541 +23,7 @@
       "preparedBy": "노아&아크 캐릭터사업팀",
       "date": "2026.06",
       "heroImg": "hero-pposong-poby.png",
-      "products": [
-        {
-          "id": "PRD-001",
-          "cat": "에코백 · 장바구니",
-          "catEn": "ECO BAG",
-          "catGroup": "bag",
-          "name": "뽀로로 극장판 접힘 장바구니",
-          "en": "PPOSONG Folding Shopping Bag",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "내 어깨 위에 올려놓은 무지개빛깔 굿즈물, 뽀송뽀티패티 장바구니",
-          "img": "bag-shopping.jpg",
-          "thumbnail": "bag-shopping-thumb.png",
-          "feats": [
-            "가벼운 폴리에스터",
-            "접힘 수납 가능",
-            "선명한 캐릭터 패턴"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 장바구니"
-            ],
-            [
-              "사이즈",
-              "32cm x 45cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 4500
-        },
-        {
-          "id": "PRD-002",
-          "cat": "토트백 · 미니백",
-          "catEn": "MINI BAG",
-          "catGroup": "bag",
-          "name": "뽀송 뽀티패티 보아털 미니백",
-          "en": "PPOSONG Boa Fleece Mini Tote",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "나 손만의 작지만 정감 넘치는 뽀송뽀티패티 미니백",
-          "img": "bag-mini.jpg",
-          "thumbnail": "bag-mini-thumb.png",
-          "feats": [
-            "알록달록 보아털 스냅",
-            "뽀송뽀송 부드러운 텍스처",
-            "아기자기한 캐릭터 자수"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 보아털 미니백"
-            ],
-            [
-              "사이즈",
-              "25cm x 20cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 12000
-        },
-        {
-          "id": "PRD-003",
-          "cat": "키링 · 인형",
-          "catEn": "PLUSH KEYRING",
-          "catGroup": "keyring",
-          "name": "뽀송 뽀티패티 목욕 봉제 키링",
-          "en": "PPOSONG Bath Plush Keyring",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "내 가방 어딘가에 달고 싶은 뽀송뽀티패티 봉제 키링",
-          "img": "keyring-bath.jpg",
-          "thumbnail": "keyring-bath-thumb.png",
-          "feats": [
-            "부드러운 소재",
-            "변형 가능한 귀여운 디자인",
-            "아기자기한 키체인"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 목욕 봉제 키링"
-            ],
-            [
-              "사이즈",
-              "패티 10.5x11.4cm / 포비 13.5x11.4cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 8000
-        },
-        {
-          "id": "PRD-004",
-          "cat": "리빙 · 침구",
-          "catEn": "SLEEP MASK",
-          "catGroup": "living",
-          "name": "뽀송 뽀티패티 수면 안대",
-          "en": "PPOSONG Sleep Eye Mask",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "나만의 아늑한 공간을 만들어주는 뽀송뽀티패티 수면안대",
-          "img": "eyemask.jpg",
-          "thumbnail": "eyemask-thumb.jpg",
-          "feats": [
-            "탄력있는 플러버",
-            "뽀송뽀송 부드러운 텍스처",
-            "아기자기한 캐릭터 자수"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 수면 안대"
-            ],
-            [
-              "사이즈",
-              "포비 22x11.5cm / 패티 22x8.5cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 6000
-        },
-        {
-          "id": "PRD-005",
-          "cat": "키링 · 액세서리",
-          "catEn": "MOVING KEYRING",
-          "catGroup": "keyring",
-          "name": "뽀로로 극장판 스노우볼 무빙 키링",
-          "en": "Pororo Snow Globe Moving Keyring",
-          "brand": "뽀로로 극장판",
-          "tag": "반짝이는 설레임을 담은 뽀로로 극장판 스노우볼 키링",
-          "img": "keyring-moving.jpg",
-          "thumbnail": "keyring-moving-thumb.png",
-          "feats": [
-            "반짝이는 글리터",
-            "앙증맞은 주인공",
-            "스노우볼 귀여운 디자인"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 무빙 키링"
-            ],
-            [
-              "사이즈",
-              "7cm x 8cm"
-            ],
-            [
-              "재질",
-              "아크릴"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 5000
-        },
-        {
-          "id": "PRD-006",
-          "cat": "키링 · 파우치",
-          "catEn": "POUCH KEYRING",
-          "catGroup": "keyring",
-          "name": "뽀로로 극장판 파우치 키링",
-          "en": "Pororo Pouch Keyring",
-          "brand": "뽀로로 극장판",
-          "tag": "보기만 해도 다 물고 싶어지는 뽀로로 친구들 파우치 키링",
-          "img": "keyring-pouch.jpg",
-          "thumbnail": "keyring-pouch-thumb.png",
-          "feats": [
-            "달콤한 캔디수납",
-            "입체적인 봉제",
-            "친절한 봉 배킹"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 파우치 키링"
-            ],
-            [
-              "사이즈",
-              "5.8cm x 17cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르, PVC"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 4000
-        },
-        {
-          "id": "PRD-007",
-          "cat": "파우치 · 소품백",
-          "catEn": "POUCH",
-          "catGroup": "bag",
-          "name": "뽀송 뽀티패티 보아털 파우치",
-          "en": "PPOSONG Boa Fleece Pouch",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "가방 속 복잡한 일상을 다채롭게 만들어주는 뽀송 파우치",
-          "img": "pouch.jpg",
-          "thumbnail": "pouch-thumb.png",
-          "feats": [
-            "선명한 색상",
-            "부드러운 보아털",
-            "아기자기한 캐릭터 자수"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 보아털 파우치"
-            ],
-            [
-              "사이즈",
-              "20cm x 14cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 9000
-        },
-        {
-          "id": "PRD-008",
-          "cat": "리빙 · 타월",
-          "catEn": "BEACH TOWEL",
-          "catGroup": "living",
-          "name": "뽀송 뽀티패티 빅 비치타월",
-          "en": "PPOSONG Big Beach Towel",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "온몸을 다채우는 다감한 감촉 뽀송뽀티패티 비치타올",
-          "img": "towel-big.jpg",
-          "thumbnail": "towel-big-thumb.png",
-          "feats": [
-            "선명한 프린트",
-            "뽀송한 텍스처",
-            "슈퍼 이중 나이테"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 빅 타올"
-            ],
-            [
-              "사이즈",
-              "70cm x 140cm"
-            ],
-            [
-              "재질",
-              "면 100%"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 11000
-        },
-        {
-          "id": "PRD-009",
-          "cat": "의류 · 패션",
-          "catEn": "PAJAMA SET",
-          "catGroup": "apparel",
-          "name": "뽀송 뽀티패티 파자마 세트",
-          "en": "PPOSONG Pajama Set",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "폭신폭신 보아소재로 달콤한 수면을 선물하는 뽀송 파자마",
-          "img": "pajama.jpg",
-          "thumbnail": "pajama-thumb.png",
-          "feats": [
-            "보들한 마이크로원단",
-            "완만한 허리밴드",
-            "아기자기한 캐릭터 자수"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 파자마 세트"
-            ],
-            [
-              "사이즈",
-              "상의 46x57cm / 하의 37x63cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 50,
-          "price": 22000
-        },
-        {
-          "id": "PRD-010",
-          "cat": "패션 · 액세서리",
-          "catEn": "PATCH",
-          "catGroup": "apparel",
-          "name": "뽀송 뽀티패티 캐릭터 패치 (겨울)",
-          "en": "PPOSONG Character Patch Winter",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치 대",
-          "img": "patch-winter.jpg",
-          "thumbnail": "patch-winter-thumb.jpg",
-          "feats": [
-            "선명한 색상",
-            "보송보송 부드러운 입감",
-            ""
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 캐릭터 패치 대"
-            ],
-            [
-              "사이즈",
-              "13x8cm / 8x7cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 5500
-        },
-        {
-          "id": "PRD-011",
-          "cat": "리빙 · 홈데코",
-          "catEn": "MUG CUP",
-          "catGroup": "living",
-          "name": "뽀로로 극장판 머그컵",
-          "en": "Pororo Character Mug Cup",
-          "brand": "뽀로로 극장판",
-          "tag": "파릇파릇 피어나고 포근한 감촉 뽀로로&루피 머그컵",
-          "img": "mug.jpg",
-          "thumbnail": "mug-thumb.jpg",
-          "feats": [
-            "부드러운 소재",
-            "귀여운 캐릭터 접합",
-            "튼튼한 볼륨감"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 머그컵"
-            ],
-            [
-              "사이즈",
-              "65mm x 7.4cm"
-            ],
-            [
-              "재질",
-              "도자기"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 7000
-        },
-        {
-          "id": "PRD-012",
-          "cat": "리빙 · 쿠션",
-          "catEn": "CUSHION",
-          "catGroup": "living",
-          "name": "뽀로로 극장판 쿠션",
-          "en": "Pororo Big Face Cushion",
-          "brand": "뽀로로 극장판",
-          "tag": "보기만 해도 기분 좋아지는 뽀~로~로~ 뽀로로 쿠션",
-          "img": "cushion.jpg",
-          "thumbnail": "cushion-thumb.jpg",
-          "feats": [
-            "부드러운 소재",
-            "귀여운 뽀로로 얼굴",
-            "포근한 볼륨감"
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 쿠션"
-            ],
-            [
-              "사이즈",
-              "38cm x 40cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 50,
-          "price": 18000
-        },
-        {
-          "id": "PRD-013",
-          "cat": "패션 · 액세서리",
-          "catEn": "PATCH",
-          "catGroup": "apparel",
-          "name": "뽀송 뽀티패티 캐릭터 패치 (기본)",
-          "en": "PPOSONG Character Patch Basic",
-          "brand": "PPOSONG POBY&PETTY",
-          "tag": "찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치",
-          "img": "patch-basic.jpg",
-          "thumbnail": "patch-basic-thumb.jpg",
-          "feats": [
-            "선명한 색상",
-            "보송보송 부드러운 입감",
-            ""
-          ],
-          "specs": [
-            [
-              "제품명",
-              "뽀로로 극장판 캐릭터 패치"
-            ],
-            [
-              "사이즈",
-              "10x14cm / 8x6cm"
-            ],
-            [
-              "재질",
-              "폴리에스테르"
-            ],
-            [
-              "제조국",
-              "중국"
-            ],
-            [
-              "수입자",
-              "(주)노아코퍼레이션"
-            ]
-          ],
-          "moq": 100,
-          "price": 4500
-        }
-      ],
+      "slug": "pororo",
       "socialProof": {
         "title": "2025 극장판 뽀로로 '뽀송포비'로 대박나다!",
         "desc": "극장판 뽀로로에 등장하는 목욕 직후의 '포비'와 '패티'가 부숭숭한 모습으로 등장해, 2025년 12월 롯데 잠실본점 팝업스토어에서 엄청난 인기를 끌었다.",
@@ -575,32 +41,28 @@
         "heroImg": "hero-pposong-poby.png",
         "popupPlace": "롯데 잠실본점 팝업스토어",
         "instagramHandle": "noa.ark_"
-      }
-    },
-    {
-      "id": "ip_1780893272754",
-      "name": "고양이와스프",
-      "licensor": "네오위즈",
-      "heroTitle": "고양이와스프\n캐릭터굿즈 제안서",
-      "heroSub": "고양이와스프 IP를 활용한 프리미엄 캐릭터 굿즈 제안서입니다.",
-      "preparedBy": "노아&아크 캐릭터사업팀",
-      "date": "2026.06",
-      "heroImg": "",
+      },
       "products": [
         {
-          "id": "PRD-001",
-          "cat": "",
-          "catEn": "",
-          "catGroup": "bag",
-          "name": "",
-          "en": "",
+          "id": "POR-001",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "뽀로로 극장판 쿠션",
+          "en": "뽀로로 극장판 쿠션",
           "brand": "",
           "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_132/1770965663121Gw36d_PNG/84454921481206578_142686074.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_132/1770965663121Gw36d_PNG/84454921481206578_142686074.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_132/1770965663121Gw36d_PNG/84454921481206578_142686074.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
           "feats": [],
           "specs": [
             [
               "제품명",
-              ""
+              "뽀로로 극장판 쿠션"
             ],
             [
               "사이즈",
@@ -612,16 +74,2018 @@
             ],
             [
               "제조국",
-              ""
+              "중국"
             ],
             [
               "수입자",
-              ""
+              "(주)노아코퍼레이션"
             ]
           ],
-          "moq": 0,
-          "price": 0,
-          "thumbnail": "local:ip_1780893272754_PRD-001_thumb"
+          "moq": 100,
+          "price": 38000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110762876"
+        },
+        {
+          "id": "POR-002",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "뽀로로 극장판 머그컵",
+          "en": "뽀로로 극장판 머그컵",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_19/1770965185367geXPV_PNG/20773432157825996_388684041.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_19/1770965185367geXPV_PNG/20773432157825996_388684041.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_19/1770965185367geXPV_PNG/20773432157825996_388684041.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 머그컵"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 15000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110721113"
+        },
+        {
+          "id": "POR-003",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "뽀로로 극장판 무빙키링",
+          "en": "뽀로로 극장판 무빙키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_223/1770964691763yz1cm_PNG/105097464016480359_154337280.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_223/1770964691763yz1cm_PNG/105097464016480359_154337280.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_223/1770964691763yz1cm_PNG/105097464016480359_154337280.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 무빙키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 9000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110685653"
+        },
+        {
+          "id": "POR-004",
+          "cat": "가방·파우치",
+          "catEn": "BAG",
+          "catGroup": "bag",
+          "name": "뽀로로 극장판 미니백",
+          "en": "뽀로로 극장판 미니백",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_63/1770964107250w4MFm_PNG/123029894216660449_1952911851.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_63/1770964107250w4MFm_PNG/123029894216660449_1952911851.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_63/1770964107250w4MFm_PNG/123029894216660449_1952911851.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 미니백"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 19000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110640198"
+        },
+        {
+          "id": "POR-005",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "뽀로로 극장판 빅타올",
+          "en": "뽀로로 극장판 빅타올",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_14/17709634851132Igqn_PNG/123029272065782596_655765704.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_14/17709634851132Igqn_PNG/123029272065782596_655765704.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_14/17709634851132Igqn_PNG/123029272065782596_655765704.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 빅타올"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 38000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110601198"
+        },
+        {
+          "id": "POR-006",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "뽀로로 극장판 수면안대",
+          "en": "뽀로로 극장판 수면안대",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_92/1770963028309N1Ojn_PNG/43783082440473721_2041245709.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_92/1770963028309N1Ojn_PNG/43783082440473721_2041245709.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_92/1770963028309N1Ojn_PNG/43783082440473721_2041245709.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 수면안대"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 15000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110566743"
+        },
+        {
+          "id": "POR-007",
+          "cat": "가방·파우치",
+          "catEn": "BAG",
+          "catGroup": "bag",
+          "name": "뽀로로 극장판 장바구니",
+          "en": "뽀로로 극장판 장바구니",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_171/1770962206450qbAGE_PNG/105094998526090378_1482886442.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_171/1770962206450qbAGE_PNG/105094998526090378_1482886442.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_171/1770962206450qbAGE_PNG/105094998526090378_1482886442.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 장바구니"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 10000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110536978"
+        },
+        {
+          "id": "POR-008",
+          "cat": "가방·파우치",
+          "catEn": "BAG",
+          "catGroup": "bag",
+          "name": "뽀로로 극장판 파우치키링",
+          "en": "뽀로로 극장판 파우치키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_112/1770961821699UyXFX_PNG/105094642809702409_1271024047.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_112/1770961821699UyXFX_PNG/105094642809702409_1271024047.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_112/1770961821699UyXFX_PNG/105094642809702409_1271024047.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 파우치키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 9000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110476708"
+        },
+        {
+          "id": "POR-009",
+          "cat": "의류·패션",
+          "catEn": "APPAREL",
+          "catGroup": "apparel",
+          "name": "뽀로로 극장판 캐릭터패치",
+          "en": "뽀로로 극장판 캐릭터패치",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_210/1770961425169X4LAa_PNG/55333842283692781_628459905.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_210/1770961425169X4LAa_PNG/55333842283692781_628459905.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_210/1770961425169X4LAa_PNG/55333842283692781_628459905.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 캐릭터패치"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 7000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110433332"
+        },
+        {
+          "id": "POR-010",
+          "cat": "의류·패션",
+          "catEn": "APPAREL",
+          "catGroup": "apparel",
+          "name": "뽀로로 극장판 캐릭터패치",
+          "en": "뽀로로 극장판 캐릭터패치",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_250/1770956374869wwRdF_PNG/23669257997374568_1381447326.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_250/1770956374869wwRdF_PNG/23669257997374568_1381447326.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_250/1770956374869wwRdF_PNG/23669257997374568_1381447326.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 캐릭터패치"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 7000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13110006136"
+        },
+        {
+          "id": "POR-011",
+          "cat": "의류·패션",
+          "catEn": "APPAREL",
+          "catGroup": "apparel",
+          "name": "뽀로로 극장판 파자마세트",
+          "en": "뽀로로 극장판 파자마세트",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_194/1770955540091vbM8D_PNG/21516313966851306_706637439.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_194/1770955540091vbM8D_PNG/21516313966851306_706637439.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_194/1770955540091vbM8D_PNG/21516313966851306_706637439.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 파자마세트"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 38000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13109969369"
+        },
+        {
+          "id": "POR-012",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "뽀로로 극장판 포비 키링",
+          "en": "뽀로로 극장판 포비 키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_253/1770954167516felOh_PNG/43774221590256606_220901094.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_253/1770954167516felOh_PNG/43774221590256606_220901094.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_253/1770954167516felOh_PNG/43774221590256606_220901094.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 포비 키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 15000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13109900629"
+        },
+        {
+          "id": "POR-013",
+          "cat": "가방·파우치",
+          "catEn": "BAG",
+          "catGroup": "bag",
+          "name": "뽀로로 극장판 파우치",
+          "en": "뽀로로 극장판 파우치",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260213_229/1770949936468BhoRC_PNG/105082757585673096_771339227.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260213_229/1770949936468BhoRC_PNG/105082757585673096_771339227.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260213_229/1770949936468BhoRC_PNG/105082757585673096_771339227.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 파우치"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 17000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13109622638"
+        }
+      ]
+    },
+    {
+      "id": "coraline",
+      "name": "코렐라인",
+      "licensor": "LAIKA / Focus Features",
+      "heroTitle": "코렐라인\n캐릭터굿즈 제안서",
+      "heroSub": "코렐라인 IP를 활용한 프리미엄 캐릭터 굿즈 제안서입니다.",
+      "preparedBy": "노아&아크 캐릭터사업팀",
+      "date": "2026.06",
+      "heroImg": "https://shop-phinf.pstatic.net/20260331_172/17749356687301UVR9_JPEG/20892742528685132_546554789.jpg",
+      "slug": "coraline",
+      "socialProof": {},
+      "products": [
+        {
+          "id": "COR-001",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "코렐라인 DIY 스티커",
+          "en": "코렐라인 DIY 스티커",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_172/17749356687301UVR9_JPEG/20892742528685132_546554789.jpg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_172/17749356687301UVR9_JPEG/20892742528685132_546554789.jpg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_172/17749356687301UVR9_JPEG/20892742528685132_546554789.jpg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 DIY 스티커"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 6000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13331225612"
+        },
+        {
+          "id": "COR-002",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 핀버튼",
+          "en": "코렐라인 핀버튼",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260318_2/1773824338984cQYlr_JPEG/99853824221822251_1526068900.jpg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260318_2/1773824338984cQYlr_JPEG/99853824221822251_1526068900.jpg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260318_2/1773824338984cQYlr_JPEG/99853824221822251_1526068900.jpg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 핀버튼"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 6000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13269191767"
+        },
+        {
+          "id": "COR-003",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 드래곤플라이",
+          "en": "코렐라인 메탈 뱃지 드래곤플라이",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260407_48/1775554012488Y2xPQ_JPEG/17630045408114243_118120344.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260407_48/1775554012488Y2xPQ_JPEG/17630045408114243_118120344.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260407_48/1775554012488Y2xPQ_JPEG/17630045408114243_118120344.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 드래곤플라이"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13366016923"
+        },
+        {
+          "id": "COR-004",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 핑크팰리스",
+          "en": "코렐라인 메탈 뱃지 핑크팰리스",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260407_170/1775553974232mGBE5_JPEG/122272293612341049_1367373647.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260407_170/1775553974232mGBE5_JPEG/122272293612341049_1367373647.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260407_170/1775553974232mGBE5_JPEG/122272293612341049_1367373647.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 핑크팰리스"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13366008644"
+        },
+        {
+          "id": "COR-005",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 장화",
+          "en": "코렐라인 메탈 뱃지 장화",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260401_261/1775014108371WdHXx_JPEG/109146938712708931_2029176378.jpg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260401_261/1775014108371WdHXx_JPEG/109146938712708931_2029176378.jpg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260401_261/1775014108371WdHXx_JPEG/109146938712708931_2029176378.jpg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 장화"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13336214780"
+        },
+        {
+          "id": "COR-006",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 스톤",
+          "en": "코렐라인 메탈 뱃지 스톤",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260401_141/1775013564503Se0V2_JPEG/109146498578713272_323105570.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260401_141/1775013564503Se0V2_JPEG/109146498578713272_323105570.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260401_141/1775013564503Se0V2_JPEG/109146498578713272_323105570.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 스톤"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13336180022"
+        },
+        {
+          "id": "COR-007",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 마우스",
+          "en": "코렐라인 메탈 뱃지 마우스",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260401_13/1775012217036urD2y_JPEG/29704730052454596_1852259834.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260401_13/1775012217036urD2y_JPEG/29704730052454596_1852259834.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260401_13/1775012217036urD2y_JPEG/29704730052454596_1852259834.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 마우스"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13336176316"
+        },
+        {
+          "id": "COR-008",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 단추",
+          "en": "코렐라인 메탈 뱃지 단추",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260401_34/1775012401393B1xbt_JPEG/25314541483606200_1052988481.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260401_34/1775012401393B1xbt_JPEG/25314541483606200_1052988481.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260401_34/1775012401393B1xbt_JPEG/25314541483606200_1052988481.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 단추"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13336104896"
+        },
+        {
+          "id": "COR-009",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "코렐라인 빅 스티커",
+          "en": "코렐라인 빅 스티커",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_80/1774936972104JcAME_PNG/11502794896069382_1970763991.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_80/1774936972104JcAME_PNG/11502794896069382_1970763991.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_80/1774936972104JcAME_PNG/11502794896069382_1970763991.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 빅 스티커"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13331294439"
+        },
+        {
+          "id": "COR-010",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "코렐라인 3D 입체 캘린더",
+          "en": "코렐라인 3D 입체 캘린더",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260401_35/1775011587617LJirG_JPEG/29644809643382591_310052780.jpg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260401_35/1775011587617LJirG_JPEG/29644809643382591_310052780.jpg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260401_35/1775011587617LJirG_JPEG/29644809643382591_310052780.jpg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 3D 입체 캘린더"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 9000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13336056638"
+        },
+        {
+          "id": "COR-011",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "코렐라인 3D 입체 캘린더",
+          "en": "코렐라인 3D 입체 캘린더",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_157/1774944502410Q5Qzt_PNG/109077351472223835_1534817019.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_157/1774944502410Q5Qzt_PNG/109077351472223835_1534817019.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_157/1774944502410Q5Qzt_PNG/109077351472223835_1534817019.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 3D 입체 캘린더"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 15000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13331774885"
+        },
+        {
+          "id": "COR-012",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "코렐라인 3D 입체 캘린더",
+          "en": "코렐라인 3D 입체 캘린더",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260401_221/1775011094832C98ys_PNG/109143925175812882_532482308.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260401_221/1775011094832C98ys_PNG/109143925175812882_532482308.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260401_221/1775011094832C98ys_PNG/109143925175812882_532482308.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 3D 입체 캘린더"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 22000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13336027341"
+        },
+        {
+          "id": "COR-013",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "코렐라인 메탈키링 3종",
+          "en": "코렐라인 메탈키링 3종",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_176/1774938590927eD65I_PNG/99424758870767902_1488898170.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_176/1774938590927eD65I_PNG/99424758870767902_1488898170.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_176/1774938590927eD65I_PNG/99424758870767902_1488898170.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈키링 3종"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 25000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13331358044"
+        },
+        {
+          "id": "COR-014",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "코렐라인 3D 입체 캘린더",
+          "en": "코렐라인 3D 입체 캘린더",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_245/17749379732933DGS1_PNG/19523949996131709_1916249907.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_245/17749379732933DGS1_PNG/19523949996131709_1916249907.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_245/17749379732933DGS1_PNG/19523949996131709_1916249907.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 3D 입체 캘린더"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 38000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13331443918"
+        },
+        {
+          "id": "COR-015",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 디오라마 피규어 인형과 나",
+          "en": "코렐라인 디오라마 피규어 인형과 나",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_159/1774949785024VLCwU_PNG/29642298011088746_2125607184.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_159/1774949785024VLCwU_PNG/29642298011088746_2125607184.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_159/1774949785024VLCwU_PNG/29642298011088746_2125607184.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 디오라마 피규어 인형과 나"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 40000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13332141604"
+        },
+        {
+          "id": "COR-016",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 디오라마 피규어 터널",
+          "en": "코렐라인 디오라마 피규어 터널",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_140/1774949468452KUWt0_PNG/20906542255626686_141595132.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_140/1774949468452KUWt0_PNG/20906542255626686_141595132.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_140/1774949468452KUWt0_PNG/20906542255626686_141595132.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 디오라마 피규어 터널"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 40000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13332116887"
+        },
+        {
+          "id": "COR-017",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 디오라마 피규어 인형과 나",
+          "en": "코렐라인 디오라마 피규어 인형과 나",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_236/1774936588060PfKlv_PNG/64817951976471654_1194639167.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_236/1774936588060PfKlv_PNG/64817951976471654_1194639167.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_236/1774936588060PfKlv_PNG/64817951976471654_1194639167.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 디오라마 피규어 인형과 나"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 40000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13331269263"
+        },
+        {
+          "id": "COR-018",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "코렐라인 피규어 키링",
+          "en": "코렐라인 피규어 키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260331_241/1774938507968ayO5M_PNG/29571729994111856_501267873.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260331_241/1774938507968ayO5M_PNG/29571729994111856_501267873.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260331_241/1774938507968ayO5M_PNG/29571729994111856_501267873.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 피규어 키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 45000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13269143049"
+        },
+        {
+          "id": "COR-019",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "코렐라인 블랭킷",
+          "en": "코렐라인 블랭킷",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260318_273/1773820222045nxN33_PNG/17619579039189547_2075513905.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260318_273/1773820222045nxN33_PNG/17619579039189547_2075513905.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260318_273/1773820222045nxN33_PNG/17619579039189547_2075513905.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 블랭킷"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 45000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13268951654"
+        },
+        {
+          "id": "COR-020",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "코렐라인 메탈 뱃지 장화",
+          "en": "코렐라인 메탈 뱃지 장화",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260407_50/1775554149213tlq3t_JPEG/55591620274646838_719507368.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260407_50/1775554149213tlq3t_JPEG/55591620274646838_719507368.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260407_50/1775554149213tlq3t_JPEG/55591620274646838_719507368.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "코렐라인 메탈 뱃지 장화"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 48000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13366032772"
+        }
+      ]
+    },
+    {
+      "id": "catandsoup",
+      "name": "고양이와 스프",
+      "licensor": "넥스트페이지",
+      "heroTitle": "고양이와 스프\n캐릭터굿즈 제안서",
+      "heroSub": "고양이와 스프 IP를 활용한 프리미엄 캐릭터 굿즈 제안서입니다.",
+      "preparedBy": "노아&아크 캐릭터사업팀",
+      "date": "2026.06",
+      "heroImg": "https://shop-phinf.pstatic.net/20260423_217/1776919080668QW6N2_PNG/53897817651611724_1635603953.png",
+      "slug": "catandsoup",
+      "socialProof": {},
+      "products": [
+        {
+          "id": "CAT-001",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "고양이와스프 아크릴 키링",
+          "en": "고양이와스프 아크릴 키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260423_217/1776919080668QW6N2_PNG/53897817651611724_1635603953.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260423_217/1776919080668QW6N2_PNG/53897817651611724_1635603953.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260423_217/1776919080668QW6N2_PNG/53897817651611724_1635603953.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 아크릴 키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 3000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13441741132"
+        },
+        {
+          "id": "CAT-002",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "고양이와스프 스티커",
+          "en": "고양이와스프 스티커",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260422_204/1776825593000Q08hi_PNG/10722615925497855_1238137820.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260422_204/1776825593000Q08hi_PNG/10722615925497855_1238137820.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260422_204/1776825593000Q08hi_PNG/10722615925497855_1238137820.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 스티커"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 3000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13436085429"
+        },
+        {
+          "id": "CAT-003",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "고양이와스프 스티커",
+          "en": "고양이와스프 스티커",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260422_159/1776828716165hp5Jl_PNG/110961568231357632_1031658676.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260422_159/1776828716165hp5Jl_PNG/110961568231357632_1031658676.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260422_159/1776828716165hp5Jl_PNG/110961568231357632_1031658676.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 스티커"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 3500,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13436204920"
+        },
+        {
+          "id": "CAT-004",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "고양이와스프 스티커",
+          "en": "고양이와스프 스티커",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260422_102/1776838624745slEqh_PNG/53817361675331676_136993072.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260422_102/1776838624745slEqh_PNG/53817361675331676_136993072.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260422_102/1776838624745slEqh_PNG/53817361675331676_136993072.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 스티커"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 4000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13436884661"
+        },
+        {
+          "id": "CAT-005",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "고양이와스프 스티키 노트",
+          "en": "고양이와스프 스티키 노트",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260414_98/1776159304317q5HiJ_PNG/110292238400911156_2015331800.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260414_98/1776159304317q5HiJ_PNG/110292238400911156_2015331800.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260414_98/1776159304317q5HiJ_PNG/110292238400911156_2015331800.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 스티키 노트"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 4000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13398737418"
+        },
+        {
+          "id": "CAT-006",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "고양이와스프 대노트",
+          "en": "고양이와스프 대노트",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260414_268/1776153037526itKUG_PNG/59768412509109467_163057219.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260414_268/1776153037526itKUG_PNG/59768412509109467_163057219.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260414_268/1776153037526itKUG_PNG/59768412509109467_163057219.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 대노트"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 5000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13398273933"
+        },
+        {
+          "id": "CAT-007",
+          "cat": "문구·팬시",
+          "catEn": "STATIONERY",
+          "catGroup": "stationery",
+          "name": "고양이와스프 대노트",
+          "en": "고양이와스프 대노트",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260414_61/17761351288989klBn_PNG/110268062983471306_112880902.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260414_61/17761351288989klBn_PNG/110268062983471306_112880902.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260414_61/17761351288989klBn_PNG/110268062983471306_112880902.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 대노트"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 6000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13397127312"
+        },
+        {
+          "id": "CAT-008",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "고양이와스프 실리콘 키링",
+          "en": "고양이와스프 실리콘 키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260420_11/1776678884003IWwdd_PNG/1718104962964653_1973086940.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260420_11/1776678884003IWwdd_PNG/1718104962964653_1973086940.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260420_11/1776678884003IWwdd_PNG/1718104962964653_1973086940.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 실리콘 키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 10000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13427060081"
+        },
+        {
+          "id": "CAT-009",
+          "cat": "리빙·홈데코",
+          "catEn": "LIVING",
+          "catGroup": "living",
+          "name": "고양이와 스프 마그넷",
+          "en": "고양이와 스프 마그넷",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260420_84/1776668546241cIHlt_JPEG/34151566009944080_1220337772.jpeg",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260420_84/1776668546241cIHlt_JPEG/34151566009944080_1220337772.jpeg",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260420_84/1776668546241cIHlt_JPEG/34151566009944080_1220337772.jpeg",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와 스프 마그넷"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 10000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13426485247"
+        },
+        {
+          "id": "CAT-010",
+          "cat": "가방·파우치",
+          "catEn": "BAG",
+          "catGroup": "bag",
+          "name": "고양이와스프 에코백",
+          "en": "고양이와스프 에코백",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260421_71/177676568550604LqT_PNG/26335897904213798_202928924.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260421_71/177676568550604LqT_PNG/26335897904213798_202928924.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260421_71/177676568550604LqT_PNG/26335897904213798_202928924.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 에코백"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 14000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13432482391"
+        },
+        {
+          "id": "CAT-011",
+          "cat": "의류·패션",
+          "catEn": "APPAREL",
+          "catGroup": "apparel",
+          "name": "고양이와스프 티셔츠",
+          "en": "고양이와스프 티셔츠",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260423_155/1776915354877HGndI_PNG/48882844862803368_1689884712.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260423_155/1776915354877HGndI_PNG/48882844862803368_1689884712.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260423_155/1776915354877HGndI_PNG/48882844862803368_1689884712.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 티셔츠"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 19000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13441430839"
+        },
+        {
+          "id": "CAT-012",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "고양이와스프 피규어",
+          "en": "고양이와스프 피규어",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260422_171/1776849942667bFoOP_PNG/677921783134442_1030097135.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260422_171/1776849942667bFoOP_PNG/677921783134442_1030097135.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260422_171/1776849942667bFoOP_PNG/677921783134442_1030097135.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 피규어"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 19000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13437704525"
+        },
+        {
+          "id": "CAT-013",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "고양이와스프 입욕제",
+          "en": "고양이와스프 입욕제",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260420_56/1776663887887O1TYN_PNG/34146907655152556_1392936037.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260420_56/1776663887887O1TYN_PNG/34146907655152556_1392936037.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260420_56/1776663887887O1TYN_PNG/34146907655152556_1392936037.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 입욕제"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 19000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13426128166"
+        },
+        {
+          "id": "CAT-014",
+          "cat": "키링·악세서리",
+          "catEn": "KEYRING",
+          "catGroup": "keyring",
+          "name": "고양이와스프 실리콘 키링",
+          "en": "고양이와스프 실리콘 키링",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260421_194/1776764840178Kt1UU_PNG/110897692256261940_629734219.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260421_194/1776764840178Kt1UU_PNG/110897692256261940_629734219.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260421_194/1776764840178Kt1UU_PNG/110897692256261940_629734219.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 실리콘 키링"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 25000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13432455490"
+        },
+        {
+          "id": "CAT-015",
+          "cat": "기타",
+          "catEn": "ETC",
+          "catGroup": "etc",
+          "name": "고양이와스프 피규어",
+          "en": "고양이와스프 피규어",
+          "brand": "",
+          "tag": "",
+          "img": "https://shop-phinf.pstatic.net/20260422_42/1776824145742D0O7a_PNG/32806862829482205_983379227.png",
+          "thumbnail": "https://shop-phinf.pstatic.net/20260422_42/1776824145742D0O7a_PNG/32806862829482205_983379227.png",
+          "thumbs": [
+            "https://shop-phinf.pstatic.net/20260422_42/1776824145742D0O7a_PNG/32806862829482205_983379227.png",
+            "https://shop-phinf.pstatic.net/20260213_281/1770967751091WmeIs_JPEG/20940104171985162_1203163782.jpg"
+          ],
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              "고양이와스프 피규어"
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 30000,
+          "storeUrl": "https://smartstore.naver.com/noacorp1/products/13435865082"
         }
       ]
     }
