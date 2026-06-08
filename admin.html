@@ -1301,7 +1301,8 @@
 const GH_OWNER = 'davidcoollong';
 const GH_REPO  = 'noah-ark-proposal';
 const GH_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/`;
-const GH_RAW   = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/`;
+// GitHub Pages URL 사용 (raw.githubusercontent.com은 CDN 캐시 5분 지연 문제)
+const GH_RAW   = `https://${GH_OWNER}.github.io/${GH_REPO}/`;
 const IMG_BASE  = `https://${GH_OWNER}.github.io/${GH_REPO}/images/`;
 const SPEC_KEYS = ['제품명', '사이즈', '재질', '제조국', '수입자'];
 const CAT_LABELS = {
