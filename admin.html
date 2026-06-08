@@ -1326,7 +1326,8 @@ async function saveDataJson() {
     const b64 = btoa(unescape(encodeURIComponent(content)));
     const sha = await getSHA('data.json');
     await ghPut('data.json', b64, 'Update data.json via admin', sha);
-    toast('GitHub에 저장되었습니다!', 'ok');
+    autosave(); // GitHub 저장 후 localStorage도 동기화
+    toast('GitHub에 저장되었습니다! 약 30~60초 후 제안서에 반영됩니다.', 'ok');
     tokStatus.className = 'ok';
   } catch (e) {
     toast('저장 실패: ' + e.message, 'err', 6000);
