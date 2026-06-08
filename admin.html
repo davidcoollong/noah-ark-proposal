@@ -1512,7 +1512,7 @@ async function saveDataJson() {
 <style>body{margin:0;background:#0a0a0a;color:#888;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;font-size:14px}</style>
 </head>
 <body>이동 중...</body>
-<script>window.location.replace('${BASE_URL}/proposal-full.html?ip=${ip.id}')</script>
+<script>window.location.replace('${BASE_URL}/proposal-full.html?ip=${ip.id}')<\/script>
 </html>`;
       const rB64 = btoa(unescape(encodeURIComponent(redirectHtml)));
       const rSha = await getSHA(`${ip.slug}/index.html`);
