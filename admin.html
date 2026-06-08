@@ -950,13 +950,55 @@
           <input type="text" id="p-id" placeholder="PRD-001">
         </div>
         <div class="pf">
-          <label>카테고리 그룹</label>
-          <select id="p-catGroup">
-            <option value="bag">bag — 에코백</option>
-            <option value="keyring">keyring — 키링</option>
-            <option value="living">living — 리빙</option>
-            <option value="apparel">apparel — 어패럴</option>
+          <label>카테고리 그룹 <span style="color:var(--text3);font-weight:400">(탭 필터링용)</span></label>
+          <select id="p-catGroup" onchange="onCatGroupChange(this)">
+            <option value="">-- 선택 --</option>
+            <optgroup label="패션·악세서리">
+              <option value="apparel">의류·패션</option>
+              <option value="bag">가방·파우치</option>
+              <option value="keyring">키링·악세서리</option>
+              <option value="shoes">신발·슈즈</option>
+              <option value="hat">모자·헤어</option>
+              <option value="jewelry">쥬얼리·패션주얼리</option>
+            </optgroup>
+            <optgroup label="리빙·인테리어">
+              <option value="living">리빙·홈데코</option>
+              <option value="kitchen">주방·식기</option>
+              <option value="bedding">침구·인테리어</option>
+              <option value="furniture">가구·수납</option>
+              <option value="bathroom">욕실·청소</option>
+            </optgroup>
+            <optgroup label="식품·음료">
+              <option value="food">식품·음료</option>
+              <option value="snack">과자·간식</option>
+              <option value="beverage">음료·차</option>
+            </optgroup>
+            <optgroup label="문구·취미">
+              <option value="stationery">문구·팬시</option>
+              <option value="toy">완구·인형</option>
+              <option value="game">게임·취미</option>
+              <option value="book">도서·음반</option>
+            </optgroup>
+            <optgroup label="뷰티·헬스">
+              <option value="beauty">뷰티·화장품</option>
+              <option value="health">건강·의료</option>
+              <option value="sports">스포츠·아웃도어</option>
+            </optgroup>
+            <optgroup label="전자·디지털">
+              <option value="electronics">전자·디지털</option>
+              <option value="mobile">모바일·액세서리</option>
+            </optgroup>
+            <optgroup label="기타">
+              <option value="pet">반려동물</option>
+              <option value="baby">유아·아동</option>
+              <option value="travel">여행·레저</option>
+              <option value="etc">기타</option>
+              <option value="__custom__">✏️ 직접입력...</option>
+            </optgroup>
           </select>
+          <input type="text" id="p-catGroup-custom"
+            placeholder="카테고리 직접 입력 (예: 캐릭터굿즈)"
+            style="display:none;margin-top:6px;width:100%;background:var(--surface3);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:6px;font-family:inherit;font-size:13px;outline:none">
         </div>
       </div>
       <div class="panel-form-row">
@@ -1067,7 +1109,52 @@ const GH_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/`
 const GH_RAW   = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/`;
 const IMG_BASE  = `https://${GH_OWNER}.github.io/${GH_REPO}/images/`;
 const SPEC_KEYS = ['제품명', '사이즈', '재질', '제조국', '수입자'];
-const CAT_LABELS = { bag:'에코백', keyring:'키링', living:'리빙', apparel:'어패럴' };
+const CAT_LABELS = {
+  apparel:'의류·패션', bag:'가방·파우치', keyring:'키링·악세서리',
+  shoes:'신발·슈즈', hat:'모자·헤어', jewelry:'쥬얼리',
+  living:'리빙·홈데코', kitchen:'주방·식기', bedding:'침구·인테리어',
+  furniture:'가구·수납', bathroom:'욕실·청소',
+  food:'식품·음료', snack:'과자·간식', beverage:'음료·차',
+  stationery:'문구·팬시', toy:'완구·인형', game:'게임·취미', book:'도서·음반',
+  beauty:'뷰티·화장품', health:'건강·의료', sports:'스포츠·아웃도어',
+  electronics:'전자·디지털', mobile:'모바일·액세서리',
+  pet:'반려동물', baby:'유아·아동', travel:'여행·레저', etc:'기타',
+};
+
+function onCatGroupChange(sel) {
+  const ci = document.getElementById('p-catGroup-custom');
+  if (sel.value === '__custom__') {
+    ci.style.display = ''; ci.focus();
+  } else {
+    ci.style.display = 'none';
+  }
+}
+
+function getCatGroupValue() {
+  const sel = document.getElementById('p-catGroup');
+  if (sel.value === '__custom__') {
+    const v = document.getElementById('p-catGroup-custom').value.trim();
+    return v || 'etc';
+  }
+  return sel.value || 'etc';
+}
+
+function setCatGroupValue(val) {
+  const sel = document.getElementById('p-catGroup');
+  const ci  = document.getElementById('p-catGroup-custom');
+  const known = Array.from(sel.options).map(o => o.value);
+  if (!val || val === 'etc') {
+    sel.value = val || '';
+    ci.style.display = 'none';
+  } else if (known.includes(val)) {
+    sel.value = val;
+    ci.style.display = 'none';
+  } else {
+    sel.value = '__custom__';
+    ci.style.display = '';
+    ci.value = val;
+  }
+}
 
 // ─── State ────────────────────────────────────────────────────────────────────
 let data = null;
@@ -1499,12 +1586,12 @@ function openProductPanel(pid) {
 
     document.getElementById('p-id').value = newId;
     document.getElementById('p-id').readOnly = false;
-    ['p-catGroup','p-cat','p-catEn','p-name','p-en','p-brand','p-tag',
+    ['p-cat','p-catEn','p-name','p-en','p-brand','p-tag',
      'p-feat0','p-feat1','p-feat2','p-price','p-moq'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.value = '';
     });
-    document.getElementById('p-catGroup').value = 'bag';
+    setCatGroupValue('');
     SPEC_KEYS.forEach((_, i) => { document.getElementById(`p-spec-${i}`).value = ''; });
   } else {
     const p = ip.products.find(x => x.id === pid);
@@ -1512,7 +1599,7 @@ function openProductPanel(pid) {
 
     document.getElementById('p-id').value      = p.id;
     document.getElementById('p-id').readOnly   = true;
-    document.getElementById('p-catGroup').value = p.catGroup || 'bag';
+    setCatGroupValue(p.catGroup || '');
     document.getElementById('p-cat').value      = p.cat || '';
     document.getElementById('p-catEn').value    = p.catEn || '';
     document.getElementById('p-name').value     = p.name || '';
@@ -1624,7 +1711,7 @@ async function saveProduct() {
     p.id       = pid;
     p.cat      = document.getElementById('p-cat').value.trim();
     p.catEn    = document.getElementById('p-catEn').value.trim();
-    p.catGroup = document.getElementById('p-catGroup').value;
+    p.catGroup = getCatGroupValue();
     p.name     = document.getElementById('p-name').value.trim();
     p.en       = document.getElementById('p-en').value.trim();
     p.brand    = document.getElementById('p-brand').value.trim();

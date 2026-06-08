@@ -508,13 +508,20 @@ function resolveImg(src) {
   return IMG + src;
 }
 
-const CAT_GROUPS = [
-  {id:'all',label:'전체'},
-  {id:'bag',label:'백·파우치'},
-  {id:'keyring',label:'키링'},
-  {id:'living',label:'리빙'},
-  {id:'apparel',label:'의류·패션'},
-];
+// 카테고리 라벨 사전 (동적으로 확장 가능 — 사전에 없으면 catGroup 값 그대로 표시)
+const CAT_LABEL_MAP = {
+  all:'전체',
+  apparel:'의류·패션', bag:'가방·파우치', keyring:'키링·악세서리',
+  shoes:'신발·슈즈', hat:'모자·헤어', jewelry:'쥬얼리',
+  living:'리빙·홈데코', kitchen:'주방·식기', bedding:'침구·인테리어',
+  furniture:'가구·수납', bathroom:'욕실·청소',
+  food:'식품·음료', snack:'과자·간식', beverage:'음료·차',
+  stationery:'문구·팬시', toy:'완구·인형', game:'게임·취미', book:'도서·음반',
+  beauty:'뷰티·화장품', health:'건강·의료', sports:'스포츠·아웃도어',
+  electronics:'전자·디지털', mobile:'모바일·악세서리',
+  pet:'반려동물', baby:'유아·아동', travel:'여행·레저', etc:'기타',
+};
+function getCatLabel(id){ return CAT_LABEL_MAP[id] || id; }
 let DATA={}, currentIP=null, currentCat='all';
 
 let P = [];
@@ -612,10 +619,12 @@ function switchIP(ipId){
 
 // ─── Category tabs ────────────────────────────────────
 function buildCatTabs(products){
-  const used=new Set(products.map(p=>p.catGroup));
-  document.getElementById('catTabs').innerHTML=CAT_GROUPS
-    .filter(g=>g.id==='all'||used.has(g.id))
-    .map(g=>`<button class="cat-tab${g.id==='all'?' active':''}" data-cat="${g.id}" onclick="filterCat('${g.id}',this)">${g.label}</button>`)
+  // 실제 사용된 catGroup을 제품 순서 기준으로 중복 제거
+  const seen=new Set(), ordered=[];
+  products.forEach(p=>{ if(p.catGroup&&!seen.has(p.catGroup)){seen.add(p.catGroup);ordered.push(p.catGroup);} });
+  const tabs=['all',...ordered];
+  document.getElementById('catTabs').innerHTML=tabs
+    .map(id=>`<button class="cat-tab${id==='all'?' active':''}" data-cat="${id}" onclick="filterCat('${id}',this)">${getCatLabel(id)}</button>`)
     .join('');
 }
 function filterCat(catId,el){
