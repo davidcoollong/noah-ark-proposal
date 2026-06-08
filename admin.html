@@ -2067,21 +2067,45 @@ function openPreview() {
   window.open(url, '_blank');
 }
 
-// ─── Init ────────────────────────────────────────────────────────────────────
+// ─── Init: localStorage 즉시 표시 + 항상 GitHub 최신 데이터로 갱신 ──────────
 (async function init() {
-  // 1. localStorage 우선 로드 (새로고침 후에도 유지)
+  // 1. localStorage 있으면 즉시 표시 (빠른 초기 렌더)
   const local = lsGetLocalData();
   if (local && local.ips) {
     data = local;
     renderSidebar();
     if (data.ips.length > 0) selectIP(data.ips[0].id);
     document.getElementById('ls-status').textContent =
-      '로컬 저장 데이터 복원됨 · ' + new Date().toLocaleTimeString('ko-KR');
-    toast('이전 작업 내용을 복원했습니다.', 'info');
-    return;
+      '로컬 복원됨 · GitHub 동기화 중…';
   }
-  // 2. localStorage에 없으면 GitHub에서 최초 로드
-  await loadData();
+  // 2. 항상 GitHub에서 최신 데이터 fetch → localStorage 갱신 + 재렌더
+  // (새 IP/제품 추가, 다른 기기에서의 변경 등을 자동 반영)
+  try {
+    const r = await fetch(GH_RAW + 'data.json?v=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const fresh = await r.json();
+    data = fresh;
+    autosave();
+    renderSidebar();
+    // 현재 활성 IP 유지 또는 첫 번째 IP 선택
+    if (activeIPId && data.ips.find(ip => ip.id === activeIPId)) {
+      selectIP(activeIPId);
+    } else if (data.ips.length > 0) {
+      selectIP(data.ips[0].id);
+    }
+    document.getElementById('ls-status').textContent =
+      '최신 데이터 동기화됨 · ' + new Date().toLocaleTimeString('ko-KR');
+    if (!local) toast('GitHub에서 데이터를 불러왔습니다.', 'ok');
+  } catch(e) {
+    if (!local) {
+      // localStorage도 없고 GitHub도 실패한 경우에만 에러 표시
+      data = { company: { name: '노아&아크', nameEn: 'NOAH & ARK', contacts: [] }, ips: [] };
+      renderSidebar();
+      toast('데이터 로드 실패: ' + e.message, 'err', 5000);
+    }
+    document.getElementById('ls-status').textContent =
+      '오프라인 모드 (로컬 데이터 사용 중)';
+  }
 })();
 </script>
 </body>
