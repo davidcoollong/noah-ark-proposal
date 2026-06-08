@@ -671,7 +671,7 @@ body{
 <script>
 const IMG = 'https://davidcoollong.github.io/noah-ark-proposal/images/';
 
-// 로컬 저장 이미지(admin에서 토큰 없이 저장한 이미지) 지원
+// 이미지 소스 해석: local(localStorage), http(외부CDN), 상대경로(GitHub images/)
 function resolveImg(src) {
   if (!src) return '';
   if (src.startsWith('local:')) {
@@ -680,7 +680,8 @@ function resolveImg(src) {
       return imgs[src.slice(6)] || '';
     } catch { return ''; }
   }
-  return IMG + src;
+  if (src.startsWith('http://') || src.startsWith('https://')) return src; // Naver CDN 등 외부URL
+  return IMG + src; // GitHub Pages images/ 폴더
 }
 
 // 카테고리 라벨 사전 (동적으로 확장 가능 — 사전에 없으면 catGroup 값 그대로 표시)
