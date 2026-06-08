@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"$CLAUDE_HOOK_INPUT\" | /Users/air/noah-ark-proposal/scripts/verify-push.sh 2>/dev/null || true",
+            "if": "Bash(git push*)",
+            "timeout": 15,
+            "statusMessage": "GitHub data.json 검증 중…",
+            "async": false
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CMD=$(cat | python3 -c \"import json,sys; print(json.load(sys.stdin).get('tool_input',{}).get('command',''))\" 2>/dev/null); if echo \"$CMD\" | grep -q 'checkout.*--theirs.*data.json\\|checkout.*--ours.*data.json'; then echo '{\"decision\":\"block\",\"reason\":\"data.json에 --theirs/--ours 사용 금지. 충돌 시 반드시 수동 병합하거나 python3로 두 버전을 JSON 병합해야 합니다. (IP 배열을 잃을 수 있음)\"}'; fi",
+            "if": "Bash(git checkout*)",
+            "timeout": 5,
+            "statusMessage": "git 명령 안전 검사 중…"
+          }
+        ]
+      }
+    ]
+  }
+}
