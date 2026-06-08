@@ -884,6 +884,53 @@
                   <input type="text" id="f-heroImg" placeholder="bag-shopping-thumb.png">
                 </div>
               </div>
+
+              <!-- Social Proof 섹션 -->
+              <div style="margin:24px 0 12px;padding-top:20px;border-top:1px solid var(--border)">
+                <div style="font-size:11px;font-weight:700;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">
+                  📣 소셜 프루프 섹션 (카탈로그 상단)
+                </div>
+                <div class="form-row single">
+                  <div class="form-field">
+                    <label>섹션 제목</label>
+                    <input type="text" id="f-sp-title" placeholder="2025 극장판 뽀로로 '뽀송포비'로 대박나다!">
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-field">
+                    <label>부연 설명</label>
+                    <textarea id="f-sp-desc" rows="2" placeholder="극장판 뽀로로에 등장하는 목욕 직후의 '포비'와 '패티'가..."></textarea>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label>조회수 (예: 230만)</label>
+                    <input type="text" id="f-sp-views" placeholder="230만">
+                  </div>
+                  <div class="form-field">
+                    <label>댓글수 (예: 12,000+)</label>
+                    <input type="text" id="f-sp-comments" placeholder="12,000+">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label>팝업 장소 (예: 롯데 잠실본점)</label>
+                    <input type="text" id="f-sp-popup-place" placeholder="롯데 잠실본점">
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-field">
+                    <label>인스타그램 URL</label>
+                    <input type="text" id="f-sp-ig-url" placeholder="https://www.instagram.com/p/xxxxx/">
+                  </div>
+                </div>
+                <div class="form-row single">
+                  <div class="form-field">
+                    <label>인스타그램 영상 임베드 URL <span style="color:var(--text3);font-weight:400">(Reels embed src — 비어있으면 링크만 표시)</span></label>
+                    <input type="text" id="f-sp-ig-embed" placeholder="https://www.instagram.com/p/xxxxx/embed/">
+                  </div>
+                </div>
+              </div>
               <div class="form-row single">
                 <div class="form-field">
                   <label>
@@ -1594,6 +1641,15 @@ function selectIP(id) {
   document.getElementById('f-date').value       = ip.date || '';
   document.getElementById('f-heroImg').value    = ip.heroImg || '';
   document.getElementById('f-slug').value       = ip.slug || '';
+  // Social Proof fields
+  const sp = ip.socialProof || {};
+  document.getElementById('f-sp-title').value       = sp.title || '';
+  document.getElementById('f-sp-desc').value        = sp.desc || '';
+  document.getElementById('f-sp-views').value       = sp.views || '';
+  document.getElementById('f-sp-comments').value    = sp.comments || '';
+  document.getElementById('f-sp-popup-place').value = sp.popupPlace || '';
+  document.getElementById('f-sp-ig-url').value      = sp.instagramUrl || '';
+  document.getElementById('f-sp-ig-embed').value    = sp.instagramEmbedUrl || '';
   updateShareUrl();
 
   document.getElementById('ip-save-status').textContent = '';
@@ -1614,6 +1670,18 @@ function saveIPInfo() {
   ip.date       = document.getElementById('f-date').value.trim();
   ip.heroImg    = document.getElementById('f-heroImg').value.trim();
   ip.slug       = document.getElementById('f-slug').value.trim().toLowerCase().replace(/[^a-z0-9-]/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+  // Social Proof
+  ip.socialProof = {
+    title:            document.getElementById('f-sp-title').value.trim(),
+    desc:             document.getElementById('f-sp-desc').value.trim(),
+    views:            document.getElementById('f-sp-views').value.trim(),
+    comments:         document.getElementById('f-sp-comments').value.trim(),
+    popupPlace:       document.getElementById('f-sp-popup-place').value.trim(),
+    instagramUrl:     document.getElementById('f-sp-ig-url').value.trim(),
+    instagramEmbedUrl:document.getElementById('f-sp-ig-embed').value.trim(),
+    popupPhotos:      ip.socialProof?.popupPhotos || [],
+    heroImg:          ip.socialProof?.heroImg || '',
+  };
   updateShareUrl();
 
   autosave();

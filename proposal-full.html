@@ -310,6 +310,88 @@ body{
   border-radius:var(--r-pill);padding:5px 12px;font-size:12px;color:var(--body-strong);font-weight:500;
 }
 
+/* ── SOCIAL PROOF SECTION ── */
+.social-proof{
+  background:var(--surface-soft);border-bottom:1px solid var(--hairline);
+  padding:80px 80px 72px;
+}
+.sp-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.sp-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--yellow)}
+.sp-title{
+  font-size:clamp(28px,3.5vw,48px);font-weight:900;
+  color:var(--ink);line-height:1.15;letter-spacing:-1.5px;margin-bottom:14px;
+}
+.sp-title em{color:var(--yellow);font-style:normal}
+.sp-desc{font-size:16px;color:var(--muted);line-height:1.75;max-width:640px;margin-bottom:52px}
+
+.sp-stats{
+  display:flex;gap:0;margin-bottom:52px;
+  border:1px solid var(--hairline);border-radius:var(--r-lg);overflow:hidden;width:fit-content;
+}
+.sp-stat{
+  padding:20px 36px;border-right:1px solid var(--hairline);
+  display:flex;flex-direction:column;gap:4px;
+}
+.sp-stat:last-child{border-right:none}
+.sp-stat-num{
+  font-size:clamp(28px,3vw,42px);font-weight:800;color:var(--yellow);
+  letter-spacing:-1.5px;line-height:1;
+}
+.sp-stat-label{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+
+.sp-content{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
+.sp-photos{display:flex;flex-direction:column;gap:12px}
+.sp-photos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sp-photo{
+  aspect-ratio:1;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--surface-card);border:1px solid var(--hairline);
+}
+.sp-photo img{width:100%;height:100%;object-fit:cover}
+.sp-photo-main{
+  width:100%;aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--surface-card);border:1px solid var(--hairline);margin-bottom:8px;
+}
+.sp-photo-main img{width:100%;height:100%;object-fit:cover}
+
+.sp-ig-panel{
+  background:var(--surface-card);border:1px solid var(--hairline);
+  border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;
+}
+.sp-ig-header{
+  padding:16px 20px;border-bottom:1px solid var(--hairline);
+  display:flex;align-items:center;gap:10px;
+}
+.sp-ig-icon{
+  width:28px;height:28px;border-radius:8px;
+  background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.sp-ig-title{font-size:13px;font-weight:700;color:var(--ink)}
+.sp-ig-sub{font-size:11px;color:var(--muted);margin-left:auto}
+.sp-ig-embed{flex:1;min-height:300px;display:flex;align-items:center;justify-content:center}
+.sp-ig-embed iframe{width:100%;border:none;min-height:480px}
+.sp-ig-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:40px;text-align:center;
+}
+.sp-ig-placeholder-icon{font-size:40px;opacity:.3}
+.sp-ig-placeholder-text{font-size:13px;color:var(--muted);line-height:1.6}
+.sp-ig-link{
+  display:block;padding:14px 20px;border-top:1px solid var(--hairline);
+  text-align:center;color:var(--yellow);font-size:13px;font-weight:600;
+  text-decoration:none;transition:background .15s;
+}
+.sp-ig-link:hover{background:var(--surface-elevated)}
+@media(max-width:1024px){
+  .sp-content{grid-template-columns:1fr}
+  .social-proof{padding:48px 32px}
+}
+
 /* ── CLOSING BAND ── */
 .closing{
   background:var(--yellow);padding:96px 80px;
@@ -508,6 +590,45 @@ body{
   </div>
 </section>
 
+<!-- SOCIAL PROOF -->
+<section class="social-proof" id="social-proof" style="display:none">
+  <div class="sp-eyebrow" id="sp-eyebrow">Trending · 2025</div>
+  <h2 class="sp-title" id="sp-title"></h2>
+  <p class="sp-desc" id="sp-desc"></p>
+
+  <div class="sp-stats" id="sp-stats"></div>
+
+  <div class="sp-content">
+    <!-- 팝업 사진 -->
+    <div class="sp-photos" id="sp-photos">
+      <div class="sp-photo-main" id="sp-main-photo" style="display:none">
+        <img id="sp-main-photo-img" src="" alt="팝업스토어">
+      </div>
+      <div class="sp-photos-grid" id="sp-photos-grid"></div>
+    </div>
+
+    <!-- 인스타그램 -->
+    <div class="sp-ig-panel">
+      <div class="sp-ig-header">
+        <div class="sp-ig-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <span class="sp-ig-title">Meta · Instagram 홍보 콘텐츠</span>
+        <span class="sp-ig-sub" id="sp-ig-sub"></span>
+      </div>
+      <div class="sp-ig-embed" id="sp-ig-embed">
+        <div class="sp-ig-placeholder" id="sp-ig-placeholder">
+          <div class="sp-ig-placeholder-icon">📱</div>
+          <div class="sp-ig-placeholder-text">인스타그램 링크가 등록되면<br>여기에 콘텐츠가 표시됩니다</div>
+        </div>
+      </div>
+      <a class="sp-ig-link" id="sp-ig-link" href="#" target="_blank" style="display:none">
+        📲 인스타그램에서 전체 보기 →
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CATALOG -->
 <section class="section" id="catalog">
   <div class="section-header">
@@ -669,6 +790,77 @@ function switchIP(ipId){
   buildCatTabs(ip.products);
   P=ip.products;
   renderCatalog(); renderProducts();
+  renderSocialProof(ip.socialProof);
+}
+
+// ─── Social Proof Section ─────────────────────────────
+function renderSocialProof(sp){
+  const sec=document.getElementById('social-proof');
+  if(!sp||(!sp.title&&!sp.instagramUrl&&!sp.popupPhotos?.length)){
+    sec.style.display='none'; return;
+  }
+  sec.style.display='';
+
+  // 제목/설명
+  document.getElementById('sp-title').innerHTML=(sp.title||'').replace(/'([^']+)'/g,"'<em>$1</em>'");
+  document.getElementById('sp-desc').textContent=sp.desc||'';
+
+  // 통계
+  const statsEl=document.getElementById('sp-stats');
+  const stats=[];
+  if(sp.views) stats.push({num:sp.views,label:'인스타그램 조회수'});
+  if(sp.comments) stats.push({num:sp.comments,label:'댓글 반응'});
+  if(sp.popupPlace) stats.push({num:sp.popupPlace,label:'팝업 장소'});
+  statsEl.innerHTML=stats.map(s=>`
+    <div class="sp-stat">
+      <div class="sp-stat-num">${s.num}</div>
+      <div class="sp-stat-label">${s.label}</div>
+    </div>`).join('');
+  statsEl.style.display=stats.length?'':'none';
+
+  // 팝업 사진
+  const photos=sp.popupPhotos||[];
+  const mainPhoto=document.getElementById('sp-main-photo');
+  const photosGrid=document.getElementById('sp-photos-grid');
+  if(photos.length>0){
+    mainPhoto.style.display='';
+    document.getElementById('sp-main-photo-img').src=resolveImg(photos[0]);
+    photosGrid.innerHTML=photos.slice(1).map(p=>`
+      <div class="sp-photo"><img src="${resolveImg(p)}" alt="팝업사진" loading="lazy"></div>`).join('');
+  } else {
+    mainPhoto.style.display='none';
+    photosGrid.innerHTML='';
+  }
+
+  // 인스타그램
+  const igSub=document.getElementById('sp-ig-sub');
+  const igEmbed=document.getElementById('sp-ig-embed');
+  const igPlaceholder=document.getElementById('sp-ig-placeholder');
+  const igLink=document.getElementById('sp-ig-link');
+
+  if(sp.instagramEmbedUrl){
+    // iframe embed (Reels/영상)
+    igEmbed.innerHTML=`<iframe src="${sp.instagramEmbedUrl}" allowfullscreen scrolling="no" allowtransparency></iframe>`;
+    igPlaceholder.style.display='none';
+  } else if(sp.instagramUrl){
+    // 링크만 있는 경우: 카드 형태 표시
+    igEmbed.innerHTML=`
+      <div class="sp-ig-placeholder">
+        <div style="font-size:48px">📱</div>
+        <div style="font-size:15px;font-weight:700;color:var(--ink);margin:8px 0 4px">인스타그램 홍보 영상</div>
+        <div class="sp-ig-placeholder-text">아래 버튼을 눌러 콘텐츠를 확인하세요</div>
+      </div>`;
+  } else {
+    igPlaceholder.style.display='';
+  }
+
+  if(sp.instagramUrl){
+    igLink.href=sp.instagramUrl;
+    igLink.style.display='';
+    if(sp.views) igSub.textContent='조회 '+sp.views;
+  } else {
+    igLink.style.display='none';
+  }
 }
 
 // ─── Category tabs ────────────────────────────────────

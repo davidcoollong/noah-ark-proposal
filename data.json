@@ -558,7 +558,16 @@
           "price": 4500
         }
       ],
-      "slug": ""
+      "socialProof": {
+        "title": "2025 극장판 뽀로로 '뽀송포비'로 대박나다!",
+        "desc": "극장판 뽀로로에 등장하는 목욕 직후의 '포비'와 '패티'가 부숭숭한 모습으로 등장해, 2025년 12월 롯데 잠실본점 팝업스토어에서 엄청난 인기를 끌었다.",
+        "views": "",
+        "comments": "",
+        "instagramUrl": "",
+        "instagramEmbedUrl": "",
+        "popupPhotos": [],
+        "heroImg": "hero-pposong-poby.jpg"
+      }
     },
     {
       "id": "ip_1780893272754",
