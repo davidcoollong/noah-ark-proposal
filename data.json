@@ -23,13 +23,15 @@
       "preparedBy": "노아&아크 캐릭터사업팀",
       "date": "2026.06",
       "heroImg": "hero-pposong-poby.png",
-      "slug": "pororo",
+      "slug": "pororogoods",
       "socialProof": {
         "title": "2025 극장판 뽀로로 '뽀송포비'로 대박나다!",
         "desc": "극장판 뽀로로에 등장하는 목욕 직후의 '포비'와 '패티'가 부숭숭한 모습으로 등장해, 2025년 12월 롯데 잠실본점 팝업스토어에서 엄청난 인기를 끌었다.",
         "views": "",
         "comments": "",
+        "popupPlace": "롯데 잠실본점 팝업스토어",
         "instagramUrl": "https://www.instagram.com/noa.ark_/",
+        "reelUrls": [],
         "instagramEmbedUrl": "",
         "popupPhotos": [
           "pororo-popup01.jpeg",
@@ -38,9 +40,7 @@
           "pororo-popup04.jpeg",
           "pororo-popup05.jpeg"
         ],
-        "heroImg": "hero-pposong-poby.png",
-        "popupPlace": "롯데 잠실본점 팝업스토어",
-        "instagramHandle": "noa.ark_"
+        "heroImg": "hero-pposong-poby.png"
       },
       "products": [
         {
