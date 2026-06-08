@@ -22,7 +22,7 @@
       "heroSub": "뽀로로 IP를 활용한 프리미엄 캐릭터 굿즈 제안서입니다.",
       "preparedBy": "노아&아크 캐릭터사업팀",
       "date": "2026.06",
-      "heroImg": "bag-shopping-thumb.png",
+      "heroImg": "hero-pposong-poby.png",
       "products": [
         {
           "id": "PRD-001",
@@ -566,7 +566,7 @@
         "instagramUrl": "",
         "instagramEmbedUrl": "",
         "popupPhotos": [],
-        "heroImg": "hero-pposong-poby.jpg"
+        "heroImg": "hero-pposong-poby.png"
       }
     },
     {
