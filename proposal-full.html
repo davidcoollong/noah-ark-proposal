@@ -738,10 +738,19 @@ function closeDetail(){document.getElementById('modal').classList.remove('open')
 function scrollTo2(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
 function jumpTo(val){if(val)scrollTo2('prd-'+val)}
 function doPrint(){window.print()}
-function doExport(){
+async function doExport(){
+  const ipName=(currentIP?.name||'제안서').replace(/\n/g,' ');
+  // local: 이미지를 base64 dataURL로 교체 → 완전 독립 HTML (이미지 포함)
+  let html=document.documentElement.outerHTML;
+  try {
+    const imgs=JSON.parse(localStorage.getItem('noa_admin_images')||'{}');
+    for(const [key,dataUrl] of Object.entries(imgs)){
+      html=html.split('local:'+key).join(dataUrl);
+    }
+  } catch(e){}
   const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+document.documentElement.outerHTML],{type:'text/html'}));
-  a.download='noah-ark-'+(currentIP?.id||'proposal')+'.html';
+  a.href=URL.createObjectURL(new Blob(['<!DOCTYPE html>\n'+html],{type:'text/html'}));
+  a.download=ipName+' 제품제안서.html';
   a.click();
 }
 function doLink(){

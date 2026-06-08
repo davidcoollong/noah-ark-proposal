@@ -884,6 +884,22 @@
                   <input type="text" id="f-heroImg" placeholder="bag-shopping-thumb.png">
                 </div>
               </div>
+              <div class="form-row single">
+                <div class="form-field">
+                  <label>
+                    공유용 짧은 URL 슬러그
+                    <span style="color:var(--text3);font-weight:400;font-size:11px"> — 영문 소문자·숫자·하이픈만 사용</span>
+                  </label>
+                  <input type="text" id="f-slug" placeholder="pororo" oninput="updateShareUrl()">
+                  <div id="share-url-preview" style="margin-top:8px;padding:10px 12px;background:var(--surface3);border-radius:6px;display:none">
+                    <div style="font-size:10px;color:var(--text3);margin-bottom:4px">공유 URL (GitHub 저장 후 활성화)</div>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <code id="share-url-text" style="font-size:12px;color:var(--accent);flex:1;word-break:break-all"></code>
+                      <button class="btn btn-ghost btn-sm" onclick="copyShareUrl()" style="flex-shrink:0">복사</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="form-actions">
                 <button class="btn btn-accent" onclick="saveIPInfo()">변경사항 저장</button>
                 <div class="save-status" id="ip-save-status"></div>
@@ -1482,8 +1498,28 @@ async function saveDataJson() {
     const b64 = btoa(unescape(encodeURIComponent(content)));
     const sha = await getSHA('data.json');
     await ghPut('data.json', b64, 'Update data.json via admin', sha);
-    autosave(); // GitHub 저장 후 localStorage도 동기화
-    toast('GitHub에 저장되었습니다! 약 30~60초 후 제안서에 반영됩니다.', 'ok');
+    autosave();
+
+    // IP별 짧은 URL 리다이렉트 페이지 자동 생성
+    for (const ip of (data.ips || [])) {
+      if (!ip.slug) continue;
+      const redirectHtml = `<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="0;url=${BASE_URL}/proposal-full.html?ip=${ip.id}">
+<title>${ip.licensor ? ip.licensor + ' / ' : ''}${ip.name} — 제품제안서</title>
+<style>body{margin:0;background:#0a0a0a;color:#888;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;font-size:14px}</style>
+</head>
+<body>이동 중...</body>
+<script>window.location.replace('${BASE_URL}/proposal-full.html?ip=${ip.id}')</script>
+</html>`;
+      const rB64 = btoa(unescape(encodeURIComponent(redirectHtml)));
+      const rSha = await getSHA(`${ip.slug}/index.html`);
+      await ghPut(`${ip.slug}/index.html`, rB64, `Update redirect: /${ip.slug}/ → ?ip=${ip.id}`, rSha);
+    }
+
+    toast('GitHub에 저장됐습니다! 약 30~60초 후 반영됩니다.', 'ok');
     tokStatus.className = 'ok';
   } catch (e) {
     toast('저장 실패: ' + e.message, 'err', 6000);
@@ -1557,6 +1593,8 @@ function selectIP(id) {
   document.getElementById('f-preparedBy').value = ip.preparedBy || '';
   document.getElementById('f-date').value       = ip.date || '';
   document.getElementById('f-heroImg').value    = ip.heroImg || '';
+  document.getElementById('f-slug').value       = ip.slug || '';
+  updateShareUrl();
 
   document.getElementById('ip-save-status').textContent = '';
 
@@ -1575,6 +1613,8 @@ function saveIPInfo() {
   ip.preparedBy = document.getElementById('f-preparedBy').value.trim();
   ip.date       = document.getElementById('f-date').value.trim();
   ip.heroImg    = document.getElementById('f-heroImg').value.trim();
+  ip.slug       = document.getElementById('f-slug').value.trim().toLowerCase().replace(/[^a-z0-9-]/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+  updateShareUrl();
 
   autosave();
   const st = document.getElementById('ip-save-status');
@@ -1917,6 +1957,35 @@ async function saveProduct() {
 }
 
 // ─── Preview ──────────────────────────────────────────────────────────────────
+// ─── Share URL helpers ───────────────────────────────────────────────────────
+const BASE_URL = `https://${GH_OWNER}.github.io/${GH_REPO}`;
+
+function updateShareUrl() {
+  const slug = document.getElementById('f-slug')?.value.trim();
+  const preview = document.getElementById('share-url-preview');
+  const urlText = document.getElementById('share-url-text');
+  if (!preview || !urlText) return;
+  if (slug) {
+    const url = `${BASE_URL}/${slug}/`;
+    urlText.textContent = url;
+    preview.style.display = '';
+  } else {
+    const ip = getActiveIP();
+    if (ip) {
+      urlText.textContent = `${BASE_URL}/proposal-full.html?ip=${ip.id}`;
+      preview.style.display = '';
+    } else {
+      preview.style.display = 'none';
+    }
+  }
+}
+
+function copyShareUrl() {
+  const url = document.getElementById('share-url-text')?.textContent;
+  if (!url) return;
+  navigator.clipboard.writeText(url).then(() => toast('URL이 복사됐습니다 ✓', 'ok'));
+}
+
 function openPreview() {
   const sel = document.getElementById('preview-ip-sel');
   const ipId = sel?.value || activeIPId || '';
