@@ -358,31 +358,85 @@ body{
   .product-info-panel{padding:32px 24px}
 }
 @media print{
-  @page{size:A4 landscape;margin:8mm 10mm}
-  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
-  .nav,.cat-nav,.modal-backdrop,.detail-btn,.price-cta,.nav-btn{display:none!important}
-  html,body{background:#0a0a0a!important;color:#cccccc!important}
-  .hero{min-height:auto;page-break-after:always;break-after:page}
-  .hero-left{padding:20px 30px}
-  .hero-title{font-size:clamp(28px,5vw,52px)!important}
-  .section{padding:20px 30px!important;break-inside:avoid}
-  .catalog-grid{grid-template-columns:repeat(6,1fr)!important}
-  .cat-img{aspect-ratio:1!important}
-  .cat-body{padding:8px!important}
-  .cat-name{font-size:11px!important}
-  .product-section{break-inside:avoid;page-break-inside:avoid;margin-bottom:0}
-  .product-card{min-height:auto!important;break-inside:avoid}
-  .product-img-panel{min-height:200px}
-  .product-info-panel{padding:20px 24px!important}
-  .thumb-strip{display:none}
-  .prd-tag{padding-bottom:10px;margin-bottom:10px}
-  .spec-summary{margin-bottom:12px}
-  .price-block{margin-top:auto;padding:12px 16px!important}
-  .price-num{font-size:28px!important}
-  .closing{padding:24px 40px!important}
-  .closing-title{font-size:32px!important}
-  .footer{padding:16px 30px!important}
-  .hero-right-stats{bottom:16px!important;left:16px!important;right:16px!important}
+  /* ── 페이지 설정 ── */
+  @page{size:A4 landscape;margin:10mm 12mm}
+
+  /* ── 색상 강제 출력 ── */
+  *{
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+    color-adjust:exact!important;
+  }
+
+  /* ── overflow 해제 (가장 중요: 이게 막히면 내용이 아예 안 보임) ── */
+  body,section,.section,.hero,.catalog-grid,.cat-card,
+  #prdContainer,.product-section,.product-card,.product-img-panel,
+  .product-info-panel,.closing,.footer{
+    overflow:visible!important;
+  }
+
+  /* ── UI 요소 숨기기 ── */
+  .nav,.cat-nav,.modal-backdrop,.detail-btn,.price-cta,
+  .nav-btn,.thumb-strip{display:none!important}
+
+  /* ── Hero: 1페이지 ── */
+  .hero{
+    min-height:auto!important;
+    page-break-after:always;break-after:page;
+    display:grid!important;grid-template-columns:1fr 1fr!important;
+  }
+  .hero-right{display:block!important}
+  .hero-left{padding:16mm 10mm!important}
+  .hero-title{font-size:36px!important;letter-spacing:-1px!important}
+
+  /* ── 카탈로그 섹션 ── */
+  .section{padding:8mm 12mm!important}
+  /* 카탈로그 그리드: break-inside:auto → 자연스럽게 페이지 넘김 허용 */
+  .catalog-grid{
+    grid-template-columns:repeat(6,1fr)!important;
+    gap:1px!important;
+    break-inside:auto!important;
+  }
+  /* 개별 카탈로그 카드만 잘리지 않게 */
+  .cat-card{break-inside:avoid!important}
+  .cat-body{padding:6px!important}
+  .cat-name{font-size:10px!important;line-height:1.3!important}
+  .cat-cat{font-size:9px!important}
+
+  /* ── 제품 상세 섹션 ── */
+  /* 섹션 단위로 잘리지 않되, 너무 크면 break 허용 */
+  .product-section{
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+    margin-bottom:4mm!important;
+  }
+  .product-card{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    min-height:auto!important;
+    break-inside:avoid!important;
+  }
+  .product-card.reverse{direction:rtl!important}
+  .product-card.reverse>*{direction:ltr!important}
+  .product-img-panel{min-height:80mm!important}
+  .product-img-panel .main-img{
+    width:100%!important;height:100%!important;
+    object-fit:cover!important;
+  }
+  .product-info-panel{padding:8mm 10mm!important}
+  .prd-name{font-size:18px!important}
+  .prd-tag{padding-bottom:6px!important;margin-bottom:6px!important}
+  .spec-summary{margin-bottom:8px!important}
+  .spec-row{padding:4px 0!important;font-size:11px!important}
+  .price-block{padding:8px 12px!important;margin-bottom:6px!important}
+  .price-num{font-size:26px!important}
+  .price-note{font-size:10px!important}
+  .prd-brand-badge{margin-bottom:8px!important}
+
+  /* ── 클로징 / 푸터 ── */
+  .closing{padding:12mm 20mm!important}
+  .closing-title{font-size:28px!important}
+  .footer{padding:6mm 12mm!important}
 }
 </style>
 </head>
