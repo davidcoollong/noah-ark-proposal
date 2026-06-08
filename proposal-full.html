@@ -358,8 +358,31 @@ body{
   .product-info-panel{padding:32px 24px}
 }
 @media print{
-  .nav{display:none}
-  .product-card{page-break-inside:avoid}
+  @page{size:A4 landscape;margin:8mm 10mm}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+  .nav,.cat-nav,.modal-backdrop,.detail-btn,.price-cta,.nav-btn{display:none!important}
+  html,body{background:#0a0a0a!important;color:#cccccc!important}
+  .hero{min-height:auto;page-break-after:always;break-after:page}
+  .hero-left{padding:20px 30px}
+  .hero-title{font-size:clamp(28px,5vw,52px)!important}
+  .section{padding:20px 30px!important;break-inside:avoid}
+  .catalog-grid{grid-template-columns:repeat(6,1fr)!important}
+  .cat-img{aspect-ratio:1!important}
+  .cat-body{padding:8px!important}
+  .cat-name{font-size:11px!important}
+  .product-section{break-inside:avoid;page-break-inside:avoid;margin-bottom:0}
+  .product-card{min-height:auto!important;break-inside:avoid}
+  .product-img-panel{min-height:200px}
+  .product-info-panel{padding:20px 24px!important}
+  .thumb-strip{display:none}
+  .prd-tag{padding-bottom:10px;margin-bottom:10px}
+  .spec-summary{margin-bottom:12px}
+  .price-block{margin-top:auto;padding:12px 16px!important}
+  .price-num{font-size:28px!important}
+  .closing{padding:24px 40px!important}
+  .closing-title{font-size:32px!important}
+  .footer{padding:16px 30px!important}
+  .hero-right-stats{bottom:16px!important;left:16px!important;right:16px!important}
 }
 </style>
 </head>
@@ -472,6 +495,19 @@ body{
 
 <script>
 const IMG = 'https://davidcoollong.github.io/noah-ark-proposal/images/';
+
+// 로컬 저장 이미지(admin에서 토큰 없이 저장한 이미지) 지원
+function resolveImg(src) {
+  if (!src) return '';
+  if (src.startsWith('local:')) {
+    try {
+      const imgs = JSON.parse(localStorage.getItem('noa_admin_images') || '{}');
+      return imgs[src.slice(6)] || '';
+    } catch { return ''; }
+  }
+  return IMG + src;
+}
+
 const CAT_GROUPS = [
   {id:'all',label:'전체'},
   {id:'bag',label:'백·파우치'},
@@ -488,7 +524,7 @@ function renderCatalog(){
   document.getElementById('catGrid').innerHTML=P.map(p=>`
     <div class="cat-card" onclick="scrollTo2('prd-${p.id}')">
       <div class="cat-img">
-        <img src="${IMG+p.thumbnail}" alt="${p.name}" loading="lazy">
+        <img src="${resolveImg(p.thumbnail)}" alt="${p.name}" loading="lazy">
         <div class="cat-img-overlay"></div>
       </div>
       <div class="cat-body">
@@ -513,16 +549,17 @@ function renderProducts(){
     <div class="product-section" id="prd-${p.id}">
       <div class="product-card${rev?' reverse':''}">
         <div class="product-img-panel">
-          <img class="main-img" src="${IMG+p.thumbnail}" id="main-img-${p.id}" alt="${p.name}">
+          <img class="main-img" src="${resolveImg(p.thumbnail)}" id="main-img-${p.id}" alt="${p.name}">
           <div class="prd-img-fade"></div>
           <div class="prd-id-badge">${p.id}</div>
           <div class="thumb-strip">
-            <div class="thumb active" onclick="swapImg('${p.id}','${IMG+p.thumbnail}',this)">
-              <img src="${IMG+p.thumbnail}" alt="lifestyle" loading="lazy">
+            <div class="thumb active" onclick="swapImg('${p.id}','${resolveImg(p.thumbnail)}',this)">
+              <img src="${resolveImg(p.thumbnail)}" alt="thumb0" loading="lazy">
             </div>
-            <div class="thumb" onclick="swapImg('${p.id}','${IMG+p.img}',this)">
-              <img src="${IMG+p.img}" alt="product" loading="lazy">
-            </div>
+            ${(p.thumbs||[p.img]).filter(t=>t).map((t,ti)=>`
+            <div class="thumb" onclick="swapImg('${p.id}','${resolveImg(t)}',this)">
+              <img src="${resolveImg(t)}" alt="thumb${ti+1}" loading="lazy">
+            </div>`).join('')}
           </div>
         </div>
         <div class="product-info-panel">
@@ -603,8 +640,8 @@ function openDetail(pid){
   document.getElementById('modal-body').innerHTML=`
     <div class="modal-layout">
       <div class="modal-img-side">
-        <img src="${IMG+p.thumbnail}" alt="lifestyle">
-        <img src="${IMG+p.img}" alt="product">
+        <img src="${resolveImg(p.thumbnail)}" alt="lifestyle">
+        <img src="${resolveImg((p.thumbs||[p.img])[0]||p.img)}" alt="product">
       </div>
       <div class="modal-info-side">
         <div class="prd-id-badge" style="margin-bottom:10px">${p.id}</div>

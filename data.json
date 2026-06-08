@@ -3,8 +3,14 @@
     "name": "노아&아크",
     "nameEn": "NOAH & ARK",
     "contacts": [
-      {"label": "마케팅", "email": "good@noawid.com"},
-      {"label": "판매/입점", "email": "sogood@noawid.com"}
+      {
+        "label": "마케팅",
+        "email": "good@noawid.com"
+      },
+      {
+        "label": "판매/입점",
+        "email": "sogood@noawid.com"
+      }
     ]
   },
   "ips": [
@@ -18,19 +24,578 @@
       "date": "2026.06",
       "heroImg": "bag-shopping-thumb.png",
       "products": [
-        {"id":"PRD-001","cat":"에코백 · 장바구니","catEn":"ECO BAG","catGroup":"bag","name":"뽀로로 극장판 접힘 장바구니","en":"PPOSONG Folding Shopping Bag","brand":"PPOSONG POBY&PETTY","tag":"내 어깨 위에 올려놓은 무지개빛깔 굿즈물, 뽀송뽀티패티 장바구니","img":"bag-shopping.jpg","thumbnail":"bag-shopping-thumb.png","feats":["가벼운 폴리에스터","접힘 수납 가능","선명한 캐릭터 패턴"],"specs":[["제품명","뽀로로 극장판 장바구니"],["사이즈","32cm x 45cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":4500},
-        {"id":"PRD-002","cat":"토트백 · 미니백","catEn":"MINI BAG","catGroup":"bag","name":"뽀송 뽀티패티 보아털 미니백","en":"PPOSONG Boa Fleece Mini Tote","brand":"PPOSONG POBY&PETTY","tag":"나 손만의 작지만 정감 넘치는 뽀송뽀티패티 미니백","img":"bag-mini.jpg","thumbnail":"bag-mini-thumb.png","feats":["알록달록 보아털 스냅","뽀송뽀송 부드러운 텍스처","아기자기한 캐릭터 자수"],"specs":[["제품명","뽀로로 극장판 보아털 미니백"],["사이즈","25cm x 20cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":12000},
-        {"id":"PRD-003","cat":"키링 · 인형","catEn":"PLUSH KEYRING","catGroup":"keyring","name":"뽀송 뽀티패티 목욕 봉제 키링","en":"PPOSONG Bath Plush Keyring","brand":"PPOSONG POBY&PETTY","tag":"내 가방 어딘가에 달고 싶은 뽀송뽀티패티 봉제 키링","img":"keyring-bath.jpg","thumbnail":"keyring-bath-thumb.png","feats":["부드러운 소재","변형 가능한 귀여운 디자인","아기자기한 키체인"],"specs":[["제품명","뽀로로 극장판 목욕 봉제 키링"],["사이즈","패티 10.5x11.4cm / 포비 13.5x11.4cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":8000},
-        {"id":"PRD-004","cat":"리빙 · 침구","catEn":"SLEEP MASK","catGroup":"living","name":"뽀송 뽀티패티 수면 안대","en":"PPOSONG Sleep Eye Mask","brand":"PPOSONG POBY&PETTY","tag":"나만의 아늑한 공간을 만들어주는 뽀송뽀티패티 수면안대","img":"eyemask.jpg","thumbnail":"eyemask-thumb.jpg","feats":["탄력있는 플러버","뽀송뽀송 부드러운 텍스처","아기자기한 캐릭터 자수"],"specs":[["제품명","뽀로로 극장판 수면 안대"],["사이즈","포비 22x11.5cm / 패티 22x8.5cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":6000},
-        {"id":"PRD-005","cat":"키링 · 액세서리","catEn":"MOVING KEYRING","catGroup":"keyring","name":"뽀로로 극장판 스노우볼 무빙 키링","en":"Pororo Snow Globe Moving Keyring","brand":"뽀로로 극장판","tag":"반짝이는 설레임을 담은 뽀로로 극장판 스노우볼 키링","img":"keyring-moving.jpg","thumbnail":"keyring-moving-thumb.png","feats":["반짝이는 글리터","앙증맞은 주인공","스노우볼 귀여운 디자인"],"specs":[["제품명","뽀로로 극장판 무빙 키링"],["사이즈","7cm x 8cm"],["재질","아크릴"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":5000},
-        {"id":"PRD-006","cat":"키링 · 파우치","catEn":"POUCH KEYRING","catGroup":"keyring","name":"뽀로로 극장판 파우치 키링","en":"Pororo Pouch Keyring","brand":"뽀로로 극장판","tag":"보기만 해도 다 물고 싶어지는 뽀로로 친구들 파우치 키링","img":"keyring-pouch.jpg","thumbnail":"keyring-pouch-thumb.png","feats":["달콤한 캔디수납","입체적인 봉제","친절한 봉 배킹"],"specs":[["제품명","뽀로로 극장판 파우치 키링"],["사이즈","5.8cm x 17cm"],["재질","폴리에스테르, PVC"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":4000},
-        {"id":"PRD-007","cat":"파우치 · 소품백","catEn":"POUCH","catGroup":"bag","name":"뽀송 뽀티패티 보아털 파우치","en":"PPOSONG Boa Fleece Pouch","brand":"PPOSONG POBY&PETTY","tag":"가방 속 복잡한 일상을 다채롭게 만들어주는 뽀송 파우치","img":"pouch.jpg","thumbnail":"pouch-thumb.png","feats":["선명한 색상","부드러운 보아털","아기자기한 캐릭터 자수"],"specs":[["제품명","뽀로로 극장판 보아털 파우치"],["사이즈","20cm x 14cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":9000},
-        {"id":"PRD-008","cat":"리빙 · 타월","catEn":"BEACH TOWEL","catGroup":"living","name":"뽀송 뽀티패티 빅 비치타월","en":"PPOSONG Big Beach Towel","brand":"PPOSONG POBY&PETTY","tag":"온몸을 다채우는 다감한 감촉 뽀송뽀티패티 비치타올","img":"towel-big.jpg","thumbnail":"towel-big-thumb.png","feats":["선명한 프린트","뽀송한 텍스처","슈퍼 이중 나이테"],"specs":[["제품명","뽀로로 극장판 빅 타올"],["사이즈","70cm x 140cm"],["재질","면 100%"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":11000},
-        {"id":"PRD-009","cat":"의류 · 패션","catEn":"PAJAMA SET","catGroup":"apparel","name":"뽀송 뽀티패티 파자마 세트","en":"PPOSONG Pajama Set","brand":"PPOSONG POBY&PETTY","tag":"폭신폭신 보아소재로 달콤한 수면을 선물하는 뽀송 파자마","img":"pajama.jpg","thumbnail":"pajama-thumb.png","feats":["보들한 마이크로원단","완만한 허리밴드","아기자기한 캐릭터 자수"],"specs":[["제품명","뽀로로 극장판 파자마 세트"],["사이즈","상의 46x57cm / 하의 37x63cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":50,"price":22000},
-        {"id":"PRD-010","cat":"패션 · 액세서리","catEn":"PATCH","catGroup":"apparel","name":"뽀송 뽀티패티 캐릭터 패치 (겨울)","en":"PPOSONG Character Patch Winter","brand":"PPOSONG POBY&PETTY","tag":"찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치 대","img":"patch-winter.jpg","thumbnail":"patch-winter-thumb.jpg","feats":["선명한 색상","보송보송 부드러운 입감",""],"specs":[["제품명","뽀로로 극장판 캐릭터 패치 대"],["사이즈","13x8cm / 8x7cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":5500},
-        {"id":"PRD-011","cat":"리빙 · 홈데코","catEn":"MUG CUP","catGroup":"living","name":"뽀로로 극장판 머그컵","en":"Pororo Character Mug Cup","brand":"뽀로로 극장판","tag":"파릇파릇 피어나고 포근한 감촉 뽀로로&루피 머그컵","img":"mug.jpg","thumbnail":"mug-thumb.jpg","feats":["부드러운 소재","귀여운 캐릭터 접합","튼튼한 볼륨감"],"specs":[["제품명","뽀로로 극장판 머그컵"],["사이즈","65mm x 7.4cm"],["재질","도자기"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":7000},
-        {"id":"PRD-012","cat":"리빙 · 쿠션","catEn":"CUSHION","catGroup":"living","name":"뽀로로 극장판 쿠션","en":"Pororo Big Face Cushion","brand":"뽀로로 극장판","tag":"보기만 해도 기분 좋아지는 뽀~로~로~ 뽀로로 쿠션","img":"cushion.jpg","thumbnail":"cushion-thumb.jpg","feats":["부드러운 소재","귀여운 뽀로로 얼굴","포근한 볼륨감"],"specs":[["제품명","뽀로로 극장판 쿠션"],["사이즈","38cm x 40cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":50,"price":18000},
-        {"id":"PRD-013","cat":"패션 · 액세서리","catEn":"PATCH","catGroup":"apparel","name":"뽀송 뽀티패티 캐릭터 패치 (기본)","en":"PPOSONG Character Patch Basic","brand":"PPOSONG POBY&PETTY","tag":"찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치","img":"patch-basic.jpg","thumbnail":"patch-basic-thumb.jpg","feats":["선명한 색상","보송보송 부드러운 입감",""],"specs":[["제품명","뽀로로 극장판 캐릭터 패치"],["사이즈","10x14cm / 8x6cm"],["재질","폴리에스테르"],["제조국","중국"],["수입자","(주)노아코퍼레이션"]],"moq":100,"price":4500}
+        {
+          "id": "PRD-001",
+          "cat": "에코백 · 장바구니",
+          "catEn": "ECO BAG",
+          "catGroup": "bag",
+          "name": "뽀로로 극장판 접힘 장바구니",
+          "en": "PPOSONG Folding Shopping Bag",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "내 어깨 위에 올려놓은 무지개빛깔 굿즈물, 뽀송뽀티패티 장바구니",
+          "img": "bag-shopping.jpg",
+          "thumbnail": "bag-shopping-thumb.png",
+          "feats": [
+            "가벼운 폴리에스터",
+            "접힘 수납 가능",
+            "선명한 캐릭터 패턴"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 장바구니"
+            ],
+            [
+              "사이즈",
+              "32cm x 45cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 4500,
+          "thumbs": [
+            "bag-shopping.jpg"
+          ]
+        },
+        {
+          "id": "PRD-002",
+          "cat": "토트백 · 미니백",
+          "catEn": "MINI BAG",
+          "catGroup": "bag",
+          "name": "뽀송 뽀티패티 보아털 미니백",
+          "en": "PPOSONG Boa Fleece Mini Tote",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "나 손만의 작지만 정감 넘치는 뽀송뽀티패티 미니백",
+          "img": "bag-mini.jpg",
+          "thumbnail": "bag-mini-thumb.png",
+          "feats": [
+            "알록달록 보아털 스냅",
+            "뽀송뽀송 부드러운 텍스처",
+            "아기자기한 캐릭터 자수"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 보아털 미니백"
+            ],
+            [
+              "사이즈",
+              "25cm x 20cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 12000,
+          "thumbs": [
+            "bag-mini.jpg"
+          ]
+        },
+        {
+          "id": "PRD-003",
+          "cat": "키링 · 인형",
+          "catEn": "PLUSH KEYRING",
+          "catGroup": "keyring",
+          "name": "뽀송 뽀티패티 목욕 봉제 키링",
+          "en": "PPOSONG Bath Plush Keyring",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "내 가방 어딘가에 달고 싶은 뽀송뽀티패티 봉제 키링",
+          "img": "keyring-bath.jpg",
+          "thumbnail": "keyring-bath-thumb.png",
+          "feats": [
+            "부드러운 소재",
+            "변형 가능한 귀여운 디자인",
+            "아기자기한 키체인"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 목욕 봉제 키링"
+            ],
+            [
+              "사이즈",
+              "패티 10.5x11.4cm / 포비 13.5x11.4cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 8000,
+          "thumbs": [
+            "keyring-bath.jpg"
+          ]
+        },
+        {
+          "id": "PRD-004",
+          "cat": "리빙 · 침구",
+          "catEn": "SLEEP MASK",
+          "catGroup": "living",
+          "name": "뽀송 뽀티패티 수면 안대",
+          "en": "PPOSONG Sleep Eye Mask",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "나만의 아늑한 공간을 만들어주는 뽀송뽀티패티 수면안대",
+          "img": "eyemask.jpg",
+          "thumbnail": "eyemask-thumb.jpg",
+          "feats": [
+            "탄력있는 플러버",
+            "뽀송뽀송 부드러운 텍스처",
+            "아기자기한 캐릭터 자수"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 수면 안대"
+            ],
+            [
+              "사이즈",
+              "포비 22x11.5cm / 패티 22x8.5cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 6000,
+          "thumbs": [
+            "eyemask.jpg"
+          ]
+        },
+        {
+          "id": "PRD-005",
+          "cat": "키링 · 액세서리",
+          "catEn": "MOVING KEYRING",
+          "catGroup": "keyring",
+          "name": "뽀로로 극장판 스노우볼 무빙 키링",
+          "en": "Pororo Snow Globe Moving Keyring",
+          "brand": "뽀로로 극장판",
+          "tag": "반짝이는 설레임을 담은 뽀로로 극장판 스노우볼 키링",
+          "img": "keyring-moving.jpg",
+          "thumbnail": "keyring-moving-thumb.png",
+          "feats": [
+            "반짝이는 글리터",
+            "앙증맞은 주인공",
+            "스노우볼 귀여운 디자인"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 무빙 키링"
+            ],
+            [
+              "사이즈",
+              "7cm x 8cm"
+            ],
+            [
+              "재질",
+              "아크릴"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 5000,
+          "thumbs": [
+            "keyring-moving.jpg"
+          ]
+        },
+        {
+          "id": "PRD-006",
+          "cat": "키링 · 파우치",
+          "catEn": "POUCH KEYRING",
+          "catGroup": "keyring",
+          "name": "뽀로로 극장판 파우치 키링",
+          "en": "Pororo Pouch Keyring",
+          "brand": "뽀로로 극장판",
+          "tag": "보기만 해도 다 물고 싶어지는 뽀로로 친구들 파우치 키링",
+          "img": "keyring-pouch.jpg",
+          "thumbnail": "keyring-pouch-thumb.png",
+          "feats": [
+            "달콤한 캔디수납",
+            "입체적인 봉제",
+            "친절한 봉 배킹"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 파우치 키링"
+            ],
+            [
+              "사이즈",
+              "5.8cm x 17cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르, PVC"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 4000,
+          "thumbs": [
+            "keyring-pouch.jpg"
+          ]
+        },
+        {
+          "id": "PRD-007",
+          "cat": "파우치 · 소품백",
+          "catEn": "POUCH",
+          "catGroup": "bag",
+          "name": "뽀송 뽀티패티 보아털 파우치",
+          "en": "PPOSONG Boa Fleece Pouch",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "가방 속 복잡한 일상을 다채롭게 만들어주는 뽀송 파우치",
+          "img": "pouch.jpg",
+          "thumbnail": "pouch-thumb.png",
+          "feats": [
+            "선명한 색상",
+            "부드러운 보아털",
+            "아기자기한 캐릭터 자수"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 보아털 파우치"
+            ],
+            [
+              "사이즈",
+              "20cm x 14cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 9000,
+          "thumbs": [
+            "pouch.jpg"
+          ]
+        },
+        {
+          "id": "PRD-008",
+          "cat": "리빙 · 타월",
+          "catEn": "BEACH TOWEL",
+          "catGroup": "living",
+          "name": "뽀송 뽀티패티 빅 비치타월",
+          "en": "PPOSONG Big Beach Towel",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "온몸을 다채우는 다감한 감촉 뽀송뽀티패티 비치타올",
+          "img": "towel-big.jpg",
+          "thumbnail": "towel-big-thumb.png",
+          "feats": [
+            "선명한 프린트",
+            "뽀송한 텍스처",
+            "슈퍼 이중 나이테"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 빅 타올"
+            ],
+            [
+              "사이즈",
+              "70cm x 140cm"
+            ],
+            [
+              "재질",
+              "면 100%"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 11000,
+          "thumbs": [
+            "towel-big.jpg"
+          ]
+        },
+        {
+          "id": "PRD-009",
+          "cat": "의류 · 패션",
+          "catEn": "PAJAMA SET",
+          "catGroup": "apparel",
+          "name": "뽀송 뽀티패티 파자마 세트",
+          "en": "PPOSONG Pajama Set",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "폭신폭신 보아소재로 달콤한 수면을 선물하는 뽀송 파자마",
+          "img": "pajama.jpg",
+          "thumbnail": "pajama-thumb.png",
+          "feats": [
+            "보들한 마이크로원단",
+            "완만한 허리밴드",
+            "아기자기한 캐릭터 자수"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 파자마 세트"
+            ],
+            [
+              "사이즈",
+              "상의 46x57cm / 하의 37x63cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 50,
+          "price": 22000,
+          "thumbs": [
+            "pajama.jpg"
+          ]
+        },
+        {
+          "id": "PRD-010",
+          "cat": "패션 · 액세서리",
+          "catEn": "PATCH",
+          "catGroup": "apparel",
+          "name": "뽀송 뽀티패티 캐릭터 패치 (겨울)",
+          "en": "PPOSONG Character Patch Winter",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치 대",
+          "img": "patch-winter.jpg",
+          "thumbnail": "patch-winter-thumb.jpg",
+          "feats": [
+            "선명한 색상",
+            "보송보송 부드러운 입감",
+            ""
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 캐릭터 패치 대"
+            ],
+            [
+              "사이즈",
+              "13x8cm / 8x7cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 5500,
+          "thumbs": [
+            "patch-winter.jpg"
+          ]
+        },
+        {
+          "id": "PRD-011",
+          "cat": "리빙 · 홈데코",
+          "catEn": "MUG CUP",
+          "catGroup": "living",
+          "name": "뽀로로 극장판 머그컵",
+          "en": "Pororo Character Mug Cup",
+          "brand": "뽀로로 극장판",
+          "tag": "파릇파릇 피어나고 포근한 감촉 뽀로로&루피 머그컵",
+          "img": "mug.jpg",
+          "thumbnail": "mug-thumb.jpg",
+          "feats": [
+            "부드러운 소재",
+            "귀여운 캐릭터 접합",
+            "튼튼한 볼륨감"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 머그컵"
+            ],
+            [
+              "사이즈",
+              "65mm x 7.4cm"
+            ],
+            [
+              "재질",
+              "도자기"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 7000,
+          "thumbs": [
+            "mug.jpg"
+          ]
+        },
+        {
+          "id": "PRD-012",
+          "cat": "리빙 · 쿠션",
+          "catEn": "CUSHION",
+          "catGroup": "living",
+          "name": "뽀로로 극장판 쿠션",
+          "en": "Pororo Big Face Cushion",
+          "brand": "뽀로로 극장판",
+          "tag": "보기만 해도 기분 좋아지는 뽀~로~로~ 뽀로로 쿠션",
+          "img": "cushion.jpg",
+          "thumbnail": "cushion-thumb.jpg",
+          "feats": [
+            "부드러운 소재",
+            "귀여운 뽀로로 얼굴",
+            "포근한 볼륨감"
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 쿠션"
+            ],
+            [
+              "사이즈",
+              "38cm x 40cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 50,
+          "price": 18000,
+          "thumbs": [
+            "cushion.jpg"
+          ]
+        },
+        {
+          "id": "PRD-013",
+          "cat": "패션 · 액세서리",
+          "catEn": "PATCH",
+          "catGroup": "apparel",
+          "name": "뽀송 뽀티패티 캐릭터 패치 (기본)",
+          "en": "PPOSONG Character Patch Basic",
+          "brand": "PPOSONG POBY&PETTY",
+          "tag": "찝찝함 없는 선명 기분 뽀송뽀티패티 캐릭터 패치",
+          "img": "patch-basic.jpg",
+          "thumbnail": "patch-basic-thumb.jpg",
+          "feats": [
+            "선명한 색상",
+            "보송보송 부드러운 입감",
+            ""
+          ],
+          "specs": [
+            [
+              "제품명",
+              "뽀로로 극장판 캐릭터 패치"
+            ],
+            [
+              "사이즈",
+              "10x14cm / 8x6cm"
+            ],
+            [
+              "재질",
+              "폴리에스테르"
+            ],
+            [
+              "제조국",
+              "중국"
+            ],
+            [
+              "수입자",
+              "(주)노아코퍼레이션"
+            ]
+          ],
+          "moq": 100,
+          "price": 4500,
+          "thumbs": [
+            "patch-basic.jpg"
+          ]
+        }
       ]
     }
   ]

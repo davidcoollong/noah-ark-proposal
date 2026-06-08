@@ -748,6 +748,9 @@
     <div id="header-spacer"></div>
     <span id="ls-status" style="font-size:11px;color:#555;white-space:nowrap"></span>
     <button class="btn btn-ghost btn-sm" onclick="loadData()" title="GitHub에서 최신 데이터 불러오기">↺ 서버 동기화</button>
+    <select id="preview-ip-sel" class="btn btn-ghost btn-sm" style="padding:0 10px;cursor:pointer;font-size:12px">
+      <option value="">IP 선택...</option>
+    </select>
     <button class="btn btn-ghost btn-sm" id="btn-preview" onclick="openPreview()">↗ 제안서 보기</button>
     <button class="btn btn-accent btn-sm" id="btn-save-json" onclick="saveDataJson()">↑ GitHub 저장</button>
   </header>
@@ -882,34 +885,57 @@
     <!-- Image uploads -->
     <div class="panel-section">
       <div class="panel-section-title">이미지</div>
-      <div class="img-upload-row">
-        <div>
-          <label class="img-upload-box" id="thumb-box">
-            <input type="file" id="thumb-file" accept="image/jpeg,image/png,image/webp" onchange="handleImageSelect('thumb', this)">
-            <span class="upload-icon">🖼️</span>
-            <span class="upload-label">클릭하여 업로드</span>
-            <span class="img-overlay">📂 변경</span>
-          </label>
-          <div class="img-caption">썸네일 (thumbnail)</div>
-          <div class="img-guide">
+      <!-- 카탈로그 썸네일 (1개) -->
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;font-weight:700;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px">카탈로그 썸네일</div>
+        <div style="display:flex;align-items:flex-start;gap:12px">
+          <div style="flex-shrink:0;width:120px">
+            <label class="img-upload-box" id="thumb-box" style="aspect-ratio:1;width:120px">
+              <input type="file" id="thumb-file" accept="image/jpeg,image/png,image/webp" onchange="handleImageSelect('thumb', this)">
+              <span class="upload-icon">🖼️</span>
+              <span class="upload-label" style="font-size:10px">클릭</span>
+              <span class="img-overlay">📂</span>
+            </label>
+          </div>
+          <div class="img-guide" style="text-align:left;padding-top:4px">
             <strong>정방형 1:1 권장</strong><br>
-            800×800px ~ 1200×1200px<br>
-            JPG/PNG · <strong>1MB 이하</strong>
+            800×800 ~ 1200×1200px<br>
+            JPG/PNG · <strong>1MB 이하</strong><br>
+            <span style="color:var(--text3)">카탈로그 그리드에 표시됩니다</span>
           </div>
         </div>
-        <div>
-          <label class="img-upload-box" id="detail-box">
-            <input type="file" id="detail-file" accept="image/jpeg,image/png,image/webp" onchange="handleImageSelect('detail', this)">
-            <span class="upload-icon">🖼️</span>
-            <span class="upload-label">클릭하여 업로드</span>
-            <span class="img-overlay">📂 변경</span>
+      </div>
+      <!-- 제품 이미지 4개 -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px">제품 상세 이미지 (최대 4장 · 클릭으로 메인 이미지 전환)</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:6px">
+          <label class="img-upload-box" id="pimg-box-0" style="aspect-ratio:3/4">
+            <input type="file" id="pimg-file-0" accept="image/jpeg,image/png,image/webp" onchange="handleProductImgSelect(0,this)">
+            <span class="upload-icon" style="font-size:18px">🖼️</span>
+            <span class="upload-label" style="font-size:10px">이미지 1</span>
+            <span class="img-overlay">📂</span>
           </label>
-          <div class="img-caption">제품 이미지 (img)</div>
-          <div class="img-guide">
-            <strong>세로형 3:4 권장</strong><br>
-            900×1200px ~ 1200×1600px<br>
-            JPG/PNG · <strong>2MB 이하</strong>
-          </div>
+          <label class="img-upload-box" id="pimg-box-1" style="aspect-ratio:3/4">
+            <input type="file" id="pimg-file-1" accept="image/jpeg,image/png,image/webp" onchange="handleProductImgSelect(1,this)">
+            <span class="upload-icon" style="font-size:18px">🖼️</span>
+            <span class="upload-label" style="font-size:10px">이미지 2</span>
+            <span class="img-overlay">📂</span>
+          </label>
+          <label class="img-upload-box" id="pimg-box-2" style="aspect-ratio:3/4">
+            <input type="file" id="pimg-file-2" accept="image/jpeg,image/png,image/webp" onchange="handleProductImgSelect(2,this)">
+            <span class="upload-icon" style="font-size:18px">🖼️</span>
+            <span class="upload-label" style="font-size:10px">이미지 3</span>
+            <span class="img-overlay">📂</span>
+          </label>
+          <label class="img-upload-box" id="pimg-box-3" style="aspect-ratio:3/4">
+            <input type="file" id="pimg-file-3" accept="image/jpeg,image/png,image/webp" onchange="handleProductImgSelect(3,this)">
+            <span class="upload-icon" style="font-size:18px">🖼️</span>
+            <span class="upload-label" style="font-size:10px">이미지 4</span>
+            <span class="img-overlay">📂</span>
+          </label>
+        </div>
+        <div class="img-guide" style="text-align:left">
+          세로형 3:4 권장 · 900×1200 ~ 1200×1600px · JPG/PNG · <strong>2MB 이하</strong>
         </div>
       </div>
     </div>
@@ -1047,7 +1073,7 @@ let data = null;
 let activeIPId = null;
 let editingProductId = null;
 let pendingThumb = null;
-let pendingDetail = null;
+let pendingProductImgs = [null, null, null, null]; // thumbs[0..3]
 let currentTab = 'ip-info';
 let dialogCb = null;
 
@@ -1239,21 +1265,31 @@ function renderSidebar() {
   list.innerHTML = '';
   if (!data || !data.ips.length) {
     list.innerHTML = '<div style="padding:12px 16px;color:var(--text3);font-size:12px">IP가 없습니다.</div>';
-    return;
+  } else {
+    data.ips.forEach(ip => {
+      const el = document.createElement('div');
+      el.className = 'ip-item' + (ip.id === activeIPId ? ' active' : '');
+      el.dataset.id = ip.id;
+      el.innerHTML = `
+        <div class="ip-dot"></div>
+        <div class="ip-name-stack">
+          <div class="ip-licensor-text">${ip.licensor || '저작사 미입력'}</div>
+          <div class="ip-name-text">${ip.name || ip.id}</div>
+        </div>`;
+      el.addEventListener('click', () => selectIP(ip.id));
+      list.appendChild(el);
+    });
   }
-  data.ips.forEach(ip => {
-    const el = document.createElement('div');
-    el.className = 'ip-item' + (ip.id === activeIPId ? ' active' : '');
-    el.dataset.id = ip.id;
-    el.innerHTML = `
-      <div class="ip-dot"></div>
-      <div class="ip-name-stack">
-        <div class="ip-licensor-text">${ip.licensor || '저작사 미입력'}</div>
-        <div class="ip-name-text">${ip.name || ip.id}</div>
-      </div>`;
-    el.addEventListener('click', () => selectIP(ip.id));
-    list.appendChild(el);
-  });
+
+  // 제안서 보기 IP 드롭다운 동기화
+  const sel = document.getElementById('preview-ip-sel');
+  if (sel && data?.ips) {
+    const cur = sel.value || activeIPId || '';
+    sel.innerHTML = '<option value="">IP 선택...</option>' +
+      data.ips.map(ip =>
+        `<option value="${ip.id}"${ip.id===cur?' selected':''}>${ip.licensor?ip.licensor+' / ':''}${ip.name||ip.id}</option>`
+      ).join('');
+  }
 }
 
 // ─── Select IP ───────────────────────────────────────────────────────────────
@@ -1427,7 +1463,7 @@ function deleteProduct(pid) {
 function openProductPanel(pid) {
   editingProductId = pid;
   pendingThumb = null;
-  pendingDetail = null;
+  pendingProductImgs = [null, null, null, null];
 
   const ip = getActiveIP();
   const isNew = pid === null;
@@ -1447,9 +1483,11 @@ function openProductPanel(pid) {
 
   // Clear image previews
   resetImgBox('thumb-box');
-  resetImgBox('detail-box');
   document.getElementById('thumb-file').value = '';
-  document.getElementById('detail-file').value = '';
+  [0,1,2,3].forEach(i => {
+    resetImgBox(`pimg-box-${i}`);
+    document.getElementById(`pimg-file-${i}`).value = '';
+  });
 
   if (isNew) {
     // Auto-generate ID
@@ -1493,7 +1531,9 @@ function openProductPanel(pid) {
 
     // Show current images
     if (p.thumbnail) setImgBoxPreview('thumb-box', resolveImg(p.thumbnail));
-    if (p.img) setImgBoxPreview('detail-box', resolveImg(p.img));
+    (p.thumbs || (p.img ? [p.img] : [])).forEach((t, i) => {
+      if (i < 4 && t) setImgBoxPreview(`pimg-box-${i}`, resolveImg(t));
+    });
   }
 
   document.getElementById('overlay').classList.add('visible');
@@ -1505,7 +1545,7 @@ function closePanel() {
   document.getElementById('overlay').classList.remove('visible');
   editingProductId = null;
   pendingThumb = null;
-  pendingDetail = null;
+  pendingProductImgs = [null, null, null, null];
 }
 
 function resetImgBox(boxId) {
@@ -1532,28 +1572,34 @@ function setImgBoxPreview(boxId, src) {
 }
 
 function handleImageSelect(type, input) {
+  // type === 'thumb' only now
   const file = input.files[0];
   if (!file) return;
-
-  // 용량 체크
-  const maxMB = type === 'thumb' ? 1 : 2;
-  const maxBytes = maxMB * 1024 * 1024;
-  if (file.size > maxBytes) {
-    toast(`이미지 용량이 너무 큽니다. ${maxMB}MB 이하로 줄여서 업로드해주세요. (현재 ${(file.size/1024/1024).toFixed(1)}MB)`, 'err', 5000);
-    input.value = '';
-    return;
+  if (file.size > 1024*1024) {
+    toast(`썸네일은 1MB 이하로 줄여서 업로드해주세요. (현재 ${(file.size/1024/1024).toFixed(1)}MB)`, 'err', 5000);
+    input.value = ''; return;
   }
   const reader = new FileReader();
   reader.onload = (e) => {
     const dataUrl = e.target.result;
-    const b64 = dataUrl.split(',')[1];
-    const boxId = type === 'thumb' ? 'thumb-box' : 'detail-box';
-    setImgBoxPreview(boxId, dataUrl);
-    if (type === 'thumb') {
-      pendingThumb = { file, b64, dataUrl, name: file.name };
-    } else {
-      pendingDetail = { file, b64, dataUrl, name: file.name };
-    }
+    setImgBoxPreview('thumb-box', dataUrl);
+    pendingThumb = { file, b64: dataUrl.split(',')[1], dataUrl, name: file.name };
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleProductImgSelect(idx, input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2*1024*1024) {
+    toast(`제품 이미지는 2MB 이하로 줄여서 업로드해주세요. (현재 ${(file.size/1024/1024).toFixed(1)}MB)`, 'err', 5000);
+    input.value = ''; return;
+  }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const dataUrl = e.target.result;
+    setImgBoxPreview(`pimg-box-${idx}`, dataUrl);
+    pendingProductImgs[idx] = { file, b64: dataUrl.split(',')[1], dataUrl, name: file.name };
   };
   reader.readAsDataURL(file);
 }
@@ -1588,16 +1634,25 @@ async function saveProduct() {
     p.moq      = parseInt(document.getElementById('p-moq').value) || 0;
     p.price    = parseInt(document.getElementById('p-price').value) || 0;
 
-    // 이미지: localStorage에 저장 (토큰 불필요)
+    // 카탈로그 썸네일
     if (pendingThumb) {
       const imgKey = `${ip.id}_${pid}_thumb`;
       lsSaveImg(imgKey, pendingThumb.dataUrl);
       p.thumbnail = `local:${imgKey}`;
     }
-    if (pendingDetail) {
-      const imgKey = `${ip.id}_${pid}_detail`;
-      lsSaveImg(imgKey, pendingDetail.dataUrl);
-      p.img = `local:${imgKey}`;
+    // 제품 이미지 thumbs[0..3]
+    const existingThumbs = p.thumbs || [];
+    const newThumbs = pendingProductImgs.map((pending, i) => {
+      if (pending) {
+        const imgKey = `${ip.id}_${pid}_img${i}`;
+        lsSaveImg(imgKey, pending.dataUrl);
+        return `local:${imgKey}`;
+      }
+      return existingThumbs[i] || null;
+    }).filter(Boolean);
+    if (newThumbs.length > 0) {
+      p.thumbs = newThumbs;
+      p.img = newThumbs[0]; // 첫 번째 이미지를 대표 이미지로
     }
 
     if (isNew) {
@@ -1619,7 +1674,10 @@ async function saveProduct() {
 
 // ─── Preview ──────────────────────────────────────────────────────────────────
 function openPreview() {
-  window.open(`https://${GH_OWNER}.github.io/${GH_REPO}/proposal-full.html`, '_blank');
+  const sel = document.getElementById('preview-ip-sel');
+  const ipId = sel?.value || activeIPId || '';
+  const url = `https://${GH_OWNER}.github.io/${GH_REPO}/proposal-full.html${ipId ? '?ip=' + ipId : ''}`;
+  window.open(url, '_blank');
 }
 
 // ─── Init ────────────────────────────────────────────────────────────────────
