@@ -1012,18 +1012,24 @@ function applyData(d){
 }
 
 // 1) localStorage에 관리자가 저장한 데이터 있으면 즉시 사용 (새 IP/제품 실시간 반영)
+// 1) localStorage 있으면 즉시 렌더 (빠름)
+// 2) GitHub 최신 data.json 항상 백그라운드 fetch → localStorage 갱신 + 재렌더
 try {
   const local=JSON.parse(localStorage.getItem('noa_admin_data'));
-  if(local&&local.ips&&local.ips.length>0){
-    applyData(local);
-  } else { throw new Error('no local'); }
-} catch {
-  // 2) localStorage 없으면 GitHub에서 로드
-  fetch('data.json?v='+Date.now())
-    .then(r=>r.ok?r.json():Promise.reject('load-fail'))
-    .then(d=>applyData(d))
-    .catch(()=>document.getElementById('ipSel').innerHTML='<option>데이터 로드 실패</option>');
-}
+  if(local&&local.ips&&local.ips.length>0) applyData(local);
+  else throw new Error('empty');
+} catch { /* 아래 fetch가 초기 렌더 담당 */ }
+
+// 항상 GitHub에서 최신 버전 가져와서 갱신 (이미지 변경 등 반영)
+fetch('data.json?v='+Date.now())
+  .then(r=>r.ok?r.json():Promise.reject())
+  .then(d=>{
+    localStorage.setItem('noa_admin_data', JSON.stringify(d));
+    applyData(d);          // 최신 데이터로 재렌더 (히어로이미지 등 갱신)
+  })
+  .catch(()=>{
+    if(!DATA.ips) document.getElementById('ipSel').innerHTML='<option>데이터 로드 실패</option>';
+  });
 </script>
 </body>
 </html>
