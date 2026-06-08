@@ -90,6 +90,54 @@
   }
   #tok-status.ok { background: var(--green); }
   #tok-status.err { background: var(--red); }
+  #tok-help-btn {
+    height: 26px; padding: 0 10px;
+    background: transparent; border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text3);
+    font-size: 11px; font-weight: 600; cursor: pointer;
+    white-space: nowrap; transition: all .15s;
+  }
+  #tok-help-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── TOKEN HELP MODAL ── */
+  #tok-modal-backdrop {
+    display: none; position: fixed; inset: 0; z-index: 500;
+    background: rgba(0,0,0,.85); align-items: center; justify-content: center;
+    backdrop-filter: blur(6px);
+  }
+  #tok-modal-backdrop.open { display: flex; }
+  #tok-modal {
+    background: var(--surface1); border: 1px solid var(--border);
+    border-radius: 16px; width: min(94vw, 560px);
+    padding: 32px; position: relative;
+  }
+  #tok-modal h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  #tok-modal .tok-sub { font-size: 13px; color: var(--text3); margin-bottom: 24px; }
+  .tok-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .tok-step-num {
+    width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+    background: var(--accent); color: #0a0a0a;
+    font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tok-step-body { flex: 1; }
+  .tok-step-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .tok-step-desc { font-size: 12px; color: var(--text3); line-height: 1.6; }
+  .tok-step-desc code {
+    background: var(--surface3); color: var(--accent);
+    padding: 1px 6px; border-radius: 4px; font-family: monospace; font-size: 11px;
+  }
+  .tok-actions { display: flex; gap: 10px; margin-top: 24px; }
+  #tok-modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--surface3); border: none; color: var(--text3);
+    width: 28px; height: 28px; border-radius: 50%; font-size: 14px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  #tok-modal-close:hover { color: var(--text); }
 
   .btn {
     display: inline-flex;
@@ -744,6 +792,9 @@
       <label id="tok-label" for="tok-input">GitHub Token</label>
       <input id="tok-input" type="password" placeholder="ghp_…" autocomplete="off">
       <div id="tok-status" title="토큰 상태"></div>
+      <button id="tok-help-btn" onclick="document.getElementById('tok-modal-backdrop').classList.add('open')">
+        ? 발급 방법
+      </button>
     </div>
     <div id="header-spacer"></div>
     <span id="ls-status" style="font-size:11px;color:#555;white-space:nowrap"></span>
@@ -1094,6 +1145,82 @@
     <div class="dialog-actions">
       <button class="btn btn-ghost btn-sm" onclick="closeDialog()">취소</button>
       <button class="btn btn-danger btn-sm" id="dialog-confirm-btn">삭제</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOKEN HELP MODAL -->
+<div id="tok-modal-backdrop" onclick="if(event.target===this)this.classList.remove('open')">
+  <div id="tok-modal">
+    <button id="tok-modal-close" onclick="document.getElementById('tok-modal-backdrop').classList.remove('open')">✕</button>
+    <h3>🔑 GitHub 토큰 발급 방법</h3>
+    <p class="tok-sub">GitHub에 데이터를 저장하려면 1회 발급 후 아래 입력란에 붙여넣기 하세요.</p>
+
+    <div class="tok-step">
+      <div class="tok-step-num">1</div>
+      <div class="tok-step-body">
+        <div class="tok-step-title">GitHub 로그인 후 토큰 페이지 열기</div>
+        <div class="tok-step-desc">아래 버튼을 클릭하면 GitHub 토큰 발급 페이지가 열립니다.<br>
+        (GitHub에 로그인 되어 있어야 합니다)</div>
+      </div>
+    </div>
+
+    <div class="tok-step">
+      <div class="tok-step-num">2</div>
+      <div class="tok-step-body">
+        <div class="tok-step-title">토큰 기본 설정</div>
+        <div class="tok-step-desc">
+          • <strong style="color:var(--text)">Token name</strong>: <code>noah-ark-admin</code> 입력<br>
+          • <strong style="color:var(--text)">Expiration</strong>: <code>No expiration</code> 선택 (만료 없음)<br>
+          • <strong style="color:var(--text)">Repository access</strong>: <code>Only select repositories</code> 선택<br>
+          &nbsp;&nbsp;→ <code>noah-ark-proposal</code> 저장소 선택
+        </div>
+      </div>
+    </div>
+
+    <div class="tok-step">
+      <div class="tok-step-num">3</div>
+      <div class="tok-step-body">
+        <div class="tok-step-title">권한 설정 (가장 중요)</div>
+        <div class="tok-step-desc">
+          <strong style="color:var(--text)">Repository permissions</strong> 섹션에서:<br>
+          • <code>Contents</code> → <code>Read and write</code> 선택<br>
+          나머지는 기본값(No access) 그대로 두세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="tok-step">
+      <div class="tok-step-num">4</div>
+      <div class="tok-step-body">
+        <div class="tok-step-title">토큰 생성 및 복사</div>
+        <div class="tok-step-desc">
+          페이지 하단 <code>Generate token</code> 버튼 클릭<br>
+          → 생성된 <code>github_pat_...</code> 토큰 전체 복사<br>
+          <strong style="color:#ef4444">⚠ 이 페이지를 벗어나면 다시 볼 수 없으니 바로 붙여넣기 하세요!</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="tok-step">
+      <div class="tok-step-num">5</div>
+      <div class="tok-step-body">
+        <div class="tok-step-title">관리자 페이지에 입력</div>
+        <div class="tok-step-desc">
+          이 모달을 닫고 상단 <code>GitHub Token</code> 입력란에 붙여넣기 하면 자동 저장됩니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="tok-actions">
+      <a href="https://github.com/settings/personal-access-tokens/new" target="_blank"
+        style="text-decoration:none;flex:1">
+        <button class="btn btn-accent" style="width:100%;justify-content:center;font-size:13px">
+          🔗 GitHub 토큰 발급 페이지 열기
+        </button>
+      </a>
+      <button class="btn btn-ghost" onclick="document.getElementById('tok-modal-backdrop').classList.remove('open')"
+        style="flex-shrink:0">닫기</button>
     </div>
   </div>
 </div>
