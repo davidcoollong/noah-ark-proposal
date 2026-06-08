@@ -63,10 +63,7 @@
             ]
           ],
           "moq": 100,
-          "price": 4500,
-          "thumbs": [
-            "bag-shopping.jpg"
-          ]
+          "price": 4500
         },
         {
           "id": "PRD-002",
@@ -107,10 +104,7 @@
             ]
           ],
           "moq": 100,
-          "price": 12000,
-          "thumbs": [
-            "bag-mini.jpg"
-          ]
+          "price": 12000
         },
         {
           "id": "PRD-003",
@@ -151,10 +145,7 @@
             ]
           ],
           "moq": 100,
-          "price": 8000,
-          "thumbs": [
-            "keyring-bath.jpg"
-          ]
+          "price": 8000
         },
         {
           "id": "PRD-004",
@@ -195,10 +186,7 @@
             ]
           ],
           "moq": 100,
-          "price": 6000,
-          "thumbs": [
-            "eyemask.jpg"
-          ]
+          "price": 6000
         },
         {
           "id": "PRD-005",
@@ -239,10 +227,7 @@
             ]
           ],
           "moq": 100,
-          "price": 5000,
-          "thumbs": [
-            "keyring-moving.jpg"
-          ]
+          "price": 5000
         },
         {
           "id": "PRD-006",
@@ -283,10 +268,7 @@
             ]
           ],
           "moq": 100,
-          "price": 4000,
-          "thumbs": [
-            "keyring-pouch.jpg"
-          ]
+          "price": 4000
         },
         {
           "id": "PRD-007",
@@ -327,10 +309,7 @@
             ]
           ],
           "moq": 100,
-          "price": 9000,
-          "thumbs": [
-            "pouch.jpg"
-          ]
+          "price": 9000
         },
         {
           "id": "PRD-008",
@@ -371,10 +350,7 @@
             ]
           ],
           "moq": 100,
-          "price": 11000,
-          "thumbs": [
-            "towel-big.jpg"
-          ]
+          "price": 11000
         },
         {
           "id": "PRD-009",
@@ -415,10 +391,7 @@
             ]
           ],
           "moq": 50,
-          "price": 22000,
-          "thumbs": [
-            "pajama.jpg"
-          ]
+          "price": 22000
         },
         {
           "id": "PRD-010",
@@ -459,10 +432,7 @@
             ]
           ],
           "moq": 100,
-          "price": 5500,
-          "thumbs": [
-            "patch-winter.jpg"
-          ]
+          "price": 5500
         },
         {
           "id": "PRD-011",
@@ -503,10 +473,7 @@
             ]
           ],
           "moq": 100,
-          "price": 7000,
-          "thumbs": [
-            "mug.jpg"
-          ]
+          "price": 7000
         },
         {
           "id": "PRD-012",
@@ -547,10 +514,7 @@
             ]
           ],
           "moq": 50,
-          "price": 18000,
-          "thumbs": [
-            "cushion.jpg"
-          ]
+          "price": 18000
         },
         {
           "id": "PRD-013",
@@ -591,10 +555,55 @@
             ]
           ],
           "moq": 100,
-          "price": 4500,
-          "thumbs": [
-            "patch-basic.jpg"
-          ]
+          "price": 4500
+        }
+      ]
+    },
+    {
+      "id": "ip_1780893272754",
+      "name": "고양이와스프",
+      "licensor": "네오위즈",
+      "heroTitle": "고양이와스프\n캐릭터굿즈 제안서",
+      "heroSub": "고양이와스프 IP를 활용한 프리미엄 캐릭터 굿즈 제안서입니다.",
+      "preparedBy": "노아&아크 캐릭터사업팀",
+      "date": "2026.06",
+      "heroImg": "",
+      "products": [
+        {
+          "id": "PRD-001",
+          "cat": "",
+          "catEn": "",
+          "catGroup": "bag",
+          "name": "",
+          "en": "",
+          "brand": "",
+          "tag": "",
+          "feats": [],
+          "specs": [
+            [
+              "제품명",
+              ""
+            ],
+            [
+              "사이즈",
+              ""
+            ],
+            [
+              "재질",
+              ""
+            ],
+            [
+              "제조국",
+              ""
+            ],
+            [
+              "수입자",
+              ""
+            ]
+          ],
+          "moq": 0,
+          "price": 0,
+          "thumbnail": "local:ip_1780893272754_PRD-001_thumb"
         }
       ]
     }
