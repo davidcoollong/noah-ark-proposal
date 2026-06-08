@@ -926,8 +926,13 @@
                 </div>
                 <div class="form-row single">
                   <div class="form-field">
-                    <label>인스타그램 영상 임베드 URL <span style="color:var(--text3);font-weight:400">(Reels embed src — 비어있으면 링크만 표시)</span></label>
-                    <input type="text" id="f-sp-ig-embed" placeholder="https://www.instagram.com/p/xxxxx/embed/">
+                    <label>Reels/포스트 임베드 URL <span style="color:var(--text3);font-weight:400">(여러 개 입력 시 줄바꿈으로 구분)</span></label>
+                    <textarea id="f-sp-ig-embed" rows="4"
+                      placeholder="https://www.instagram.com/p/POST_ID/embed/&#10;https://www.instagram.com/reel/REEL_ID/embed/"></textarea>
+                    <div style="font-size:11px;color:var(--text3);margin-top:4px">
+                      💡 인스타그램 게시물 URL 뒤에 <code style="background:var(--surface3);padding:1px 4px;border-radius:3px">embed/</code> 붙이기<br>
+                      예: instagram.com/p/<strong>ABC123</strong>/ → instagram.com/p/<strong>ABC123</strong>/embed/
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1649,7 +1654,7 @@ function selectIP(id) {
   document.getElementById('f-sp-comments').value    = sp.comments || '';
   document.getElementById('f-sp-popup-place').value = sp.popupPlace || '';
   document.getElementById('f-sp-ig-url').value      = sp.instagramUrl || '';
-  document.getElementById('f-sp-ig-embed').value    = sp.instagramEmbedUrl || '';
+  document.getElementById('f-sp-ig-embed').value    = (sp.reelUrls||[sp.instagramEmbedUrl]).filter(Boolean).join('\n');
   updateShareUrl();
 
   document.getElementById('ip-save-status').textContent = '';
@@ -1678,7 +1683,8 @@ function saveIPInfo() {
     comments:         document.getElementById('f-sp-comments').value.trim(),
     popupPlace:       document.getElementById('f-sp-popup-place').value.trim(),
     instagramUrl:     document.getElementById('f-sp-ig-url').value.trim(),
-    instagramEmbedUrl:document.getElementById('f-sp-ig-embed').value.trim(),
+    reelUrls: document.getElementById('f-sp-ig-embed').value.split('\n').map(s=>s.trim()).filter(Boolean),
+    instagramEmbedUrl: document.getElementById('f-sp-ig-embed').value.split('\n')[0]?.trim()||'',
     popupPhotos:      ip.socialProof?.popupPhotos || [],
     heroImg:          ip.socialProof?.heroImg || '',
   };
